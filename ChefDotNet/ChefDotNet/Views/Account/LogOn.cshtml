@@ -1,0 +1,42 @@
+﻿@model ChefDotNet.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Connexion";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.UserName)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Password)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.CheckBoxFor(m => m.RememberMe)
+            @Html.LabelFor(m => m.RememberMe)
+        </div>
+
+        <p>
+            @Html.ValidationSummary(true, "Echec de la conexion.")
+        </p>
+
+        <p>
+            Champs obligatoires <span class="etoile">*</span><br/>
+            <input type="submit" value="Se Connecter" />
+        </p>
+    </div>
+}

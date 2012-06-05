@@ -1,0 +1,69 @@
+﻿@{             
+    DBO.User user = ViewBag.user;
+    ViewBag.Title = "Page Personnelle - " + user.Name;
+
+    List<DBO.Recette> recettes = BM.Recette.GetRecetteByUser(user);
+    List<DBO.Note> notes = BM.Note.GetNoteByUser(user);
+    List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByUser(user);
+    List<DBO.Conseil> conseils = BM.Conseil.GetConseilByUser(user);
+}
+
+<h2>Recettes</h2>
+@if (recettes.Count == 0)
+{
+    <p>Pas de recettes</p>
+}
+else
+{
+    <ul>
+    @foreach (DBO.Recette recette in recettes)
+    {
+        <li>@recette.Nom</li>
+    }
+    </ul>
+}
+
+<h2>Notes</h2>
+@if (notes.Count == 0)
+{
+    <p>Pas de notes</p>
+}
+else
+{
+    <ul>
+    @foreach (DBO.Note note in notes)
+    {
+        <li>@note.NoteGout</li>
+    }
+    </ul>
+}
+
+<h2>Commentaires</h2>
+@if (commentaires.Count == 0)
+{
+    <p>Pas de commentaires</p>
+}
+else
+{
+    <ul>
+    @foreach (DBO.Commentaire commentaire in commentaires)
+    {
+        <li>@commentaire.Text</li>
+    }
+    </ul>
+}
+
+<h2>Conseil</h2>
+@if (conseils.Count == 0)
+{
+    <p>Pas de conseils</p>
+}
+else
+{
+    <ul>
+    @foreach (DBO.Conseil conseil in conseils)
+    {
+        <li>@conseil.Nom</li>
+    }
+    </ul>
+}

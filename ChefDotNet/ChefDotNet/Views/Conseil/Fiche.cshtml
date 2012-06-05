@@ -1,0 +1,8 @@
+﻿@{
+    DBO.Conseil conseil = ViewBag.conseil;
+    ViewBag.Title = "Conseil - " + conseil.Nom;
+
+    DBO.User user = BM.User.GetUserById(conseil.idCreateur);
+}
+
+Créateur : @Html.ActionLink(user.Name, "Index", "PagePersonnelle", new { nom = user.Name }, null)

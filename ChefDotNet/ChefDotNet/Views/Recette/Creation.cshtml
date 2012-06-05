@@ -1,0 +1,81 @@
+﻿@model ChefDotNet.Models.RecetteModel
+           
+@{
+    ViewBag.Title = "Création d'une recette";
+}
+
+@using (Html.BeginForm())
+{    
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Nom)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Nom)
+            @Html.ValidationMessageFor(m => m.Nom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Intro)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Intro)
+            @Html.ValidationMessageFor(m => m.Intro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Realisation)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Realisation)
+            @Html.ValidationMessageFor(m => m.Realisation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Temps)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Temps)
+            @Html.ValidationMessageFor(m => m.Temps)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Difficulte)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Difficulte)
+            @Html.ValidationMessageFor(m => m.Difficulte)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Categorie)
+            <span class="etoile">*</span>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Categorie)
+            @Html.ValidationMessageFor(m => m.Categorie)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Photo)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Photo)
+            @Html.ValidationMessageFor(m => m.Photo)
+        </div>
+
+        <p>
+            @Html.ValidationSummary(true, "Echec de la création de la recette.")
+        </p>
+
+        <p>
+            Champs obligatoires <span class="etoile">*</span><br/>
+            <input type="submit" value="Créer" />
+        </p>
+    </div>
+}
