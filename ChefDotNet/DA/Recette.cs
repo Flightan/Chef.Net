@@ -12,14 +12,23 @@ namespace DA
     {
         /// <summary>
         /// Création d'une recette
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewRecette(DBO.Recette recette)
+        public static string NewRecette(DBO.Recette recette)
         {
-            return true;
+            return string.Empty;
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs id
+        /// Retourne toutes les recettes
+        /// </summary>
+        public static List<DBO.Recette> GetAll()
+        {
+            return new List<DBO.Recette>();
+        }
+
+        /// <summary>
+        /// Retourne une recette selon son id
         /// </summary>
         public static DBO.Recette GetRecetteById(int id)
         {
@@ -27,7 +36,7 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs noms
+        /// Retourne une recette selon son nom
         /// </summary>
         public static DBO.Recette GetRecetteByNom(string nom)
         {
@@ -35,49 +44,9 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes qui contiennent ces ingredients
+        /// Retourne des recettes selon leurs noms
         /// </summary>
-        public static List<DBO.Recette> GetRecetteByIngredients(List<string> ingredients)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs durees (Comprises entre dureeMin et dureeMax)
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByDureeWithMinAndMax(int dureeMin, int dureeMax)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs durees (Supérieures à dureeMin)
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByDureeWithMin(int dureeMin)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs durees (Inférieures à dureeMax)
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByDureeWithMax(int dureeMax)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs difficultes
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByDifficulte(int difficulte)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs categories
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByCategories(List<string> categories)
+        public static List<DBO.Recette> GetRecetteByContainsNom(string nom)
         {
             return new List<DBO.Recette>();
         }
@@ -86,6 +55,14 @@ namespace DA
         /// Retourne des recettes selon leur créateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
+        {
+            return new List<DBO.Recette>();
+        }
+
+        /// <summary>
+        /// Retourne des recettes qui contiennent ces ingredients
+        /// </summary>
+        public static List<DBO.Recette> GetRecetteByIngredients(List<string> ingredients)
         {
             return new List<DBO.Recette>();
         }

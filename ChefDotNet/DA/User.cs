@@ -12,10 +12,27 @@ namespace DA
     {
         /// <summary>
         /// Création d'un utilisateur
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewUser(DBO.User user)
+        public static string NewUser(DBO.User user)
         {
-            return true;
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Retourne tout les utilisateurs (Utilisé pour le top cuisinier)
+        /// </summary>
+        public static List<DBO.User> GetAll()
+        {
+            return new List<DBO.User>();
+        }
+
+        /// <summary>
+        /// Retourne l'utilisateur qui possède cet id
+        /// </summary>
+        public static DBO.User GetUserById(int id)
+        {
+            return TmpTest.GetUser("Test");
         }
 
         /// <summary>
@@ -27,11 +44,11 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne l'utilisateur qui possède cet id
+        /// Retourne les utilisateurs qui possède ce nom
         /// </summary>
-        public static DBO.User GetUserById(int id)
+        public static List<DBO.User> GetUserByContainsName(string name)
         {
-            return TmpTest.GetUser("Test");
+            return new List<DBO.User>();
         }
 
         /// <summary>

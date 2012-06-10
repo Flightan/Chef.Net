@@ -47,9 +47,15 @@ namespace ChefDotNet.Controllers
                 idCreateur = user.Id
             };
 
-            if (BM.Conseil.NewConseil(conseil))
-                return RedirectToAction("Fiche", "Conseil", new { id = model.Nom });
+            string result = BM.Conseil.NewConseil(conseil);
 
+            if (result == string.Empty)
+            {
+                conseil = BM.Conseil.GetConseilByNom(model.Nom);
+                return RedirectToAction("Fiche", "Conseil", new { id = conseil.Id });
+            }
+
+            ModelState.AddModelError("", result);
             return View(model);
         }
     }

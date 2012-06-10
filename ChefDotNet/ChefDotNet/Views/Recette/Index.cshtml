@@ -1,11 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Recettes";     
+    ViewBag.Title = "Recettes";
+
+    List<DBO.Recette> recettes = BM.Top.GetTopRecettes();
 }
 
-@Html.ActionLink("création", "Creation", "Recette")
+@Html.ActionLink("Créer une recette", "Creation", "Recette")
 
-<br/>
-
-rechercher
-
-top...
+<ul>
+@foreach (DBO.Recette recette in recettes)
+{
+    <li>@recette.Nom</li>
+}
+</ul>

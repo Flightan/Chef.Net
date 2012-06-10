@@ -12,8 +12,9 @@ namespace BM
     {
         /// <summary>
         /// Création d'un conseil
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewConseil(DBO.Conseil conseil)
+        public static string NewConseil(DBO.Conseil conseil)
         {
             return DA.Conseil.NewConseil(conseil);
         }
@@ -32,6 +33,14 @@ namespace BM
         public static DBO.Conseil GetConseilByNom(string nom)
         {
             return DA.Conseil.GetConseilByNom(nom);
+        }
+
+        /// <summary>
+        /// Retourne les conseils qui possède ce nom
+        /// </summary>
+        public static List<DBO.Conseil> GetConseilByContainsNom(string nom)
+        {
+            return DA.Conseil.GetConseilByContainsNom(nom);
         }
 
         /// <summary>

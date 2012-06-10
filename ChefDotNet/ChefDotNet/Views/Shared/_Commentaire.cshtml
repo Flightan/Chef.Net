@@ -1,0 +1,36 @@
+﻿@model ChefDotNet.Models.CommentaireModel
+@if (!Request.IsAuthenticated)
+{
+     <text>
+     Vous devez vous connecter pour poster un commentaire :
+     @Html.ActionLink("Se connecter", "LogOn", "Account") / @Html.ActionLink("S'enregistrer", "Register", "Account")
+     </text>
+}
+else
+{
+    <text>
+    @using (Html.BeginForm())
+    {    
+        <input type='hidden' name='recetteId' value='@ViewBag.recette.Id'/>       
+        <div>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Texte)
+                <span class="etoile">*</span>
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Texte)
+                @Html.ValidationMessageFor(m => m.Texte)
+            </div>
+
+            <p>
+                @Html.ValidationSummary(true, "Echec de la création du commentaire.")
+            </p>
+
+            <p>
+                Champs obligatoires <span class="etoile">*</span><br/>
+                <input type="submit" value="Créer" />
+            </p>
+        </div>
+    }
+    </text>
+}

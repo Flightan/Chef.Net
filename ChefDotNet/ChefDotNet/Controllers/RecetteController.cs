@@ -27,6 +27,33 @@ namespace ChefDotNet.Controllers
                 return RedirectToAction("Index", "Erreur");
         }
 
+        [HttpPost]
+        public ActionResult Fiche(CommentaireModel model)
+        {
+            if ((ViewBag.recette = BM.Recette.GetRecetteById(model.recetteId)) == null)
+                return RedirectToAction("Index", "Erreur");
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            DBO.User user = BM.User.GetUserByName(User.Identity.Name);
+
+            DBO.Commentaire commentaire = new DBO.Commentaire()
+            {
+                Text = model.Texte,
+                idUser = user.Id,
+                idRecette = model.recetteId
+            };
+
+            string result = BM.Commentaire.NewCommentaire(commentaire);
+
+            if (result == string.Empty)
+                return RedirectToAction("Fiche", model.recetteId);
+
+            ModelState.AddModelError("", result);
+            return View(model);
+        }
+
         public ActionResult Creation()
         {
             return View();
@@ -46,9 +73,15 @@ namespace ChefDotNet.Controllers
                 idCreateur = user.Id
             };
 
-            if (BM.Recette.NewRecette(recette))
-                return RedirectToAction("Fiche", "Recette", new { id = model.Nom });
+            string result = BM.Recette.NewRecette(recette);
 
+            if (result == string.Empty)
+            {
+                recette = BM.Recette.GetRecetteByNom(model.Nom);
+                return RedirectToAction("Fiche", "Recette", new { id = recette.Id });
+            }
+
+            ModelState.AddModelError("", result);
             return View(model);
         }
     }

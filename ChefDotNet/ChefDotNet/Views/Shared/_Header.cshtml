@@ -11,10 +11,10 @@
     </ul>
 </div>
 
-<div id="logindisplay">
+<div id="connexion">
     @Html.Partial("_LogOnPartial")
 </div>
 
-@Html.ActionLink("autre personne", "Index", "PagePersonnelle", new { id = "1" }, null)
-@Html.ActionLink("une recette", "Fiche", "Recette", new { id = "1" }, null)
-@Html.ActionLink("un conseil", "Fiche", "Conseil", new { id = "1" }, null)
+<div id="recherche">
+    @Html.Partial("_RechercheSimple", new ChefDotNet.Models.RechercheSimpleModel())
+</div>

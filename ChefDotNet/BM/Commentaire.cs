@@ -12,8 +12,9 @@ namespace BM
     {
         /// <summary>
         /// Création d'un commentaire
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewCommentaire(DBO.Commentaire commentaire)
+        public static string NewCommentaire(DBO.Commentaire commentaire)
         {
             return DA.Commentaire.NewCommentaire(commentaire);
         }
