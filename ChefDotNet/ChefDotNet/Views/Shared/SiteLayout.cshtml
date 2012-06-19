@@ -1,28 +1,24 @@
 ﻿<?xml version="1.0" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-
 <head>
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Assets/style.css")" />
     <script type="text/JavaScript" src="@Url.Content("~/Assets/script.js")"></script>
 </head>
-
 <body>
-    <div class="page">
-
+    <div id="page">
         <div id="header">
             @RenderPage("./_Header.cshtml")
         </div>
-
         <div id="main">
+            @RenderPage("./_Menu.cshtml")
+           <!-- <h1>@ViewBag.Title</h1> -->
             @RenderBody()
         </div>
-
         <div id="footer">
             @RenderPage("./_Footer.cshtml")
         </div>
-
     </div>
 </body>
 </html>

@@ -83,6 +83,9 @@
     <Content Include="Assets\script.js" />
     <Content Include="Assets\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Views\img\menu.png" />
+    <Content Include="Views\img\partagedesaveurs.png" />
+    <Content Include="Views\img\poireaux.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,6 +167,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Commentaire.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LogOnHeader.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
