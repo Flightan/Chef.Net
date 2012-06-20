@@ -14,11 +14,13 @@ namespace DA
         {
             return new DBO.Recette()
             {
-                Nom = "paris brest",
+                Nom = "Paris Brest",
                 Intro = "intro intro intro intro intro intro intro intro intro",
                 Realisation = "réa réa réa réa réa réa réa réa réa réa",
-                Temps = "3 minutes",
-                Difficulte = "dur",
+                TempsPreparation = 3,
+                TempsCuisson = 2,
+                TempsRepos = 1,
+                Difficulte = 5,
                 Categorie = "cat",
                 Photo = "http://www.conseilsnutrition.tv/images/capsules/CN_57.jpg",
                 idCreateur = 12

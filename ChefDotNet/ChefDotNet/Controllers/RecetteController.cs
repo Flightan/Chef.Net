@@ -43,7 +43,15 @@ namespace ChefDotNet.Controllers
             DBO.Recette recette = new DBO.Recette()
             {
                 Nom = model.Nom,
-                idCreateur = user.Id
+                idCreateur = user.Id,
+                Categorie = model.Categorie,
+                Difficulte = model.Difficulte,
+                Intro = model.Intro,
+                Photo = model.Photo,
+                Realisation = model.Realisation,
+                TempsRepos = model.TempsRepos,
+                TempsCuisson = model.TempsCuisson,
+                TempsPreparation = model.TempsPreparation
             };
 
             if (BM.Recette.NewRecette(recette))

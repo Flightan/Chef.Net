@@ -10,12 +10,26 @@ namespace DA
     /// </summary>
     public static class Recette
     {
+        private static CuisineEntities cuisineEntities = new CuisineEntities();
+
         /// <summary>
         /// Création d'une recette
         /// </summary>
         public static bool NewRecette(DBO.Recette recette)
         {
-            return true;
+            try
+            {
+                T_Recette t_recette = ConvertToEntity(recette);
+                t_recette.T_User = cuisineEntities.T_User.SingleOrDefault(e => e.id == recette.idCreateur);
+                cuisineEntities.AddToT_Recette(t_recette);
+                cuisineEntities.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine(e.Message);
+                return false;
+            }
         }
 
         /// <summary>
@@ -23,7 +37,7 @@ namespace DA
         /// </summary>
         public static DBO.Recette GetRecetteById(int id)
         {
-            return TmpTest.GetRecette();
+            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == id));
         }
 
         /// <summary>
@@ -31,7 +45,7 @@ namespace DA
         /// </summary>
         public static DBO.Recette GetRecetteByNom(string nom)
         {
-            return TmpTest.GetRecette();
+            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.nom == nom));
         }
 
         /// <summary>
@@ -88,6 +102,68 @@ namespace DA
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
         {
             return new List<DBO.Recette>();
+        }
+
+        /// <summary>
+        /// Conversion DBO -> Entity
+        /// </summary>
+        public static T_Recette ConvertToEntity(DBO.Recette recette)
+        {
+            T_Recette entity = new T_Recette();
+
+            if (recette != null)
+            {
+                entity.nom = recette.Nom;
+                entity.introduction = recette.Intro;
+                entity.realisation = recette.Realisation;
+                entity.temps_cuisson = recette.TempsCuisson;
+                entity.temps_prepa = recette.TempsPreparation;
+                entity.temps_repos = recette.TempsRepos;
+                entity.difficulte = recette.Difficulte;
+                entity.photo = recette.Photo;
+                entity.categorie = recette.Categorie;
+                entity.date = DateTime.Now;
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Conversion Entity -> DBO
+        /// </summary>
+        public static DBO.Recette ConvertToDBO(T_Recette recette)
+        {
+            DBO.Recette dbo = new DBO.Recette();
+
+            if (recette != null)
+            {
+                dbo.Nom = recette.nom;
+                dbo.Intro = recette.introduction;
+                dbo.Realisation = recette.realisation;
+                dbo.TempsCuisson = Convert.ToInt16(recette.temps_cuisson);
+                dbo.TempsPreparation = recette.temps_prepa;
+                dbo.TempsRepos = Convert.ToInt16(recette.temps_repos);
+                dbo.Difficulte = Convert.ToInt16(recette.difficulte);
+                dbo.Photo = recette.photo;
+                dbo.Categorie = recette.categorie;
+            }
+
+            return dbo;
+        }
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.Recette> ConvertToDBO(List<T_Recette> listRecette)
+        {
+            List<DBO.Recette> listDbo = new List<DBO.Recette>();
+
+            foreach (var item in listRecette)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }
