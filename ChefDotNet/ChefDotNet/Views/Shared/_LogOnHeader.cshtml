@@ -5,7 +5,7 @@
         <p>
             @Html.ValidationSummary(true, "Echec de la conexion.")
         </p>
-        @Html.TextBoxFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName, "haha")
         @Html.ValidationMessageFor(m => m.UserName)
         @Html.PasswordFor(m => m.Password)
         @Html.ValidationMessageFor(m => m.Password)

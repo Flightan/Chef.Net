@@ -44,14 +44,6 @@ namespace BM
         }
 
         /// <summary>
-        /// Retourne les utilisateurs qui possède ce nom
-        /// </summary>
-        public static List<DBO.User> GetUserByContainsName(string name)
-        {
-            return DA.User.GetUserByContainsName(name);
-        }
-
-        /// <summary>
         /// Retourne true si le pseudo et le mot de passe sont valide
         /// </summary>
         public static bool IsValid(DBO.User user)

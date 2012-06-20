@@ -44,14 +44,6 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs noms
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByContainsNom(string nom)
-        {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
         /// Retourne des recettes selon leur créateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)

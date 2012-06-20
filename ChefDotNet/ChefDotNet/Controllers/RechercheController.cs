@@ -19,5 +19,16 @@ namespace ChefDotNet.Controllers
             ViewBag.Recherche = model.Recherche;
             return View();
         }
+
+        public ActionResult Avancee()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Avancee(Models.RechercheAvanceeModel model)
+        {
+            return View();
+        }
     }
 }

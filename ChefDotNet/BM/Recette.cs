@@ -44,14 +44,6 @@ namespace BM
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs noms
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByContainsNom(string nom)
-        {
-            return DA.Recette.GetRecetteByContainsNom(nom);
-        }
-
-        /// <summary>
         /// Retourne des recettes selon leur créateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)

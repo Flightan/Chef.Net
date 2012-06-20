@@ -1,9 +1,9 @@
 ﻿@{
     ViewBag.Title = "Recheche - " + ViewBag.Recherche;
 
-    List<DBO.Recette> recettes = BM.Recette.GetRecetteByContainsNom(ViewBag.Recherche);
-    List<DBO.User> users = BM.User.GetUserByContainsName(ViewBag.Recherche);
-    List<DBO.Conseil> conseils = BM.Conseil.GetConseilByContainsNom(ViewBag.Recherche);
+    List<DBO.Recette> recettes = BM.Recherche.GetRecetteByContainsNom(ViewBag.Recherche);
+    List<DBO.User> users = BM.Recherche.GetUserByContainsName(ViewBag.Recherche);
+    List<DBO.Conseil> conseils = BM.Recherche.GetConseilByContainsNom(ViewBag.Recherche);
 }
 
 <div id="recherche_recette">
