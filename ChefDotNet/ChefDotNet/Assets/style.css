@@ -64,7 +64,7 @@ body
 #header
 {
     height: 120px;
-    background: #f7f0f0 url(../img/partagedesaveurs.png) no-repeat 10px top;
+    background: #f7f0f0 url(Img/partagedesaveurs.png) no-repeat 10px top;
     padding: 25px;
 }
     ul.header_box
@@ -140,7 +140,7 @@ body
 ul#menu
 {
     height: 30px;
-    background:  url(../img/menu.png) repeat-x 0px 0px;
+    background:  url(Img/menu.png) repeat-x 0px 0px;
     padding: 5px;
     font-size: 14px;
     font-weight: bold;
@@ -193,7 +193,7 @@ ul#menu
 }
 .recette .spoon, .star
 {
-    background: url(../img/sprites.png);
+    background: url(Img/sprites.png);
     display: inline-block;
 }
 .recette #difficulty .spoon.full
