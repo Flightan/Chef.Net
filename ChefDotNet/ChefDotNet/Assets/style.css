@@ -1,5 +1,5 @@
 ﻿/* Reset */
-/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
 {
     margin: 0;
     padding: 0;
@@ -33,26 +33,271 @@ table
 {
     border-collapse: collapse;
     border-spacing: 0;
-}*/
+}
+a
+{
+    text-decoration: none;
+    color: Black;
+}
 
 /**/
+
+/* STRUCTURE */
 body
 {
     margin: 30px;
+    background-color: #f6f4f4;
+    font: 12px/17px "Arial", sans-serif;
 }
 
+#page
+{
+    background-color: White;
+    width: 950px;
+    margin: 20px auto;
+    box-shadow: 1px 1px 12px #555;
+}
+
+/*  /STRUCTURE */
+
+/* Header */
 #header
 {
-    margin-bottom: 30px;
+    height: 120px;
+    background: #f7f0f0 url(../img/partagedesaveurs.png) no-repeat 10px top;
+    padding: 25px;
 }
+    ul.header_box
+    {
+        float: right;
+        margin-top: -12px;
+    }
+    ul.header_box li
+    {
+        padding: 10px 0px;
+    }
+    ul.header_box li.connexion
+    {
+        padding-top:0px;
+        border-bottom: 1px solid #e8e8e8;      
+    }
+    ul.header_box li .title
+    {
+        font-size: 19px;
+        float: left;
+        font-weight: bold;
+        font-style: italic;
+    }
+    ul.header_box a, .rememberMe
+    {
+        color: #801f2e;
+        font-size: 11px;
+        text-decoration: underline;
+    }
+    ul.header_box a.advanced
+    {
+        margin-left: 63px;
+    }
+    ul.header_box .rememberMe input[type=checkbox]
+    {
+        vertical-align: bottom;
+    }
+    ul.header_box input
+    {
+        background-color: #fefefe;
+        box-shadow: 1px 1px 5px #555;
+        border: none;
+        padding: 5px;
+        margin-top: 5px;     
+    }
+    ul.header_box input[ type=submit]:hover
+    {
+        box-shadow: 1px 1px 2px #555;
+    }
+    ul.header_box input[type=text]
+    {
+        width: 145px;
+    }
+    ul.header_box .search input[type=text]
+    {
+        width: 265px;
+    }
+    .header_box .example
+    {
+        float: left;
+        font-style: italic;
+        color: #cbaeb1;
+    }
+    .header_box .create_account
+    {
+        float: right;
+        margin-right: 109px;
+        margin-top: 3px;
+    }
+    
 
-#menu li
+/* Menu */
+ul#menu
+{
+    height: 30px;
+    background:  url(../img/menu.png) repeat-x 0px 0px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+    ul#menu li
+    {
+        display: inline-block;
+        padding: 0px 10px;
+    }
+    ul#menu li a 
+    {
+        color: White;
+    }
+ 
+
+/* RECETTES + COMMENTS*/
+.recette
+{
+    width: 730px;
+}
+.recette h2
 {
     display: inline-block;
-    margin: 0 5px;
+    padding: 8px 15px 0px;
+    margin: 10px 0px;
+    height: 30px;
+    background-color: #fea81a;
+    box-shadow: 1px 1px 11px #555;
+    color: White;
+    font-weight: bolder;
+    font-size: 16px;
+}
+.recette h3, .comments h3
+{
+    color: #cf423c;
+    font-size: 15px;
+    font-weight: bold;
+    font-variant: small-caps;     
+    margin: 10px;  
+}
+.recette .quantite
+{
+    color: #cc3333;
+    margin: 25px;
+}
+.recette #difficulty, .recette #stars
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+.recette .spoon, .star
+{
+    background: url(../img/sprites.png);
+    display: inline-block;
+}
+.recette #difficulty .spoon.full
+{    
+    background-position: -59px 0px;
+    width: 19px;
+    height: 39px;
+}
+.recette #difficulty .spoon.empty
+{    
+    width: 19px;
+    height: 39px;
+    background-position: -82px 0px;
+}
+.recette #stars .star.empty
+{    
+    background-position: 0px 0px;
+    width: 23px;
+    height: 23px;
+}
+.recette #stars .star.full
+{    
+    background-position: -30px 0px;
+    width: 23px;
+    height: 23px;
+}
+.recette ul.temps
+{
+    color: #fea81a;
+    margin-left: 10px;
+}
+.recette ul.temps li
+{
+    display: inline;
+    margin-left: 5px;
+}
+.recette .photo_recette
+{
+    width: 325px;
+    float: left;
+    margin: 10px 25px 10px 10px;
+}
+.recette_intro
+{
+    padding: 10px;
+}
+.recette_intro .origine
+{
+    color: #cf423c;
+    float: right;
+}
+.recette_intro .user
+{
+    color: #cf423c;
+    display:block;
+    font-weight: bolder;
+}
+.recette_intro p
+{
+    margin-top: 25px;
+    text-indent: 10px;
+}
+.recette .description
+{
+    margin: 20px 0px;
+    border-top: 1px solid #f6f4f4;
+}
+.comments
+{
+    margin: 25px;
+    border-top: 1px solid #f6f4f4;
+}
+ul.comment li
+{
+    padding: 5px 10px;
+}
+ul.comment li:nth-child(odd)
+{
+    background-color: #f9f5f7;
+}
+ul.comment .user_link a
+{
+    font-size: 13px;
+    font-weight: bolder;
+    color: #cf423c;
+    text-decoration: underline;
+}
+ul.comment .date
+{
+    float: right;
+    font-size: 11px;
+    font-style: italic;
+}
+ul.comment p
+{
+    margin: 5px;
 }
 
-.etoile
+/* FOOTER */
+#footer
 {
-    color: Orange;
+    background-color: #741d2a;
+    text-align: right;
+    color: White;
+    margin-top: 10px;
+    padding: 5px 25px;
 }

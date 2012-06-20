@@ -1,20 +1,11 @@
-﻿<div id="title">
-    <h1>@ViewBag.Title</h1>
-</div>
-
-<div id="menucontainer">
-    <ul id="menu">
-        <li>@Html.ActionLink("Accueil", "Index", "Accueil")</li>
-        <li>@Html.ActionLink("Recettes", "Index", "Recette")</li>
-        <li>@Html.ActionLink("Conseils", "Index", "Conseil")</li>
-        <li>@Html.ActionLink("Page Personnelle", "Index", "PagePersonnelle")</li>
-    </ul>
-</div>
-
-<div id="connexion">
-    @Html.Partial("_LogOnPartial")
-</div>
-
-<div id="recherche">
-    @Html.Partial("_RechercheSimple", new ChefDotNet.Models.RechercheSimpleModel())
-</div>
+﻿<ul class="header_box">
+    <li class="connexion">
+        @Html.Partial("_LogOnPartial")
+    </li>
+    <li>
+        <span class="title">Recherche</span>
+        <a class="advanced" href="/" title="Recherche avancée">> Recherche avancée</a>
+        @Html.Partial("_RechercheSimple", new ChefDotNet.Models.RechercheSimpleModel())
+        <span class="example">Tourment d'amour, verrine, dessert, tofu...</span>
+    </li>
+</ul>
