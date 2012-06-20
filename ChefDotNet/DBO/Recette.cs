@@ -18,9 +18,13 @@ namespace DBO
 
         public string Realisation { get; set; }
 
-        public string Temps { get; set; }
+        public int TempsCuisson { get; set; }
 
-        public string Difficulte { get; set; }
+        public int TempsPreparation { get; set; }
+
+        public int TempsRepos { get; set; }
+
+        public int Difficulte { get; set; }
 
         public string Categorie { get; set; }
 
@@ -34,8 +38,10 @@ namespace DBO
             Nom = string.Empty;
             Intro = string.Empty;
             Realisation = string.Empty;
-            Temps = string.Empty;
-            Difficulte = string.Empty;
+            TempsCuisson = 0;
+            TempsPreparation = 0;
+            TempsRepos = 0;
+            Difficulte = 0;
             Categorie = string.Empty;
             Photo = string.Empty;
             idCreateur = -1;

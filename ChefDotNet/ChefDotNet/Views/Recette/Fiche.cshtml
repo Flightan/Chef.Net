@@ -3,10 +3,51 @@
         DBO.Recette recette = ViewBag.recette;
         ViewBag.Title = "Recette";
 
+<<<<<<< HEAD
         DBO.User user = BM.User.GetUserById(recette.idCreateur);
         List<DBO.Ingredient> ingredients = BM.Ingredient.GetIngredientByRecette(recette);
         List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByRecette(recette);
         DBO.NoteTotale noteTotale = BM.Note.GetNoteTotaleByRecette(recette);        
+=======
+    DBO.User user = BM.User.GetUserById(recette.idCreateur);
+    List<DBO.Ingredient> ingredients = BM.Ingredient.GetIngredientByRecette(recette);
+    List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByRecette(recette);
+    DBO.NoteTotale noteTotale = BM.Note.GetNoteTotaleByRecette(recette);        
+}
+
+<h2>Introduction</h2>
+<ul>
+    <li><p>@recette.Intro</p></li>
+    <li><p>Créateur : @user.Name</p></li>
+    <li><p>Catégorie : @recette.Categorie</p></li>
+    <li><p>Difficulté : @recette.Difficulte</p></li>
+    <li><p>Temps de préparation : @recette.TempsPreparation</p></li>
+</ul>
+
+<img src="@recette.Photo" alt="" />
+
+<h2>Ingrédients</h2>
+<ul>
+    @foreach (DBO.Ingredient ingredient in ingredients)
+    {
+        <li><p>@ingredient.Nom</p></li>
+    }
+</ul>
+
+<h2>Réalisation</h2>
+<p>@recette.Realisation</p>
+
+<h2>Commentaires</h2>
+<ul>
+    @foreach (DBO.Commentaire commentaire in commentaires)
+    {
+        DBO.User commentaireUser = BM.User.GetUserById(commentaire.idUser);   
+        <li><p>
+                @Html.ActionLink(commentaireUser.Name, "Index", "PagePersonnelle", new { nom = commentaireUser.Name }, null)
+                (@commentaire.DateCreation)<br/>
+                @commentaire.Text
+        </p></li>
+>>>>>>> Debut de link avec la BDD, plusieurs erreurs sur creation de recette
     }
     <h2>@recette.Nom</h2>
     <span class="quantite">Pour 4 personnes</span>

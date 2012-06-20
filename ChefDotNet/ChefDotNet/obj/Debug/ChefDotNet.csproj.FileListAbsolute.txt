@@ -1,0 +1,13 @@
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\ChefDotNet.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\ChefDotNet.pdb
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\BM.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\DBO.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\EntityFramework.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\DA.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\BM.pdb
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\DBO.pdb
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\EntityFramework.xml
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\bin\DA.pdb
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\obj\Debug\ChefDotNet.dll
+C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\ChefDotNet\obj\Debug\ChefDotNet.pdb
