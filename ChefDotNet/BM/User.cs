@@ -12,18 +12,19 @@ namespace BM
     {
         /// <summary>
         /// Création d'un utilisateur
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewUser(DBO.User user)
+        public static string NewUser(DBO.User user)
         {
             return DA.User.NewUser(user);
         }
 
         /// <summary>
-        /// Retourne l'utilisateur qui possède ce nom
+        /// Retourne tout les utilisateurs (Utilisé pour le top cuisinier)
         /// </summary>
-        public static DBO.User GetUserByName(string name)
+        public static List<DBO.User> GetAll()
         {
-            return DA.User.GetUserByName(name);
+            return DA.User.GetAll();
         }
 
         /// <summary>
@@ -32,6 +33,14 @@ namespace BM
         public static DBO.User GetUserById(int id)
         {
             return DA.User.GetUserById(id);
+        }
+
+        /// <summary>
+        /// Retourne l'utilisateur qui possède ce nom
+        /// </summary>
+        public static DBO.User GetUserByName(string name)
+        {
+            return DA.User.GetUserByName(name);
         }
 
         /// <summary>

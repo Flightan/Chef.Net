@@ -1,0 +1,20 @@
+﻿@model ChefDotNet.Models.LogOnModel
+@using (Html.BeginForm())
+{
+    <div>
+        <p>
+            @Html.ValidationSummary(true, "Echec de la conexion.")
+        </p>
+        @Html.TextBoxFor(m => m.UserName, "haha")
+        @Html.ValidationMessageFor(m => m.UserName)
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+        <input type="submit" value="Ok" />
+    </div>
+    <span class="rememberMe">
+        @Html.CheckBoxFor(m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
+    </span>
+    
+    <span class="create_account">@Html.ActionLink("> Créer un compte", "Register", "Account")</span>
+}

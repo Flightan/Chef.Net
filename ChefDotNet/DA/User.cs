@@ -14,27 +14,28 @@ namespace DA
 
         /// <summary>
         /// Création d'un utilisateur
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewUser(DBO.User user)
+        public static string NewUser(DBO.User user)
         {
             try
             {
                 cuisineEntities.AddToT_User(ConvertToEntity(user));
                 cuisineEntities.SaveChanges();
-                return true;
+                return string.Empty;
             }
-            catch
+            catch (Exception e)
             {
-                return false;
+                return e.Message;
             }
         }
 
         /// <summary>
-        /// Retourne l'utilisateur qui possède ce nom
+        /// Retourne tout les utilisateurs (Utilisé pour le top cuisinier)
         /// </summary>
-        public static DBO.User GetUserByName(string name)
+        public static List<DBO.User> GetAll()
         {
-            return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.nom == name));
+            return ConvertToDBO(cuisineEntities.T_User.ToList());
         }
 
         /// <summary>
@@ -43,6 +44,14 @@ namespace DA
         public static DBO.User GetUserById(int id)
         {
             return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.id == id));
+        }
+
+        /// <summary>
+        /// Retourne l'utilisateur qui possède ce nom
+        /// </summary>
+        public static DBO.User GetUserByName(string name)
+        {
+            return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.nom == name));
         }
 
         /// <summary>
@@ -109,6 +118,22 @@ namespace DA
             }
 
             return dbo;
+        }
+
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.User> ConvertToDBO(List<T_User> listUser)
+        {
+            List<DBO.User> listDbo = new List<DBO.User>();
+
+            foreach (var item in listUser)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }

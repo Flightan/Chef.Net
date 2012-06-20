@@ -1,7 +1,14 @@
 ﻿@{
     ViewBag.Title = "Conseils";
+
+    List<DBO.Conseil> conseils = BM.Conseil.GetConseilByDate();
 }
 
-@Html.ActionLink("création", "Creation", "Conseil")
+@Html.ActionLink("Créer un conseil", "Creation", "Conseil")
 
-<br/>rechercher
+<ul>
+@foreach (DBO.Conseil conseil in conseils)
+{
+    <li>@conseil.Nom</li>
+}
+</ul>

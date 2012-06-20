@@ -1,0 +1,7 @@
+﻿@model ChefDotNet.Models.RechercheSimpleModel
+@using (Html.BeginForm("Index", "Recherche"))
+{    
+    <span class="search">@Html.TextBoxFor(m => m.Recherche)</span>
+    @Html.ValidationMessageFor(m => m.Recherche)
+    <input type="submit" value="Rechercher" />
+}

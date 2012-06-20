@@ -1,12 +1,8 @@
 ﻿@if (Request.IsAuthenticated)
 {
-     @Html.ActionLink("Se déconnecter", "LogOff", "Account")
+    @Html.ActionLink("Se déconnecter", "LogOff", "Account")
 }
 else
-{
-     <text>
-     @Html.ActionLink("Se connecter", "LogOn", "Account")
-     /
-     @Html.ActionLink("S'enregistrer", "Register", "Account")
-     </text>
+{ 
+    @Html.Partial("_LogOnHeader", new ChefDotNet.Models.LogOnModel())    
 }

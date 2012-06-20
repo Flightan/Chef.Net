@@ -33,19 +33,32 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs id
+        /// Création d'une recette
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static DBO.Recette GetRecetteById(int id)
+        public static string NewRecette(DBO.Recette recette)
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == id));
+            try
+            {
+                T_Recette t_recette = ConvertToEntity(recette);
+                t_recette.T_User = cuisineEntities.T_User.SingleOrDefault(e => e.id == recette.idCreateur);
+                cuisineEntities.AddToT_Recette(t_recette);
+                cuisineEntities.SaveChanges();
+                return string.Empty;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine(e.Message);
+                return e.Message;
+            }
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs noms
+        /// Retourne toutes les recettes
         /// </summary>
-        public static DBO.Recette GetRecetteByNom(string nom)
+        public static List<DBO.Recette> GetAll()
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.nom == nom));
+            return ConvertToDBO(cuisineEntities.T_Recette.ToList());
         }
 
         /// <summary>
@@ -73,33 +86,33 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs durees (Inférieures à dureeMax)
+        /// Retourne une recette selon son id
         /// </summary>
-        public static List<DBO.Recette> GetRecetteByDureeWithMax(int dureeMax)
+        public static DBO.Recette GetRecetteById(int id)
         {
-            return new List<DBO.Recette>();
+            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == id));
         }
 
         /// <summary>
-        /// Retourne des recettes selon leurs difficultes
+        /// Retourne une recette selon son nom
         /// </summary>
-        public static List<DBO.Recette> GetRecetteByDifficulte(int difficulte)
+        public static DBO.Recette GetRecetteByNom(string nom)
         {
-            return new List<DBO.Recette>();
-        }
-
-        /// <summary>
-        /// Retourne des recettes selon leurs categories
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByCategories(List<string> categories)
-        {
-            return new List<DBO.Recette>();
+            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.nom == nom));
         }
 
         /// <summary>
         /// Retourne des recettes selon leur créateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
+        {
+            return new List<DBO.Recette>();
+        }
+
+        /// <summary>
+        /// Retourne des recettes qui contiennent ces ingredients
+        /// </summary>
+        public static List<DBO.Recette> GetRecetteByIngredients(List<string> ingredients)
         {
             return new List<DBO.Recette>();
         }

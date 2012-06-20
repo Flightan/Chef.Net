@@ -12,10 +12,19 @@ namespace BM
     {
         /// <summary>
         /// Création d'un conseil
+        /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
-        public static bool NewConseil(DBO.Conseil conseil)
+        public static string NewConseil(DBO.Conseil conseil)
         {
             return DA.Conseil.NewConseil(conseil);
+        }
+
+        /// <summary>
+        /// Retourne tout les conseils
+        /// </summary>
+        public static List<DBO.Conseil> GetAll()
+        {
+            return DA.Conseil.GetAll();
         }
 
         /// <summary>

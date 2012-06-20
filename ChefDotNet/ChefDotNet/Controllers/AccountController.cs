@@ -73,12 +73,15 @@ namespace ChefDotNet.Controllers
                 Email = model.Email
             };
 
-            if (BM.User.NewUser(user))
+            string result = BM.User.NewUser(user);
+
+            if (result == string.Empty)
             {
                 FormsAuthentication.SetAuthCookie(model.UserName, true);
                 return RedirectToAction("Index", "Accueil");
             }
 
+            ModelState.AddModelError("", result);
             return View(model);
         }
 
