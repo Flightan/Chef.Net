@@ -58,7 +58,6 @@ namespace DA
             if (commentaire != null)
             {
                 entity.id = commentaire.Id;
-                entity.note = commentaire.Note;
                 entity.texte = commentaire.Text;
                 entity.utilisateurID = commentaire.idUser;
                 entity.recetteID = commentaire.idRecette;
@@ -77,7 +76,6 @@ namespace DA
             if (commentaire != null)
             {
                 dbo.Id = Convert.ToInt16(commentaire.id);
-                dbo.Note = Convert.ToInt16(commentaire.note);
                 dbo.Text = commentaire.texte;
                 dbo.idRecette = Convert.ToInt16(commentaire.recetteID);
                 dbo.idUser = Convert.ToInt16(commentaire.utilisateurID);
