@@ -83,10 +83,7 @@
     <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
     <Property Name="difficulte" Type="Int32" />
     <Property Name="photo" Type="String" />
-    <Property Name="origine" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="cout" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="createurID" Type="Int64" Nullable="false" />
-    <Property Name="conseil" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <Property Name="temps_cuisson" Type="Int32" />
     <Property Name="temps_repos" Type="Int32" />
     <Property Name="temps_prepa" Type="Int32" Nullable="false" />

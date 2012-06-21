@@ -316,10 +316,7 @@
           <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="difficulte" Type="Int32" />
           <Property Name="photo" Type="String" />
-          <Property Name="origine" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="cout" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="createurID" Type="Int64" Nullable="false" />
-          <Property Name="conseil" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="temps_cuisson" Type="Int32" />
           <Property Name="temps_repos" Type="Int32" />
           <Property Name="temps_prepa" Type="Int32" Nullable="false" />
@@ -504,10 +501,7 @@
             <ScalarProperty Name="realisation" ColumnName="realisation" />
             <ScalarProperty Name="difficulte" ColumnName="difficulte" />
             <ScalarProperty Name="photo" ColumnName="photo" />
-            <ScalarProperty Name="origine" ColumnName="origine" />
-            <ScalarProperty Name="cout" ColumnName="cout" />
             <ScalarProperty Name="createurID" ColumnName="createurID" />
-            <ScalarProperty Name="conseil" ColumnName="conseil" />
             <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
             <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
             <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
@@ -559,7 +553,7 @@
         <EntityTypeShape EntityType="CuisineModel.T_Commentaire" Width="1.5" PointX="2.375" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Favoris" Width="1.5" PointX="5.25" PointY="5.875" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Ingredient" Width="1.5" PointX="4" PointY="14.625" Height="1.5956835937499978" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuisineModel.T_Recette" Width="1.5" PointX="6.25" PointY="9" Height="4.8648079427083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Recette" Width="1.5" PointX="6.25" PointY="9" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_RecetteIngredient" Width="1.5" PointX="6.25" PointY="14.25" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_User" Width="1.5" PointX="0.75" PointY="5.125" Height="2.5571907552083326" IsExpanded="true" />
         <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_Recette" ManuallyRouted="false">
@@ -567,10 +561,12 @@
           <ConnectorPoint PointX="3.875" PointY="9.8987939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="7.8744921875" />
-          <ConnectorPoint PointX="1.5" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="1.29687375" PointY="7.8744921875" />
+          <ConnectorPoint PointX="1.29687375" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="1.5436205729166668" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="1.7102872395833333" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="1.8737007291666668" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="2.0403673958333335" PointY="9.7112939453125" />
           <ConnectorPoint PointX="2.375" PointY="9.7112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_Recette" ManuallyRouted="false">
@@ -586,22 +582,24 @@
           <ConnectorPoint PointX="6.25" PointY="15.422841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Recette_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.46875" />
-          <ConnectorPoint PointX="7.28125" PointY="5.46875" />
-          <ConnectorPoint PointX="7.28125" PointY="9" />
+          <ConnectorPoint PointX="1.62695390625" PointY="7.8744921875" />
+          <ConnectorPoint PointX="1.62695390625" PointY="11.0237939453125" />
+          <ConnectorPoint PointX="1.8737007291666668" PointY="11.0237939453125" />
+          <ConnectorPoint PointX="2.0403673958333335" PointY="11.0237939453125" />
+          <ConnectorPoint PointX="6.25" PointY="11.0237939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Recette" ManuallyRouted="false">
-          <ConnectorPoint PointX="7" PointY="13.864807942708334" />
+          <ConnectorPoint PointX="7" PointY="13.287903645833334" />
           <ConnectorPoint PointX="7" PointY="14.25" />
         </AssociationConnector>
         <EntityTypeShape EntityType="CuisineModel.T_Note" Width="1.5" PointX="2.5" PointY="11.25" Height="2.1725878906249996" />
         <AssociationConnector Association="CuisineModel.FK_T_Note_T_Recette" >
-          <ConnectorPoint PointX="6.25" PointY="11.84375" />
-          <ConnectorPoint PointX="4" PointY="11.84375" />
+          <ConnectorPoint PointX="6.25" PointY="12.268951822916666" />
+          <ConnectorPoint PointX="4" PointY="12.268951822916666" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Note_T_User" >
-          <ConnectorPoint PointX="1.9062525" PointY="7.8744921875" />
-          <ConnectorPoint PointX="1.9062525" PointY="12.3362939453125" />
+          <ConnectorPoint PointX="1.9570340625" PointY="7.8744921875" />
+          <ConnectorPoint PointX="1.9570340625" PointY="12.3362939453125" />
           <ConnectorPoint PointX="2.5" PointY="12.3362939453125" />
         </AssociationConnector>
       </Diagram>

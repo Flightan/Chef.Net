@@ -26,7 +26,6 @@ namespace DA
             }
             catch (Exception e)
             {
-                Console.Out.WriteLine(e.Message);
                 return e.Message;
             }
         }
