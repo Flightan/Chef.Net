@@ -28,10 +28,10 @@ namespace ChefDotNet.Models
         public int TempsPreparation { get; set; }
 
         [Display(Name = "Temps de repos")]
-        public int TempsRepos { get; set; }
+        public Nullable<int> TempsRepos { get; set; }
 
         [Display(Name = "Temps de cuisson")]
-        public int TempsCuisson { get; set; }
+        public Nullable<int> TempsCuisson { get; set; }
 
         [Required(ErrorMessage = "Le champ difficulté est requis.")]
         [Display(Name = "Difficulté")]
