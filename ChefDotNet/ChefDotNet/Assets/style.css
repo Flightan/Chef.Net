@@ -53,11 +53,7 @@ body
 #header
 {
     height: 120px;
-<<<<<<< HEAD
-    background: #f7f0f0 url(Img/partagedesaveurs.png) no-repeat 10px top;
-=======
     background: #f7f0f0 url(./Img/partagedesaveurs.png) no-repeat 10px top;
->>>>>>> 883f1967ddc7046fcf5b676bfc241332404877fb
     padding: 25px;
 }
     ul.header_box
@@ -132,12 +128,7 @@ body
 ul#menu
 {
     height: 30px;
-<<<<<<< HEAD
-    background:  url(Img/menu.png) repeat-x 0px 0px;
-    padding: 5px;
-=======
     background-color: #741d2a;
->>>>>>> 883f1967ddc7046fcf5b676bfc241332404877fb
     font-size: 14px;
     font-weight: bold;
 }
@@ -235,7 +226,7 @@ p
 
 .recette
 {
-    wid th: 730px;
+    width: 730px;
 }
 .recette h2
 {
@@ -270,11 +261,7 @@ p
 }
 .recette .spoon, .star
 {
-<<<<<<< HEAD
-    background: url(Img/sprites.png);
-=======
     background-image: url(./Img/sprites.png);
->>>>>>> 883f1967ddc7046fcf5b676bfc241332404877fb
     display: inline-block;
 }
 .recette #difficulty .spoon.full
