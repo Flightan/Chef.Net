@@ -18,7 +18,6 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Commentaire_T_Note", "T_Note", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DA.T_Note), "T_Commentaire", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Commentaire), true)]
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Commentaire_T_Recette", "T_Recette", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.T_Recette), "T_Commentaire", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Commentaire), true)]
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Commentaire_T_User", "T_User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.T_User), "T_Commentaire", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Commentaire), true)]
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_UserRecette_T_Recette", "T_Recette", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.T_Recette), "T_Favoris", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Favoris), true)]
@@ -128,22 +127,6 @@ namespace DA
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<T_Note> T_Note
-        {
-            get
-            {
-                if ((_T_Note == null))
-                {
-                    _T_Note = base.CreateObjectSet<T_Note>("T_Note");
-                }
-                return _T_Note;
-            }
-        }
-        private ObjectSet<T_Note> _T_Note;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<T_Recette> T_Recette
         {
             get
@@ -214,14 +197,6 @@ namespace DA
         public void AddToT_Ingredient(T_Ingredient t_Ingredient)
         {
             base.AddObject("T_Ingredient", t_Ingredient);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the T_Note EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToT_Note(T_Note t_Note)
-        {
-            base.AddObject("T_Note", t_Note);
         }
     
         /// <summary>
@@ -338,30 +313,6 @@ namespace DA
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int64> noteID
-        {
-            get
-            {
-                return _noteID;
-            }
-            set
-            {
-                OnnoteIDChanging(value);
-                ReportPropertyChanging("noteID");
-                _noteID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("noteID");
-                OnnoteIDChanged();
-            }
-        }
-        private Nullable<global::System.Int64> _noteID;
-        partial void OnnoteIDChanging(Nullable<global::System.Int64> value);
-        partial void OnnoteIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 utilisateurID
@@ -406,48 +357,34 @@ namespace DA
         private global::System.Int64 _recetteID;
         partial void OnrecetteIDChanging(global::System.Int64 value);
         partial void OnrecetteIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> note
+        {
+            get
+            {
+                return _note;
+            }
+            set
+            {
+                OnnoteChanging(value);
+                ReportPropertyChanging("note");
+                _note = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("note");
+                OnnoteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _note;
+        partial void OnnoteChanging(Nullable<global::System.Int32> value);
+        partial void OnnoteChanged();
 
         #endregion
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CuisineModel", "FK_T_Commentaire_T_Note", "T_Note")]
-        public T_Note T_Note
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_Note>("CuisineModel.FK_T_Commentaire_T_Note", "T_Note").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_Note>("CuisineModel.FK_T_Commentaire_T_Note", "T_Note").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<T_Note> T_NoteReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_Note>("CuisineModel.FK_T_Commentaire_T_Note", "T_Note");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_Note>("CuisineModel.FK_T_Commentaire_T_Note", "T_Note", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -813,158 +750,6 @@ namespace DA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_RecetteIngredient>("CuisineModel.FK_T_RecetteIngredient_T_Ingredient", "T_RecetteIngredient", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CuisineModel", Name="T_Note")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class T_Note : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new T_Note object.
-        /// </summary>
-        /// <param name="id">Initial value of the id property.</param>
-        public static T_Note CreateT_Note(global::System.Int64 id)
-        {
-            T_Note t_Note = new T_Note();
-            t_Note.id = id;
-            return t_Note;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int64 _id;
-        partial void OnidChanging(global::System.Int64 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> gout
-        {
-            get
-            {
-                return _gout;
-            }
-            set
-            {
-                OngoutChanging(value);
-                ReportPropertyChanging("gout");
-                _gout = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("gout");
-                OngoutChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _gout;
-        partial void OngoutChanging(Nullable<global::System.Int32> value);
-        partial void OngoutChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> originalite
-        {
-            get
-            {
-                return _originalite;
-            }
-            set
-            {
-                OnoriginaliteChanging(value);
-                ReportPropertyChanging("originalite");
-                _originalite = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("originalite");
-                OnoriginaliteChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _originalite;
-        partial void OnoriginaliteChanging(Nullable<global::System.Int32> value);
-        partial void OnoriginaliteChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> presentation
-        {
-            get
-            {
-                return _presentation;
-            }
-            set
-            {
-                OnpresentationChanging(value);
-                ReportPropertyChanging("presentation");
-                _presentation = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("presentation");
-                OnpresentationChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _presentation;
-        partial void OnpresentationChanging(Nullable<global::System.Int32> value);
-        partial void OnpresentationChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CuisineModel", "FK_T_Commentaire_T_Note", "T_Commentaire")]
-        public EntityCollection<T_Commentaire> T_Commentaire
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_Commentaire>("CuisineModel.FK_T_Commentaire_T_Note", "T_Commentaire");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_Commentaire>("CuisineModel.FK_T_Commentaire_T_Note", "T_Commentaire", value);
                 }
             }
         }
