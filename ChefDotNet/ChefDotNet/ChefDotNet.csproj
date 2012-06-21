@@ -86,7 +86,9 @@
     <Content Include="Assets\Img\menu.png" />
     <Content Include="Assets\Img\partagedesaveurs.png" />
     <Content Include="Assets\Img\sprites.png" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

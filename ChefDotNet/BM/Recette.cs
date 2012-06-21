@@ -44,7 +44,7 @@ namespace BM
         }
 
         /// <summary>
-        /// Retourne des recettes selon leur créateur
+        /// Retourne les recettes favoris d'un utilisateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
         {
