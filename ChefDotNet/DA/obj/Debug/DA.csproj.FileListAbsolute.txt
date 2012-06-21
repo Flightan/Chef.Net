@@ -6,3 +6,11 @@ C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DA\bin\Debug\DBO.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DA\bin\Debug\DBO.pdb
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DA\obj\Debug\DA.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DA\obj\Debug\DA.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\bin\Debug\DA.dll.config
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\bin\Debug\DA.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\bin\Debug\DA.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\bin\Debug\DBO.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\bin\Debug\DBO.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\obj\Debug\DA.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DA\obj\Debug\DA.pdb
