@@ -108,6 +108,8 @@ namespace DA
                 entity.photo = recette.Photo;
                 entity.categorie = recette.Categorie;
                 entity.date = DateTime.Now;
+                entity.id = recette.Id;
+                entity.createurID = recette.idCreateur;
             }
 
             return entity;
@@ -131,6 +133,8 @@ namespace DA
                 dbo.Difficulte = Convert.ToInt16(recette.difficulte);
                 dbo.Photo = recette.photo;
                 dbo.Categorie = recette.categorie;
+                dbo.idCreateur = Convert.ToInt16(recette.createurID);
+                dbo.Id = Convert.ToInt16(recette.id);
             }
 
             return dbo;

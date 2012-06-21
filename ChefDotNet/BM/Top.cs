@@ -19,7 +19,9 @@ namespace BM
             List<DBO.Recette> topList = new List<DBO.Recette>();
 
             foreach (DBO.Recette recette in list)
-            { }
+            {
+                topList.Add(recette);
+            }
 
             return topList;
         }

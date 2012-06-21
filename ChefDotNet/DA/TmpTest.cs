@@ -51,7 +51,8 @@ namespace DA
         {
             return new DBO.Commentaire()
             {
-                Text = "Un commentaire super cool"
+                Text = "Un commentaire super cool",
+                idUser = 0
             };
         }
     }

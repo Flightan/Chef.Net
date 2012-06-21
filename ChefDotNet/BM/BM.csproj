@@ -45,7 +45,7 @@
     <Compile Include="Conseil.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Note.cs" />
-    <Compile Include="Recherche.cs" />
+    <None Include="Recherche.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Recette.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

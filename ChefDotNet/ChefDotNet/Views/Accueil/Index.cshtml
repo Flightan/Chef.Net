@@ -10,7 +10,7 @@
     <ul>
     @foreach (DBO.Recette recette in recettes)
     {
-        <li>@recette.Nom</li>
+        <li><a href="../Recette/Fiche/@recette.Id">@recette.Nom</a></li>
     }
     </ul>
 </div>
