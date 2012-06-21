@@ -75,6 +75,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CommentaireModel.cs" />
     <Compile Include="Models\ConseilModel.cs" />
+    <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\RecetteModel.cs" />
     <Compile Include="Models\RechercheModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,7 +98,9 @@
     </Content>
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Shared\_Ingredient.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

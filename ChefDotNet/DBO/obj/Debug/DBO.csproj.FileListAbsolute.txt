@@ -3,3 +3,8 @@ C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.pdb
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.pdb

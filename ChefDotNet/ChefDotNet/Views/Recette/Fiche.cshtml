@@ -24,13 +24,7 @@
     </ul>
     <img class="photo_recette" src="@recette.Photo" alt="@recette.Nom"/>
     <div class="recette_intro">
-        <ul id="stars">
-            <li class="star full"></li>
-            <li class="star full"></li>
-            <li class="star full"></li>
-            <li class="star full"></li>
-            <li class="star empty"></li>
-        </ul>
+        <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(recette))))</ul>
         <span class="origine">Origine : Française</span>
         <span class="categorie">Catégorie : @recette.Categorie</span>
         <span class="user">Par @user.Name</span>

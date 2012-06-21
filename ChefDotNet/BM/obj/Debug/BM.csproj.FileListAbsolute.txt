@@ -16,3 +16,12 @@ C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\BM.dll
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\BM.pdb
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\BM.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\BM.pdb
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\DA.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\DBO.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\DA.pdb
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\bin\Debug\DBO.pdb
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\obj\Debug\BM.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\BM\obj\Debug\BM.pdb

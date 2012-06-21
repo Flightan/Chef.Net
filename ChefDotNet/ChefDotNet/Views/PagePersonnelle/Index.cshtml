@@ -67,3 +67,26 @@ else
     }
     </ul>
 }
+
+
+
+
+
+
+
+foreach (DBO.Recette recette in recettes)
+{
+    <li>Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
+}
+
+
+foreach (DBO.Note note in notes)
+{
+    <li>
+        <ul id="stars">Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(note.NoteRecette)))</ul>
+        Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
+    </li>
+}
+
+@Html.ActionLink("Créer une recette", "Creation", "Recette")
+@Html.ActionLink("Créer un conseil", "Creation", "Conseil")
