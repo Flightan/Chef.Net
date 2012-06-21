@@ -10,7 +10,6 @@ namespace DA
     /// </summary>
     public static class Ingredient
     {
-        private static CuisineEntities cuisineEntities = new CuisineEntities();
         /// <summary>
         /// Création d'un ingrédient
         /// </summary>
@@ -18,15 +17,18 @@ namespace DA
         {
             try
             {
-                T_Ingredient item = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom);
-                if (item == null)
-                    cuisineEntities.AddToT_Ingredient(ConvertToEntity(ingredient));
-                T_RecetteIngredient ring = new T_RecetteIngredient();
-                ring.ingredientID = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom).id;
-                ring.recetteID = ingredient.idRecette;
-                cuisineEntities.AddToT_RecetteIngredient(ring);
-                cuisineEntities.SaveChanges();
-                return string.Empty;
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    T_Ingredient item = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom);
+                    if (item == null)
+                        cuisineEntities.T_Ingredient.AddObject(ConvertToEntity(ingredient));
+                    T_RecetteIngredient ring = new T_RecetteIngredient();
+                    ring.ingredientID = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom).id;
+                    ring.recetteID = ingredient.idRecette;
+                    cuisineEntities.T_RecetteIngredient.AddObject(ring);
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
             }
             catch (Exception e)
             {
@@ -40,12 +42,15 @@ namespace DA
         /// </summary>
         public static List<DBO.Ingredient> GetIngredientByRecette(DBO.Recette recette)
         {
-            List<T_Ingredient> ingredients = new List<T_Ingredient>();
-            foreach (T_RecetteIngredient item in cuisineEntities.T_RecetteIngredient.Where(e => e.recetteID == recette.Id).ToList())
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-                ingredients.Add(item.T_Ingredient);
+                List<T_Ingredient> ingredients = new List<T_Ingredient>();
+                foreach (T_RecetteIngredient item in cuisineEntities.T_RecetteIngredient.Where(e => e.recetteID == recette.Id).ToList())
+                {
+                    ingredients.Add(item.T_Ingredient);
+                }
+                return ConvertToDBO(ingredients);
             }
-            return ConvertToDBO(ingredients);
         }
 
         /// <summary>

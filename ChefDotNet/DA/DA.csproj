@@ -63,7 +63,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="CuisineModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CuisineModel.Designer.cs</LastGenOutput>

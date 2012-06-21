@@ -10,8 +10,6 @@ namespace DA
     /// </summary>
     public static class Recette
     {
-        private static CuisineEntities cuisineEntities = new CuisineEntities();
-
         /// <summary>
         /// Création d'une recette
         /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
@@ -20,13 +18,16 @@ namespace DA
         {
             try
             {
-                cuisineEntities.AddToT_Recette(ConvertToEntity(recette));
-                cuisineEntities.SaveChanges();
-                return string.Empty;
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_Recette.AddObject(ConvertToEntity(recette));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
             }
             catch (Exception e)
             {
-                return e.Message;
+                return e.InnerException.Message;
             }
         }
 
@@ -35,7 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetAll()
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.ToList());
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.ToList());
+            }
         }
 
         /// <summary>
@@ -59,7 +63,10 @@ namespace DA
         /// </summary>
         public static DBO.Recette GetRecetteById(int id)
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == id));
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == id));
+            }
         }
 
         /// <summary>
@@ -67,7 +74,10 @@ namespace DA
         /// </summary>
         public static DBO.Recette GetRecetteByNom(string nom)
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.nom == nom));
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.nom == nom));
+            }
         }
 
         /// <summary>
@@ -75,12 +85,15 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
         {
-            List<DBO.Recette> recettes = new List<DBO.Recette>();
-            foreach (T_Favoris item in cuisineEntities.T_Favoris.Where(e => e.userID == user.Id).ToList())
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-                recettes.Add(ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == item.recetteID)));
+                List<DBO.Recette> recettes = new List<DBO.Recette>();
+                foreach (T_Favoris item in cuisineEntities.T_Favoris.Where(e => e.userID == user.Id).ToList())
+                {
+                    recettes.Add(ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == item.recetteID)));
+                }
+                return recettes;
             }
-            return recettes;
         }
 
         /// <summary>
@@ -96,7 +109,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetTopRecetteByRating(int rows)
         {
-            return ConvertToDBO(cuisineEntities.T_Recette.OrderByDescending(e => e.date).Take(rows).ToList());
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.OrderByDescending(e => e.date).Take(rows).ToList());
+            }
         }
 
         /// <summary>

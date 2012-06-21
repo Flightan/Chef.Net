@@ -54,7 +54,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="texte" Type="varchar" MaxLength="200" />
           <Property Name="utilisateurID" Type="bigint" Nullable="false" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
@@ -63,7 +63,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="userID" Type="bigint" Nullable="false" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
         </EntityType>
@@ -71,14 +71,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="T_Note">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idUser" Type="bigint" />
           <Property Name="idRecette" Type="bigint" />
           <Property Name="note" Type="int" />
@@ -87,16 +87,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="difficulte" Type="int" />
           <Property Name="photo" Type="varchar" MaxLength="50" />
-          <Property Name="origine" Type="varchar" MaxLength="50" />
-          <Property Name="cout" Type="varchar" MaxLength="50" />
           <Property Name="createurID" Type="bigint" Nullable="false" />
-          <Property Name="conseil" Type="varchar" MaxLength="100" />
           <Property Name="temps_cuisson" Type="int" />
           <Property Name="temps_repos" Type="int" />
           <Property Name="temps_prepa" Type="int" Nullable="false" />
@@ -107,7 +104,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
           <Property Name="ingredientID" Type="bigint" Nullable="false" />
         </EntityType>
@@ -115,7 +112,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
@@ -315,7 +312,7 @@
           <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="difficulte" Type="Int32" />
-          <Property Name="photo" Type="String" />
+          <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="true" />
           <Property Name="createurID" Type="Int64" Nullable="false" />
           <Property Name="temps_cuisson" Type="Int32" />
           <Property Name="temps_repos" Type="Int32" />
