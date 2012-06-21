@@ -51,13 +51,34 @@ namespace BM
             return DA.Recette.GetRecetteByUser(user);
         }
 
-
         /// <summary>
         /// Retourne la note totale de la recette
         /// </summary>
         public static int GetNoteTotaleByRecette(DBO.Recette recette)
         {
             return 5;
+        }
+
+        /// <summary>
+        /// Retourne une note totale sous forme html
+        /// </summary>
+        public static string GetNombrePersonneHtml(int nombre)
+        {
+            string html = "";
+
+            string liBegin = "<li class='";
+            string liEnd = "'></li>";
+
+            string full = "spoon full";
+            string empty = "spoon empty";
+
+            for (int i = 0; i < nombre; i++)
+                html += liBegin + full + liEnd;
+
+            for (int i = 5; i > nombre; i--)
+                html += liBegin + empty + liEnd;
+
+            return html;
         }
     }
 }
