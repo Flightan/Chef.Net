@@ -14,26 +14,6 @@ namespace DA
 
         /// <summary>
         /// Création d'une recette
-        /// </summary>
-        public static bool NewRecette(DBO.Recette recette)
-        {
-            try
-            {
-                T_Recette t_recette = ConvertToEntity(recette);
-                t_recette.T_User = cuisineEntities.T_User.SingleOrDefault(e => e.id == recette.idCreateur);
-                cuisineEntities.AddToT_Recette(t_recette);
-                cuisineEntities.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.Out.WriteLine(e.Message);
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Création d'une recette
         /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
         /// </summary>
         public static string NewRecette(DBO.Recette recette)
@@ -59,14 +39,6 @@ namespace DA
         public static List<DBO.Recette> GetAll()
         {
             return ConvertToDBO(cuisineEntities.T_Recette.ToList());
-        }
-
-        /// <summary>
-        /// Retourne des recettes qui contiennent ces ingredients
-        /// </summary>
-        public static List<DBO.Recette> GetRecetteByIngredients(List<string> ingredients)
-        {
-            return new List<DBO.Recette>();
         }
 
         /// <summary>
