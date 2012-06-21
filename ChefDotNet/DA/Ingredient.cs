@@ -10,12 +10,27 @@ namespace DA
     /// </summary>
     public static class Ingredient
     {
+        private static CuisineEntities cuisineEntities = new CuisineEntities();
         /// <summary>
         /// Création d'un ingrédient
         /// </summary>
-        public static bool NewIngredient(DBO.Ingredient ingredient)
+        public static string NewIngredient(DBO.Ingredient ingredient)
         {
-            return true;
+            try
+            {
+                cuisineEntities.AddToT_Ingredient(ConvertToEntity(ingredient));
+                T_RecetteIngredient ring = new T_RecetteIngredient();
+                ring.ingredientID = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom).id;
+                ring.recetteID = ingredient.idRecette;
+                cuisineEntities.AddToT_RecetteIngredient(ring);
+                cuisineEntities.SaveChanges();
+                return string.Empty;
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine(e.Message);
+                return e.Message;
+            }
         }
 
         /// <summary>
@@ -23,7 +38,59 @@ namespace DA
         /// </summary>
         public static List<DBO.Ingredient> GetIngredientByRecette(DBO.Recette recette)
         {
-            return new List<DBO.Ingredient>();
+            List<T_Ingredient> ingredients = new List<T_Ingredient>();
+            foreach (T_RecetteIngredient item in cuisineEntities.T_RecetteIngredient.Where(e => e.recetteID == recette.Id).ToList())
+            {
+                ingredients.Add(item.T_Ingredient);
+            }
+            return ConvertToDBO(ingredients);
+        }
+
+        /// <summary>
+        /// Conversion DBO -> Entity
+        /// </summary>
+        public static T_Ingredient ConvertToEntity(DBO.Ingredient ingredient)
+        {
+            T_Ingredient entity = new T_Ingredient();
+
+            if (ingredient != null)
+            {
+                entity.id = ingredient.Id;
+                entity.nom = ingredient.Nom;
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Conversion Entity -> DBO
+        /// </summary>
+        public static DBO.Ingredient ConvertToDBO(T_Ingredient ingredient)
+        {
+            DBO.Ingredient dbo = new DBO.Ingredient();
+
+            if (ingredient != null)
+            {
+                dbo.Nom = ingredient.nom;
+                dbo.Id = Convert.ToInt16(ingredient.id);
+            }
+
+            return dbo;
+        }
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.Ingredient> ConvertToDBO(List<T_Ingredient> listIngredient)
+        {
+            List<DBO.Ingredient> listDbo = new List<DBO.Ingredient>();
+
+            foreach (var item in listIngredient)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }
