@@ -7,3 +7,12 @@ C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\BM\bin\Debug\DA.pdb
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\BM\bin\Debug\DBO.pdb
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\BM\obj\Debug\BM.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\BM\obj\Debug\BM.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\BM.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\BM.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\DA.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\DBO.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\DA.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\bin\Debug\DBO.pdb
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\BM.dll
+C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\BM\obj\Debug\BM.pdb
