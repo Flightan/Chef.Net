@@ -599,6 +599,17 @@
           <ConnectorPoint PointX="1.9570340625" PointY="12.3362939453125" />
           <ConnectorPoint PointX="2.5" PointY="12.3362939453125" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="CuisineModel.T_Note" Width="1.5" PointX="0.5" PointY="9.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="CuisineModel.FK_T_Note_T_Recette" >
+          <ConnectorPoint PointX="3" PointY="11.1487939453125" />
+          <ConnectorPoint PointX="2.2708358333333334" PointY="11.1487939453125" />
+          <ConnectorPoint PointX="2.1041691666666664" PointY="11.1487939453125" />
+          <ConnectorPoint PointX="2" PointY="11.1487939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Note_T_User" >
+          <ConnectorPoint PointX="1.375" PointY="7.8744921875" />
+          <ConnectorPoint PointX="1.375" PointY="9.75" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

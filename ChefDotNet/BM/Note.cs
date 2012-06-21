@@ -7,6 +7,11 @@ namespace BM
 {
     public static class Note
     {
+        public static List<DBO.Note> GetNoteByUser(DBO.User user)
+        {
+            return new List<DBO.Note>();
+        }
+
         /// <summary>
         /// Retourne la note totale de la recette
         /// </summary>

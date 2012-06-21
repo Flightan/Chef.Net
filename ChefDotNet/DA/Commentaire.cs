@@ -53,7 +53,6 @@ namespace DA
             }
         }
 
-
         /// <summary>
         /// Conversion DBO -> Entity
         /// </summary>
