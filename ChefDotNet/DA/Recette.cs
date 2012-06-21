@@ -90,6 +90,14 @@ namespace DA
         }
 
         /// <summary>
+        /// Retourne le top des recettes
+        /// </summary>
+        public static List<DBO.Recette> GetTopRecetteByRating(int rows)
+        {
+            return ConvertToDBO(cuisineEntities.T_Recette.OrderByDescending(e => e.date).Take(rows).ToList());
+        }
+
+        /// <summary>
         /// Conversion DBO -> Entity
         /// </summary>
         public static T_Recette ConvertToEntity(DBO.Recette recette)

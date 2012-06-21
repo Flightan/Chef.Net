@@ -10,7 +10,7 @@
     <ul>
     @foreach (DBO.Recette recette in recettes)
     {
-        <li><a href="../Recette/Fiche/@recette.Id">@recette.Nom</a></li>
+        <li>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
     }
     </ul>
 </div>
