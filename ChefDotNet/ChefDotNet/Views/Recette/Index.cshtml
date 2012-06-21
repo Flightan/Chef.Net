@@ -1,14 +1,125 @@
 ﻿@{
-    ViewBag.Title = "Recettes";
+    ViewBag.Title = "Les recettes";
 
     List<DBO.Recette> recettes = BM.Top.GetTopRecettes();
 }
 
-@Html.ActionLink("Créer une recette", "Creation", "Recette")
-
-<ul>
-@foreach (DBO.Recette recette in recettes)
-{
-    <li>@recette.Nom</li>
-}
-</ul>
+<div id="content">
+    <h1>@ViewBag.Title</h1>
+    <div class="add_link">
+        @Html.ActionLink("Créer une recette", "Creation", "Recette")
+    </div>
+    <p>Pour toutes les envies, tous les goûts et toutes les occasions, <strong>Partage de Saveurs</strong> vous offre le meilleur de la cuisine à travers le monde.</p>
+    <div class="liste_recette">
+        <h2>Les meilleures recettes</h2>
+         <span class="subtitle">- Vos recettes préférées</span>
+        <img src="../../Assets/Img/poireaux.png" alt="Entrée" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div> 
+    <div class="liste_recette">
+        <h2>Les originales</h2>
+        <span class="subtitle">- Des saveurs inhabituelles</span>
+       
+        <img src="../../Assets/Img/croquettes.png" alt="Originales" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div>
+    <div class="liste_recette">
+        <h2>Les spéciales étudiant</h2>
+        <span class="subtitle">- Facile, rapide et budget léger</span>
+        <img src="../../Assets/Img/maki.png" alt="Entrée" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div>
+    <div class="liste_recette">
+        <h2>Les desserts</h2>
+        <span class="subtitle">- Gâteaux et patisseries</span>
+       
+        <img src="../../Assets/Img/macarons.png" alt="Entrée" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div>
+    <div class="liste_recette">
+        <h2>Les gourmandises</h2>
+        <span class="subtitle">- Confiseries, sucreries et friandises</span>
+       
+        <img src="../../Assets/Img/truffes.png" alt="Truffes" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div>
+    <div class="liste_recette">
+        <h2>Les repas de fête</h2>
+        <span class="subtitle">- Un menu pour chaque occasion</span>
+       
+        <img src="../../Assets/Img/buche.png" alt="Truffes" />
+        <ul>
+        <!--
+            @foreach (DBO.Recette recette in recettes)
+            {
+                <li>@recette.Nom</li>
+            }
+        -->
+            <li><a href="Fiche-1">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
+            <li><a href="Fiche-1">Paris-Brest</a></li>
+            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
+            <li><a href="Fiche-1">Buche de Noël</a></li>
+            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
+        </ul>
+    </div>
+</div>

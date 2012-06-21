@@ -13,8 +13,10 @@
         </div>
         <div id="main">
             @RenderPage("./_Menu.cshtml")
-           <!-- <h1>@ViewBag.Title</h1> -->
-            @RenderBody()
+            <div id="content">
+                <!-- <h1>@ViewBag.Title</h1> -->
+                @RenderBody()
+            </div>
         </div>
         <div id="footer">
             @RenderPage("./_Footer.cshtml")
