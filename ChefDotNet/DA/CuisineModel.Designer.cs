@@ -1125,54 +1125,6 @@ namespace DA
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String origine
-        {
-            get
-            {
-                return _origine;
-            }
-            set
-            {
-                OnorigineChanging(value);
-                ReportPropertyChanging("origine");
-                _origine = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("origine");
-                OnorigineChanged();
-            }
-        }
-        private global::System.String _origine;
-        partial void OnorigineChanging(global::System.String value);
-        partial void OnorigineChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String cout
-        {
-            get
-            {
-                return _cout;
-            }
-            set
-            {
-                OncoutChanging(value);
-                ReportPropertyChanging("cout");
-                _cout = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("cout");
-                OncoutChanged();
-            }
-        }
-        private global::System.String _cout;
-        partial void OncoutChanging(global::System.String value);
-        partial void OncoutChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 createurID
@@ -1193,30 +1145,6 @@ namespace DA
         private global::System.Int64 _createurID;
         partial void OncreateurIDChanging(global::System.Int64 value);
         partial void OncreateurIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String conseil
-        {
-            get
-            {
-                return _conseil;
-            }
-            set
-            {
-                OnconseilChanging(value);
-                ReportPropertyChanging("conseil");
-                _conseil = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("conseil");
-                OnconseilChanged();
-            }
-        }
-        private global::System.String _conseil;
-        partial void OnconseilChanging(global::System.String value);
-        partial void OnconseilChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

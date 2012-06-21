@@ -4,6 +4,7 @@
     <EntitySetMapping Name="T_Commentaire">
       <EntityTypeMapping TypeName="CuisineModel.T_Commentaire">
         <MappingFragment StoreEntitySet="T_Commentaire">
+          <ScalarProperty Name="note" ColumnName="note" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="texte" ColumnName="texte" />
           <ScalarProperty Name="utilisateurID" ColumnName="utilisateurID" />
@@ -38,10 +39,7 @@
           <ScalarProperty Name="realisation" ColumnName="realisation" />
           <ScalarProperty Name="difficulte" ColumnName="difficulte" />
           <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="origine" ColumnName="origine" />
-          <ScalarProperty Name="cout" ColumnName="cout" />
           <ScalarProperty Name="createurID" ColumnName="createurID" />
-          <ScalarProperty Name="conseil" ColumnName="conseil" />
           <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
           <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
           <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
@@ -66,16 +64,6 @@
           <ScalarProperty Name="nom" ColumnName="nom" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="info" ColumnName="info" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="T_Note">
-      <EntityTypeMapping TypeName="CuisineModel.T_Note">
-        <MappingFragment StoreEntitySet="T_Note">
-          <ScalarProperty Name="note" ColumnName="note" />
-          <ScalarProperty Name="idRecette" ColumnName="idRecette" />
-          <ScalarProperty Name="idUser" ColumnName="idUser" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

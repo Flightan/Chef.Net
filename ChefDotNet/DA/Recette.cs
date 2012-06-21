@@ -26,7 +26,6 @@ namespace DA
             }
             catch (Exception e)
             {
-                Console.Out.WriteLine(e.Message);
                 return e.Message;
             }
         }
@@ -72,11 +71,16 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne des recettes selon leur créateur
+        /// Retourne les recettes favoris d'un utilisateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
         {
-            return new List<DBO.Recette>();
+            List<DBO.Recette> recettes = new List<DBO.Recette>();
+            foreach (T_Favoris item in cuisineEntities.T_Favoris.Where(e => e.userID == user.Id).ToList())
+            {
+                recettes.Add(ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == item.recetteID)));
+            }
+            return recettes;
         }
 
         /// <summary>
