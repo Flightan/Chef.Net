@@ -38,10 +38,7 @@
           <ScalarProperty Name="realisation" ColumnName="realisation" />
           <ScalarProperty Name="difficulte" ColumnName="difficulte" />
           <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="origine" ColumnName="origine" />
-          <ScalarProperty Name="cout" ColumnName="cout" />
           <ScalarProperty Name="createurID" ColumnName="createurID" />
-          <ScalarProperty Name="conseil" ColumnName="conseil" />
           <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
           <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
           <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />

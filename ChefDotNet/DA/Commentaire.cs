@@ -57,7 +57,6 @@ namespace DA
 
             if (commentaire != null)
             {
-                entity.id = commentaire.Id;
                 entity.texte = commentaire.Text;
                 entity.utilisateurID = commentaire.idUser;
                 entity.recetteID = commentaire.idRecette;
