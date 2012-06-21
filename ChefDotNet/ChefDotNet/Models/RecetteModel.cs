@@ -27,12 +27,6 @@ namespace ChefDotNet.Models
         [Display(Name = "Temps de préparation")]
         public int TempsPreparation { get; set; }
 
-        [Display(Name = "Temps de repos")]
-        public int TempsRepos { get; set; }
-
-        [Display(Name = "Temps de cuisson")]
-        public int TempsCuisson { get; set; }
-
         [Required(ErrorMessage = "Le champ difficulté est requis.")]
         [Display(Name = "Difficulté")]
         public int Difficulte { get; set; }
@@ -43,5 +37,11 @@ namespace ChefDotNet.Models
 
         [Display(Name = "Url de la photo")]
         public string Photo { get; set; }
+
+        [Display(Name = "Temps de repos")]
+        public int TempsRepos { get; set; }
+
+        [Display(Name = "Temps de cuisson")]
+        public int TempsCuisson { get; set; }
     }
 }
