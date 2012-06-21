@@ -94,6 +94,16 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetTopRecetteByRating(int rows)
         {
+            int total = 0;
+            foreach (var recette in cuisineEntities.T_Recette)
+            {
+                int note = 0;
+                foreach (var commentaire in recette.T_Commentaire)
+                {
+                    note += Convert.ToInt16(commentaire.T_Note.gout);
+                }
+                total++;
+            }
             return ConvertToDBO(cuisineEntities.T_Recette.OrderByDescending(e => e.date).Take(rows).ToList());
         }
 

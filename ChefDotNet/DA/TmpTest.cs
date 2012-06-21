@@ -15,13 +15,11 @@ namespace DA
             return new DBO.Recette()
             {
                 Nom = "Paris Brest",
-                Intro = "intro intro intro intro intro intro intro intro intro",
-                Realisation = "réa réa réa réa réa réa réa réa réa réa",
+                Intro = "Introduction à la recette. Description brève, idées d’accompagnement, occasion de la réaliser... La noix de Saint-Jacques sur son lit de poireaux la noix de Saint-Jacques sur son lit la noix de Saint-Jacques sur son lit de poireaux fondus. La noix de Saint-Jacques sur son lit de poireaux fondus. La noix de Jacques sur son lit de poireaux fondus a noix de Saint-Jacques sur son lit de poireaux fondus.",
+                Realisation = "1. Débarrasser le poisson de la peau et des arrêtes puis émietter la chaire dans une jatte. Ajouter le fromage frais et la sauce au raifort, puis mélanger soigneusement jusqu’à ce que le mélange soit homogène. 2. Ajouter le jus de citron consciencieusement et le poivre du moulin selon la convenance. 3. Garnir de citron vert et de brins de romarin. Servir avec une salade verte et de fines tranches de pain grillé.",
                 TempsPreparation = 3,
-                TempsCuisson = 2,
-                TempsRepos = 1,
-                Difficulte = 5,
-                Categorie = "cat",
+                Difficulte = 3,
+                Categorie = "Dessert",
                 Photo = "http://www.conseilsnutrition.tv/images/capsules/CN_57.jpg",
                 idCreateur = 12
             };
@@ -43,7 +41,7 @@ namespace DA
             return new DBO.Ingredient()
             {
                 idRecette = 1,
-                Nom = "pinprenelle"
+                Nom = "pimprenelle"
             };
         }
 

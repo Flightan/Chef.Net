@@ -83,9 +83,9 @@
     <Content Include="Assets\script.js" />
     <Content Include="Assets\style.css" />
     <Content Include="Global.asax" />
-    <Content Include="Views\img\menu.png" />
-    <Content Include="Views\img\partagedesaveurs.png" />
-    <Content Include="Views\img\poireaux.png" />
+    <Content Include="Assets\Img\menu.png" />
+    <Content Include="Assets\Img\partagedesaveurs.png" />
+    <Content Include="Assets\Img\sprites.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -95,9 +95,7 @@
     </Content>
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Img\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -176,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Recherche\RechercheAvancee.cshtml" />
+    <Content Include="Views\Shared\_SousMenu.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
