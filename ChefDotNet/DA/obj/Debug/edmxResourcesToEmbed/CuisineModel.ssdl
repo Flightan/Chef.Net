@@ -4,14 +4,9 @@
     <EntitySet Name="T_Commentaire" EntityType="CuisineModel.Store.T_Commentaire" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Favoris" EntityType="CuisineModel.Store.T_Favoris" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Ingredient" EntityType="CuisineModel.Store.T_Ingredient" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="T_Note" EntityType="CuisineModel.Store.T_Note" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Recette" EntityType="CuisineModel.Store.T_Recette" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_RecetteIngredient" EntityType="CuisineModel.Store.T_RecetteIngredient" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_User" EntityType="CuisineModel.Store.T_User" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_T_Commentaire_T_Note" Association="CuisineModel.Store.FK_T_Commentaire_T_Note">
-      <End Role="T_Note" EntitySet="T_Note" />
-      <End Role="T_Commentaire" EntitySet="T_Commentaire" />
-    </AssociationSet>
     <AssociationSet Name="FK_T_Commentaire_T_Recette" Association="CuisineModel.Store.FK_T_Commentaire_T_Recette">
       <End Role="T_Recette" EntitySet="T_Recette" />
       <End Role="T_Commentaire" EntitySet="T_Commentaire" />
@@ -47,9 +42,9 @@
     </Key>
     <Property Name="id" Type="bigint" Nullable="false" />
     <Property Name="texte" Type="varchar" MaxLength="200" />
-    <Property Name="noteID" Type="bigint" />
     <Property Name="utilisateurID" Type="bigint" Nullable="false" />
     <Property Name="recetteID" Type="bigint" Nullable="false" />
+    <Property Name="note" Type="int" />
   </EntityType>
   <EntityType Name="T_Favoris">
     <Key>
@@ -65,15 +60,6 @@
     </Key>
     <Property Name="id" Type="bigint" Nullable="false" />
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="T_Note">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
-    <Property Name="gout" Type="int" />
-    <Property Name="originalite" Type="int" />
-    <Property Name="presentation" Type="int" />
   </EntityType>
   <EntityType Name="T_Recette">
     <Key>
@@ -113,18 +99,6 @@
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="info" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_T_Commentaire_T_Note">
-    <End Role="T_Note" Type="CuisineModel.Store.T_Note" Multiplicity="0..1" />
-    <End Role="T_Commentaire" Type="CuisineModel.Store.T_Commentaire" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="T_Note">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="T_Commentaire">
-        <PropertyRef Name="noteID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_T_Commentaire_T_Recette">
     <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="1" />
     <End Role="T_Commentaire" Type="CuisineModel.Store.T_Commentaire" Multiplicity="*" />

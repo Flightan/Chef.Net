@@ -4,14 +4,9 @@
     <EntitySet Name="T_Commentaire" EntityType="CuisineModel.T_Commentaire" />
     <EntitySet Name="T_Favoris" EntityType="CuisineModel.T_Favoris" />
     <EntitySet Name="T_Ingredient" EntityType="CuisineModel.T_Ingredient" />
-    <EntitySet Name="T_Note" EntityType="CuisineModel.T_Note" />
     <EntitySet Name="T_Recette" EntityType="CuisineModel.T_Recette" />
     <EntitySet Name="T_RecetteIngredient" EntityType="CuisineModel.T_RecetteIngredient" />
     <EntitySet Name="T_User" EntityType="CuisineModel.T_User" />
-    <AssociationSet Name="FK_T_Commentaire_T_Note" Association="CuisineModel.FK_T_Commentaire_T_Note">
-      <End Role="T_Note" EntitySet="T_Note" />
-      <End Role="T_Commentaire" EntitySet="T_Commentaire" />
-    </AssociationSet>
     <AssociationSet Name="FK_T_Commentaire_T_Recette" Association="CuisineModel.FK_T_Commentaire_T_Recette">
       <End Role="T_Recette" EntitySet="T_Recette" />
       <End Role="T_Commentaire" EntitySet="T_Commentaire" />
@@ -47,12 +42,11 @@
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" />
     <Property Name="texte" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-    <Property Name="noteID" Type="Int64" />
     <Property Name="utilisateurID" Type="Int64" Nullable="false" />
     <Property Name="recetteID" Type="Int64" Nullable="false" />
-    <NavigationProperty Name="T_Note" Relationship="CuisineModel.FK_T_Commentaire_T_Note" FromRole="T_Commentaire" ToRole="T_Note" />
     <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Commentaire_T_Recette" FromRole="T_Commentaire" ToRole="T_Recette" />
     <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Commentaire_T_User" FromRole="T_Commentaire" ToRole="T_User" />
+    <Property Type="Int32" Name="note" />
   </EntityType>
   <EntityType Name="T_Favoris">
     <Key>
@@ -71,16 +65,6 @@
     <Property Name="id" Type="Int64" Nullable="false" />
     <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="T_RecetteIngredient" Relationship="CuisineModel.FK_T_RecetteIngredient_T_Ingredient" FromRole="T_Ingredient" ToRole="T_RecetteIngredient" />
-  </EntityType>
-  <EntityType Name="T_Note">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="gout" Type="Int32" />
-    <Property Name="originalite" Type="Int32" />
-    <Property Name="presentation" Type="Int32" />
-    <NavigationProperty Name="T_Commentaire" Relationship="CuisineModel.FK_T_Commentaire_T_Note" FromRole="T_Note" ToRole="T_Commentaire" />
   </EntityType>
   <EntityType Name="T_Recette">
     <Key>
@@ -129,18 +113,6 @@
     <NavigationProperty Name="T_Favoris" Relationship="CuisineModel.FK_T_UserRecette_T_User" FromRole="T_User" ToRole="T_Favoris" />
     <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Recette_T_User" FromRole="T_User" ToRole="T_Recette" />
   </EntityType>
-  <Association Name="FK_T_Commentaire_T_Note">
-    <End Role="T_Note" Type="CuisineModel.T_Note" Multiplicity="0..1" />
-    <End Role="T_Commentaire" Type="CuisineModel.T_Commentaire" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="T_Note">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="T_Commentaire">
-        <PropertyRef Name="noteID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_T_Commentaire_T_Recette">
     <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="1" />
     <End Role="T_Commentaire" Type="CuisineModel.T_Commentaire" Multiplicity="*" />
