@@ -97,6 +97,7 @@ namespace DA
                 entity.nom = user.Name;
                 entity.password = user.Password;
                 entity.email = user.Email;
+                entity.id = user.Id;
             }
 
             return entity;
@@ -115,6 +116,7 @@ namespace DA
                 dbo.Name = user.nom;
                 dbo.Password = user.password;
                 dbo.Email = user.email;
+                dbo.Id = Convert.ToInt16(user.id);
             }
 
             return dbo;

@@ -50,5 +50,14 @@ namespace BM
         {
             return DA.Recette.GetRecetteByUser(user);
         }
+
+
+        /// <summary>
+        /// Retourne la note totale de la recette
+        /// </summary>
+        public static int GetNoteTotaleByRecette(DBO.Recette recette)
+        {
+            return 5;
+        }
     }
 }

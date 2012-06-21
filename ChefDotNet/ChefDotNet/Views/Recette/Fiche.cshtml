@@ -6,7 +6,7 @@
         DBO.User user = BM.User.GetUserById(recette.idCreateur);
         List<DBO.Ingredient> ingredients = BM.Ingredient.GetIngredientByRecette(recette);
         List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByRecette(recette);
-        DBO.NoteTotale noteTotale = BM.Note.GetNoteTotaleByRecette(recette);     
+        int noteTotale = BM.Recette.GetNoteTotaleByRecette(recette);     
     }
     <h2>@recette.Nom</h2>
     <span class="quantite">Pour 4 personnes</span>
@@ -66,6 +66,7 @@
             <li><span class="user_link">@Html.ActionLink(commentaireUser.Name, "Index", "PagePersonnelle", new { id = commentaireUser.Id }, null)</span>
                 <span class="date">@commentaire.DateCreation</span>
                 <p>@commentaire.Text</p>
+                <p>@commentaire.Note</p>
             </li>
         }
     </ul>

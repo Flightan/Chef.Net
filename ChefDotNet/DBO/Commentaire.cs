@@ -20,12 +20,15 @@ namespace DBO
 
         public DateTime DateCreation { get; set; }
 
+        public int Note { get; set; }
+
         public Commentaire()
         {
             Id = -1;
             Text = string.Empty;
             idUser = -1;
             idRecette = -1;
+            Note = 0;
             DateCreation = DateTime.Now;
         }
     }
