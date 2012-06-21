@@ -20,9 +20,7 @@ namespace DA
         {
             try
             {
-                T_Recette t_recette = ConvertToEntity(recette);
-                t_recette.T_User = cuisineEntities.T_User.SingleOrDefault(e => e.id == recette.idCreateur);
-                cuisineEntities.AddToT_Recette(t_recette);
+                cuisineEntities.AddToT_Recette(ConvertToEntity(recette));
                 cuisineEntities.SaveChanges();
                 return string.Empty;
             }
@@ -121,7 +119,6 @@ namespace DA
                 entity.photo = recette.Photo;
                 entity.categorie = recette.Categorie;
                 entity.date = DateTime.Now;
-                entity.id = recette.Id;
                 entity.createurID = recette.idCreateur;
             }
 
