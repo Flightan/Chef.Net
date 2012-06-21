@@ -18,7 +18,9 @@ namespace DA
         {
             try
             {
-                cuisineEntities.AddToT_Ingredient(ConvertToEntity(ingredient));
+                T_Ingredient item = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom);
+                if (item == null)
+                    cuisineEntities.AddToT_Ingredient(ConvertToEntity(ingredient));
                 T_RecetteIngredient ring = new T_RecetteIngredient();
                 ring.ingredientID = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom).id;
                 ring.recetteID = ingredient.idRecette;
