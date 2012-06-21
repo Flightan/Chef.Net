@@ -15,6 +15,9 @@ namespace ChefDotNet.Models
         [Display(Name = "Texte")]
         public string Texte { get; set; }
 
+        [Display(Name = "Note")]
+        public int Note { get; set; }
+
         public int recetteId { get; set; }
     }
 }

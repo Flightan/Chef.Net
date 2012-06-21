@@ -41,6 +41,7 @@ namespace ChefDotNet.Controllers
             DBO.Commentaire commentaire = new DBO.Commentaire()
             {
                 Text = model.Texte,
+                Note = model.Note,
                 idUser = user.Id,
                 idRecette = model.recetteId
             };
