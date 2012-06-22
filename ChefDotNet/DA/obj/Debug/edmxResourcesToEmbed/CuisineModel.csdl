@@ -84,14 +84,18 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="introduction" Type="String" Nullable="false" MaxLength="600" Unicode="false" FixedLength="false" />
+    <Property Name="realisation" Type="String" Nullable="false" MaxLength="3000" Unicode="false" FixedLength="false" />
     <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <Property Name="photo" Type="String" />
 =======
     <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
 >>>>>>> 828ae0addfc6c5660020c7b20f8b5adb8af48ed6
+=======
+    <Property Name="photo" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+>>>>>>> 345cdcf3d45da347e55ec4c6d2d6cb0250c10791
     <Property Name="createurID" Type="Int64" Nullable="false" />
     <Property Name="temps_cuisson" Type="Int32" />
     <Property Name="temps_repos" Type="Int32" />

@@ -81,7 +81,7 @@
         <ul>
         @foreach (DBO.Conseil conseil in conseils)
         {
-            <li>@conseil.Nom</li>
+            <li>@Html.ActionLink(conseil.Nom, "Fiche", "Conseil", new { id = conseil.Id }, null)</li>
         }
         </ul>
     }

@@ -105,10 +105,10 @@
           </Key>
           <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="600" />
+          <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="3000" />
           <Property Name="difficulte" Type="varchar" MaxLength="50" />
-          <Property Name="photo" Type="varchar" MaxLength="100" />
+          <Property Name="photo" Type="varchar" MaxLength="300" />
           <Property Name="createurID" Type="bigint" Nullable="false" />
           <Property Name="temps_cuisson" Type="int" />
           <Property Name="temps_repos" Type="int" />
@@ -342,10 +342,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="introduction" Type="String" Nullable="false" MaxLength="600" Unicode="false" FixedLength="false" />
+          <Property Name="realisation" Type="String" Nullable="false" MaxLength="3000" Unicode="false" FixedLength="false" />
           <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
-          <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="photo" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <Property Name="createurID" Type="Int64" Nullable="false" />
           <Property Name="temps_cuisson" Type="Int32" />
           <Property Name="temps_repos" Type="Int32" />
