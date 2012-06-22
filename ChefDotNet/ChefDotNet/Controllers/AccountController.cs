@@ -25,11 +25,11 @@ namespace ChefDotNet.Controllers
 
             DBO.User user = new DBO.User() { Name = model.UserName, Password = model.Password };
 
-            /* if (!BM.User.IsValid(user))
+            if (!BM.User.IsValid(user))
             {
                 ModelState.AddModelError("", "Pseudo ou mot de passe incorrect.");
                 return View(model);
-            }*/
+            }
 
             FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
