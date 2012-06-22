@@ -22,6 +22,7 @@ namespace ChefDotNet.Models
 
         [Required(ErrorMessage = "Le champ réalisation est requis.")]
         [Display(Name = "Réalisation")]
+        [DataType(DataType.MultilineText)]
         public string Realisation { get; set; }
 
         [Required(ErrorMessage = "Le champ temps de préparation est requis.")]

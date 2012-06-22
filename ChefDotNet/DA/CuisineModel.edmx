@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
@@ -71,7 +71,7 @@
           <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idCreateur" Type="bigint" Nullable="false" />
           <Property Name="texte" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="photo" Type="varchar" MaxLength="50" />
+          <Property Name="photo" Type="varchar" MaxLength="100" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="dateCreation" Type="datetime" />
         </EntityType>
@@ -108,7 +108,7 @@
           <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="difficulte" Type="varchar" MaxLength="50" />
-          <Property Name="photo" Type="varchar" MaxLength="50" />
+          <Property Name="photo" Type="varchar" MaxLength="100" />
           <Property Name="createurID" Type="bigint" Nullable="false" />
           <Property Name="temps_cuisson" Type="int" />
           <Property Name="temps_repos" Type="int" />
@@ -345,7 +345,7 @@
           <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
-          <Property Name="photo" Type="String" />
+          <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="createurID" Type="Int64" Nullable="false" />
           <Property Name="temps_cuisson" Type="Int32" />
           <Property Name="temps_repos" Type="Int32" />
@@ -510,7 +510,7 @@
           <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int64" Name="idCreateur" Nullable="false" />
           <Property Type="String" Name="texte" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="photo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="photo" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="nom" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="dateCreation" />
           <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_Conseil" ToRole="T_User" />
