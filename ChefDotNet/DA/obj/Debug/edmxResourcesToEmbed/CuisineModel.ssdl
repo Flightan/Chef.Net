@@ -100,10 +100,10 @@
     </Key>
     <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="600" />
+    <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="3000" />
     <Property Name="difficulte" Type="varchar" MaxLength="50" />
-    <Property Name="photo" Type="varchar" MaxLength="100" />
+    <Property Name="photo" Type="varchar" MaxLength="300" />
     <Property Name="createurID" Type="bigint" Nullable="false" />
     <Property Name="temps_cuisson" Type="int" />
     <Property Name="temps_repos" Type="int" />

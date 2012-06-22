@@ -84,10 +84,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int64" Nullable="false" />
-    <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="introduction" Type="String" Nullable="false" MaxLength="600" Unicode="false" FixedLength="false" />
+    <Property Name="realisation" Type="String" Nullable="false" MaxLength="3000" Unicode="false" FixedLength="false" />
     <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
-    <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="photo" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
     <Property Name="createurID" Type="Int64" Nullable="false" />
     <Property Name="temps_cuisson" Type="Int32" />
     <Property Name="temps_repos" Type="Int32" />

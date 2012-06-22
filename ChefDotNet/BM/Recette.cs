@@ -103,6 +103,9 @@ namespace BM
             ArrayList items = new ArrayList();
             items.Add("Déssert");
             items.Add("Entrée");
+            items.Add("Plat principal");
+            items.Add("Apéritif");
+            items.Add("Snack");
             return items;
         }
     }
