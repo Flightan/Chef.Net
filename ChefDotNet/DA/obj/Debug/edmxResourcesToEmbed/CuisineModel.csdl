@@ -87,7 +87,15 @@
     <Property Name="introduction" Type="String" Nullable="false" MaxLength="600" Unicode="false" FixedLength="false" />
     <Property Name="realisation" Type="String" Nullable="false" MaxLength="3000" Unicode="false" FixedLength="false" />
     <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Property Name="photo" Type="String" />
+=======
+    <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+>>>>>>> 828ae0addfc6c5660020c7b20f8b5adb8af48ed6
+=======
     <Property Name="photo" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+>>>>>>> 345cdcf3d45da347e55ec4c6d2d6cb0250c10791
     <Property Name="createurID" Type="Int64" Nullable="false" />
     <Property Name="temps_cuisson" Type="Int32" />
     <Property Name="temps_repos" Type="Int32" />
@@ -252,7 +260,11 @@
     <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int64" Name="idCreateur" Nullable="false" />
     <Property Type="String" Name="texte" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+<<<<<<< HEAD
+    <Property Type="String" Name="photo" MaxLength="50" FixedLength="false" Unicode="false" />
+=======
     <Property Type="String" Name="photo" MaxLength="100" FixedLength="false" Unicode="false" />
+>>>>>>> 828ae0addfc6c5660020c7b20f8b5adb8af48ed6
     <Property Type="String" Name="nom" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Type="DateTime" Name="dateCreation" />
     <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_Conseil" ToRole="T_User" />

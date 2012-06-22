@@ -66,7 +66,11 @@
     <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="idCreateur" Type="bigint" Nullable="false" />
     <Property Name="texte" Type="varchar" Nullable="false" MaxLength="500" />
+<<<<<<< HEAD
+    <Property Name="photo" Type="varchar" MaxLength="50" />
+=======
     <Property Name="photo" Type="varchar" MaxLength="100" />
+>>>>>>> 828ae0addfc6c5660020c7b20f8b5adb8af48ed6
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="dateCreation" Type="datetime" />
   </EntityType>
@@ -103,7 +107,15 @@
     <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="600" />
     <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="3000" />
     <Property Name="difficulte" Type="varchar" MaxLength="50" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <Property Name="photo" Type="varchar" MaxLength="50" />
+=======
+    <Property Name="photo" Type="varchar" MaxLength="100" />
+>>>>>>> 828ae0addfc6c5660020c7b20f8b5adb8af48ed6
+=======
     <Property Name="photo" Type="varchar" MaxLength="300" />
+>>>>>>> 345cdcf3d45da347e55ec4c6d2d6cb0250c10791
     <Property Name="createurID" Type="bigint" Nullable="false" />
     <Property Name="temps_cuisson" Type="int" />
     <Property Name="temps_repos" Type="int" />

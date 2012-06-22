@@ -25,13 +25,12 @@
             @Html.ValidationMessageFor(m => m.Intro)
         </div>
 		<div class="editor-label">
-            <span>Ingredients</span>
-			@foreach (DBO.Ingredient ingredient in ingredients)
-            {  
-                <li>
-                    <p>@ingredient.Nom</p>
-                </li>
-            }
+            <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Ingredients)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(m => m.Ingredients, new { @cols = 50, @rows = 3 })
+            @Html.ValidationMessageFor(m => m.Ingredients)
         </div>
         <div class="editor-label">
             <span class="etoile">*</span>
