@@ -3,8 +3,16 @@ C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.pdb
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.dll
 C:\Users\Florian\Documents\GitHub\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.pdb
+<<<<<<< HEAD
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.pdb
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\DBO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.dll
+C:\Users\Soft\Documents\Visual Studio 2010\Projects\chef\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.pdb
+=======
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.dll
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\bin\Debug\DBO.pdb
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.dll
 C:\Users\Joseph El Khoury\Documents\EPITA\MTI\NET\Projet\Chef.Net\ChefDotNet\DBO\obj\Debug\DBO.pdb
+>>>>>>> 6022289c713e5ecae2fd0b98280afbd925c4dfc0

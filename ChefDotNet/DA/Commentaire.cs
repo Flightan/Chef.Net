@@ -47,7 +47,6 @@ namespace DA
             return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.utilisateurID == user.Id).ToList());
         }
 
-
         /// <summary>
         /// Conversion DBO -> Entity
         /// </summary>

@@ -76,8 +76,8 @@ namespace ChefDotNet.Controllers
                 Intro = model.Intro,
                 Photo = model.Photo,
                 Realisation = model.Realisation,
-                TempsRepos = model.TempsRepos,
-                TempsCuisson = model.TempsCuisson,
+                TempsRepos = model.TempsRepos == null ? -1 : model.TempsRepos.Value,
+                TempsCuisson = model.TempsCuisson == null ? -1 : model.TempsCuisson.Value,
                 TempsPreparation = model.TempsPreparation
             };
 
