@@ -27,6 +27,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_RecetteIngredient_T_Recette", "T_Recette", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.T_Recette), "T_RecetteIngredient", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_RecetteIngredient), true)]
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Note_T_Recette", "T_Recette", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DA.T_Recette), "T_Note", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Note), true)]
 [assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Note_T_User", "T_User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DA.T_User), "T_Note", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Note), true)]
+[assembly: EdmRelationshipAttribute("CuisineModel", "FK_T_Conseil_T_User", "T_User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DA.T_User), "T_Conseil", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DA.T_Conseil), true)]
 
 #endregion
 
@@ -189,6 +190,22 @@ namespace DA
             }
         }
         private ObjectSet<T_Note> _T_Note;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<T_Conseil> T_Conseil
+        {
+            get
+            {
+                if ((_T_Conseil == null))
+                {
+                    _T_Conseil = base.CreateObjectSet<T_Conseil>("T_Conseil");
+                }
+                return _T_Conseil;
+            }
+        }
+        private ObjectSet<T_Conseil> _T_Conseil;
 
         #endregion
         #region AddTo Methods
@@ -247,6 +264,14 @@ namespace DA
         public void AddToT_Note(T_Note t_Note)
         {
             base.AddObject("T_Note", t_Note);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the T_Conseil EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToT_Conseil(T_Conseil t_Conseil)
+        {
+            base.AddObject("T_Conseil", t_Conseil);
         }
 
         #endregion
@@ -460,6 +485,228 @@ namespace DA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_User>("CuisineModel.FK_T_Commentaire_T_User", "T_User", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CuisineModel", Name="T_Conseil")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_Conseil : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new T_Conseil object.
+        /// </summary>
+        /// <param name="id">Initial value of the id property.</param>
+        /// <param name="idCreateur">Initial value of the idCreateur property.</param>
+        /// <param name="texte">Initial value of the texte property.</param>
+        /// <param name="nom">Initial value of the nom property.</param>
+        public static T_Conseil CreateT_Conseil(global::System.Int64 id, global::System.Int64 idCreateur, global::System.String texte, global::System.String nom)
+        {
+            T_Conseil t_Conseil = new T_Conseil();
+            t_Conseil.id = id;
+            t_Conseil.idCreateur = idCreateur;
+            t_Conseil.texte = texte;
+            t_Conseil.nom = nom;
+            return t_Conseil;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int64 _id;
+        partial void OnidChanging(global::System.Int64 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 idCreateur
+        {
+            get
+            {
+                return _idCreateur;
+            }
+            set
+            {
+                OnidCreateurChanging(value);
+                ReportPropertyChanging("idCreateur");
+                _idCreateur = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("idCreateur");
+                OnidCreateurChanged();
+            }
+        }
+        private global::System.Int64 _idCreateur;
+        partial void OnidCreateurChanging(global::System.Int64 value);
+        partial void OnidCreateurChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String texte
+        {
+            get
+            {
+                return _texte;
+            }
+            set
+            {
+                OntexteChanging(value);
+                ReportPropertyChanging("texte");
+                _texte = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("texte");
+                OntexteChanged();
+            }
+        }
+        private global::System.String _texte;
+        partial void OntexteChanging(global::System.String value);
+        partial void OntexteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String photo
+        {
+            get
+            {
+                return _photo;
+            }
+            set
+            {
+                OnphotoChanging(value);
+                ReportPropertyChanging("photo");
+                _photo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("photo");
+                OnphotoChanged();
+            }
+        }
+        private global::System.String _photo;
+        partial void OnphotoChanging(global::System.String value);
+        partial void OnphotoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                OnnomChanging(value);
+                ReportPropertyChanging("nom");
+                _nom = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("nom");
+                OnnomChanged();
+            }
+        }
+        private global::System.String _nom;
+        partial void OnnomChanging(global::System.String value);
+        partial void OnnomChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dateCreation
+        {
+            get
+            {
+                return _dateCreation;
+            }
+            set
+            {
+                OndateCreationChanging(value);
+                ReportPropertyChanging("dateCreation");
+                _dateCreation = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dateCreation");
+                OndateCreationChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dateCreation;
+        partial void OndateCreationChanging(Nullable<global::System.DateTime> value);
+        partial void OndateCreationChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CuisineModel", "FK_T_Conseil_T_User", "T_User")]
+        public T_User T_User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_User>("CuisineModel.FK_T_Conseil_T_User", "T_User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_User>("CuisineModel.FK_T_Conseil_T_User", "T_User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<T_User> T_UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<T_User>("CuisineModel.FK_T_Conseil_T_User", "T_User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<T_User>("CuisineModel.FK_T_Conseil_T_User", "T_User", value);
                 }
             }
         }
@@ -1079,7 +1326,7 @@ namespace DA
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> difficulte
+        public global::System.String difficulte
         {
             get
             {
@@ -1089,13 +1336,13 @@ namespace DA
             {
                 OndifficulteChanging(value);
                 ReportPropertyChanging("difficulte");
-                _difficulte = StructuralObject.SetValidValue(value);
+                _difficulte = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("difficulte");
                 OndifficulteChanged();
             }
         }
-        private Nullable<global::System.Int32> _difficulte;
-        partial void OndifficulteChanging(Nullable<global::System.Int32> value);
+        private global::System.String _difficulte;
+        partial void OndifficulteChanging(global::System.String value);
         partial void OndifficulteChanged();
     
         /// <summary>
@@ -1848,6 +2095,28 @@ namespace DA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_Note>("CuisineModel.FK_T_Note_T_User", "T_Note", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CuisineModel", "FK_T_Conseil_T_User", "T_Conseil")]
+        public EntityCollection<T_Conseil> T_Conseil
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<T_Conseil>("CuisineModel.FK_T_Conseil_T_User", "T_Conseil");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<T_Conseil>("CuisineModel.FK_T_Conseil_T_User", "T_Conseil", value);
                 }
             }
         }

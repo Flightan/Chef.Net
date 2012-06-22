@@ -1,8 +1,7 @@
 ﻿@model ChefDotNet.Models.IngredientModel
 <text>
 @using (Html.BeginForm())
-{    
-    <input type='hidden' name='recetteId' value='@ViewBag.recette.Id'/>       
+{      
     <div>
         <div class="editor-label">
             <span class="etoile">*</span>
@@ -14,11 +13,11 @@
         </div>
 
         <p>
-            @Html.ValidationSummary(true, "Echec de la création du commentaire.")
+            @Html.ValidationSummary(true, "Echec de l'ajout de l'ingredient.")
         </p>
 
         <p>
-            <input type="submit" value="Créer" />
+            <input type="submit" value="Ajouter" />
         </p>
     </div>
 }

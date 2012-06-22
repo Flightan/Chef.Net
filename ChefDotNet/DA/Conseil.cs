@@ -16,7 +16,19 @@ namespace DA
         /// </summary>
         public static string NewConseil(DBO.Conseil conseil)
         {
-            return string.Empty;
+            try
+            {
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_Conseil.AddObject(ConvertToEntity(conseil));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.InnerException.Message;
+            }
         }
 
         /// <summary>
@@ -24,7 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Conseil> GetAll()
         {
-            return new List<DBO.Conseil>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Conseil.ToList());
+            }
         }
 
         /// <summary>
@@ -32,7 +47,10 @@ namespace DA
         /// </summary>
         public static DBO.Conseil GetConseilById(int id)
         {
-            return new DBO.Conseil();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Conseil.SingleOrDefault(e => e.id == id));
+            }
         }
 
         /// <summary>
@@ -40,7 +58,10 @@ namespace DA
         /// </summary>
         public static DBO.Conseil GetConseilByNom(string nom)
         {
-            return new DBO.Conseil();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Conseil.SingleOrDefault(e => e.nom == nom));
+            }
         }
 
         /// <summary>
@@ -48,7 +69,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Conseil> GetConseilByUser(DBO.User user)
         {
-            return new List<DBO.Conseil>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Conseil.Where(e => e.idCreateur == user.Id).ToList());
+            }
         }
 
         /// <summary>
@@ -56,7 +80,62 @@ namespace DA
         /// </summary>
         public static List<DBO.Conseil> GetConseilByDate()
         {
-            return new List<DBO.Conseil>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Conseil.OrderByDescending(e => e.dateCreation).Take(20).ToList());
+            }
+        }
+
+        /// <summary>
+        /// Conversion DBO -> Entity
+        /// </summary>
+        public static T_Conseil ConvertToEntity(DBO.Conseil conseil)
+        {
+            T_Conseil entity = new T_Conseil();
+
+            if (conseil != null)
+            {
+                entity.nom = conseil.Nom;
+                entity.idCreateur = conseil.idCreateur;
+                entity.texte = conseil.Text;
+                entity.dateCreation = conseil.DateCreation;
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Conversion Entity -> DBO
+        /// </summary>
+        public static DBO.Conseil ConvertToDBO(T_Conseil conseil)
+        {
+            DBO.Conseil dbo = new DBO.Conseil();
+
+            if (conseil != null)
+            {
+                dbo.Nom = conseil.nom;
+                dbo.idCreateur = Convert.ToInt16(conseil.idCreateur);
+                dbo.Id = Convert.ToInt16(conseil.id);
+                dbo.Text = conseil.texte;
+                dbo.DateCreation = Convert.ToDateTime(conseil.dateCreation);
+            }
+
+            return dbo;
+        }
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.Conseil> ConvertToDBO(List<T_Conseil> listConseil)
+        {
+            List<DBO.Conseil> listDbo = new List<DBO.Conseil>();
+
+            foreach (var item in listConseil)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }

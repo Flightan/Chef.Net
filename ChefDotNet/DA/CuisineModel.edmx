@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CuisineModelStoreContainer">
           <EntitySet Name="T_Commentaire" EntityType="CuisineModel.Store.T_Commentaire" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Conseil" EntityType="CuisineModel.Store.T_Conseil" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Favoris" EntityType="CuisineModel.Store.T_Favoris" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Ingredient" EntityType="CuisineModel.Store.T_Ingredient" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Note" EntityType="CuisineModel.Store.T_Note" store:Type="Tables" Schema="dbo" />
@@ -20,6 +21,10 @@
           <AssociationSet Name="FK_T_Commentaire_T_User" Association="CuisineModel.Store.FK_T_Commentaire_T_User">
             <End Role="T_User" EntitySet="T_User" />
             <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Conseil_T_User" Association="CuisineModel.Store.FK_T_Conseil_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Conseil" EntitySet="T_Conseil" />
           </AssociationSet>
           <AssociationSet Name="FK_T_Note_T_Recette" Association="CuisineModel.Store.FK_T_Note_T_Recette">
             <End Role="T_Recette" EntitySet="T_Recette" />
@@ -54,16 +59,27 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="texte" Type="varchar" MaxLength="200" />
           <Property Name="utilisateurID" Type="bigint" Nullable="false" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Conseil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCreateur" Type="bigint" Nullable="false" />
+          <Property Name="texte" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="photo" Type="varchar" MaxLength="50" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="dateCreation" Type="datetime" />
         </EntityType>
         <EntityType Name="T_Favoris">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="userID" Type="bigint" Nullable="false" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
         </EntityType>
@@ -71,14 +87,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="T_Note">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="idUser" Type="bigint" />
           <Property Name="idRecette" Type="bigint" />
           <Property Name="note" Type="int" />
@@ -87,16 +103,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
-          <Property Name="difficulte" Type="int" />
+          <Property Name="difficulte" Type="varchar" MaxLength="50" />
           <Property Name="photo" Type="varchar" MaxLength="50" />
-          <Property Name="origine" Type="varchar" MaxLength="50" />
-          <Property Name="cout" Type="varchar" MaxLength="50" />
           <Property Name="createurID" Type="bigint" Nullable="false" />
-          <Property Name="conseil" Type="varchar" MaxLength="100" />
           <Property Name="temps_cuisson" Type="int" />
           <Property Name="temps_repos" Type="int" />
           <Property Name="temps_prepa" Type="int" Nullable="false" />
@@ -107,7 +120,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="recetteID" Type="bigint" Nullable="false" />
           <Property Name="ingredientID" Type="bigint" Nullable="false" />
         </EntityType>
@@ -115,7 +128,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
@@ -142,6 +155,18 @@
             </Principal>
             <Dependent Role="T_Commentaire">
               <PropertyRef Name="utilisateurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Conseil_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Conseil" Type="CuisineModel.Store.T_Conseil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Conseil">
+              <PropertyRef Name="idCreateur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -229,8 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CuisineModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -278,6 +302,11 @@
             <End Role="T_User" EntitySet="T_User" />
             <End Role="T_Note" EntitySet="T_Note" />
           </AssociationSet>
+          <EntitySet Name="T_Conseil" EntityType="CuisineModel.T_Conseil" />
+          <AssociationSet Name="FK_T_Conseil_T_User" Association="CuisineModel.FK_T_Conseil_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Conseil" EntitySet="T_Conseil" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="T_Commentaire">
           <Key>
@@ -315,7 +344,7 @@
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="introduction" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="realisation" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
-          <Property Name="difficulte" Type="Int32" />
+          <Property Name="difficulte" Type="String" FixedLength="false" MaxLength="50" Unicode="false" />
           <Property Name="photo" Type="String" />
           <Property Name="createurID" Type="Int64" Nullable="false" />
           <Property Name="temps_cuisson" Type="Int32" />
@@ -353,6 +382,7 @@
           <NavigationProperty Name="T_Favoris" Relationship="CuisineModel.FK_T_UserRecette_T_User" FromRole="T_User" ToRole="T_Favoris" />
           <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Recette_T_User" FromRole="T_User" ToRole="T_Recette" />
           <NavigationProperty Name="T_Note" Relationship="CuisineModel.FK_T_Note_T_User" FromRole="T_User" ToRole="T_Note" />
+          <NavigationProperty Name="T_Conseil" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_User" ToRole="T_Conseil" />
         </EntityType>
         <Association Name="FK_T_Commentaire_T_Recette">
           <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="1" />
@@ -473,6 +503,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="T_Conseil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="idCreateur" Nullable="false" />
+          <Property Type="String" Name="texte" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="photo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nom" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dateCreation" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_Conseil" ToRole="T_User" />
+        </EntityType>
+        <Association Name="FK_T_Conseil_T_User">
+          <End Type="CuisineModel.T_User" Role="T_User" Multiplicity="1" />
+          <End Type="CuisineModel.T_Conseil" Role="T_Conseil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Conseil">
+              <PropertyRef Name="idCreateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -554,6 +608,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_Conseil">
+            <EntityTypeMapping TypeName="CuisineModel.T_Conseil">
+              <MappingFragment StoreEntitySet="T_Conseil">
+                <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="texte" ColumnName="texte" />
+                <ScalarProperty Name="idCreateur" ColumnName="idCreateur" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -575,48 +641,38 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CuisineModel">
-
         <EntityTypeShape EntityType="CuisineModel.T_Commentaire" Width="1.5" PointX="2.375" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
-
         <EntityTypeShape EntityType="CuisineModel.T_Favoris" Width="1.5" PointX="5.25" PointY="5.875" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Ingredient" Width="1.5" PointX="4" PointY="14.625" Height="1.5956835937499978" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Recette" Width="1.5" PointX="6.25" PointY="9" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_RecetteIngredient" Width="1.5" PointX="6.25" PointY="14.25" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_User" Width="1.5" PointX="0.75" PointY="5.125" Height="2.5571907552083326" IsExpanded="true" />
         <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_Recette" ManuallyRouted="false">
-
           <ConnectorPoint PointX="6.25" PointY="9.8987939453125" />
           <ConnectorPoint PointX="3.875" PointY="9.8987939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.29687375" PointY="7.8744921875" />
-          <ConnectorPoint PointX="1.29687375" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="1.5436205729166668" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="1.7102872395833333" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="1.8737007291666668" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="2.0403673958333335" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="2.375" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="2.25" PointY="8.0667936197916656" />
+          <ConnectorPoint PointX="2.375" PointY="8.625" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_Recette" ManuallyRouted="false">
           <ConnectorPoint PointX="6.5" PointY="9" />
           <ConnectorPoint PointX="6.5" PointY="7.8552864583333335" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.4313407682291661" />
-          <ConnectorPoint PointX="5.25" PointY="6.4313407682291661" />
+          <ConnectorPoint PointX="2.25" PointY="7.7038378906250005" />
+          <ConnectorPoint PointX="5.25" PointY="7.7038378906250005" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Ingredient" ManuallyRouted="false">
           <ConnectorPoint PointX="5.5" PointY="15.422841796874998" />
           <ConnectorPoint PointX="6.25" PointY="15.422841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Recette_T_User" ManuallyRouted="false">
-
           <ConnectorPoint PointX="1.62695390625" PointY="7.8744921875" />
           <ConnectorPoint PointX="1.62695390625" PointY="11.0237939453125" />
           <ConnectorPoint PointX="1.8737007291666668" PointY="11.0237939453125" />
           <ConnectorPoint PointX="2.0403673958333335" PointY="11.0237939453125" />
           <ConnectorPoint PointX="6.25" PointY="11.0237939453125" />
-
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Recette" ManuallyRouted="false">
           <ConnectorPoint PointX="7" PointY="13.287903645833334" />
@@ -628,8 +684,8 @@
           <ConnectorPoint PointX="4" PointY="12.268951822916666" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Note_T_User" >
-          <ConnectorPoint PointX="1.9570340625" PointY="7.8744921875" />
-          <ConnectorPoint PointX="1.9570340625" PointY="12.3362939453125" />
+          <ConnectorPoint PointX="1.7962042822265625" PointY="8.0667936197916656" />
+          <ConnectorPoint PointX="1.7962042822265625" PointY="12.3362939453125" />
           <ConnectorPoint PointX="2.5" PointY="12.3362939453125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="CuisineModel.T_Note" Width="1.5" PointX="0.5" PointY="9.75" Height="2.1725878906249996" />
@@ -642,6 +698,11 @@
         <AssociationConnector Association="CuisineModel.FK_T_Note_T_User" >
           <ConnectorPoint PointX="1.375" PointY="7.8744921875" />
           <ConnectorPoint PointX="1.375" PointY="9.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="CuisineModel.T_Conseil" Width="1.5" PointX="3" PointY="5.125" Height="2.3648893229166674" />
+        <AssociationConnector Association="CuisineModel.FK_T_Conseil_T_User" >
+          <ConnectorPoint PointX="2.25" PointY="6.3074446614583337" />
+          <ConnectorPoint PointX="3" PointY="6.3074446614583337" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
