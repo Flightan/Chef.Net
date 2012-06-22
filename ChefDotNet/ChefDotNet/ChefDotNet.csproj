@@ -83,6 +83,7 @@
   <ItemGroup>
     <Content Include="Assets\Img\buche.png" />
     <Content Include="Assets\Img\croquettes.png" />
+    <Content Include="Assets\Img\favicon.ico" />
     <Content Include="Assets\Img\macarons.png" />
     <Content Include="Assets\Img\maki.png" />
     <Content Include="Assets\Img\petitsfour.png" />

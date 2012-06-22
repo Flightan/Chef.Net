@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CuisineModelStoreContainer">
+          <EntitySet Name="T_Commentaire" EntityType="CuisineModel.Store.T_Commentaire" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Conseil" EntityType="CuisineModel.Store.T_Conseil" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Favoris" EntityType="CuisineModel.Store.T_Favoris" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Ingredient" EntityType="CuisineModel.Store.T_Ingredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Note" EntityType="CuisineModel.Store.T_Note" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Recette" EntityType="CuisineModel.Store.T_Recette" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_RecetteIngredient" EntityType="CuisineModel.Store.T_RecetteIngredient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_User" EntityType="CuisineModel.Store.T_User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_T_Commentaire_T_Recette" Association="CuisineModel.Store.FK_T_Commentaire_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Commentaire_T_User" Association="CuisineModel.Store.FK_T_Commentaire_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Conseil_T_User" Association="CuisineModel.Store.FK_T_Conseil_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Conseil" EntitySet="T_Conseil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Note_T_Recette" Association="CuisineModel.Store.FK_T_Note_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Note" EntitySet="T_Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Note_T_User" Association="CuisineModel.Store.FK_T_Note_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Note" EntitySet="T_Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Recette_T_User" Association="CuisineModel.Store.FK_T_Recette_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Recette" EntitySet="T_Recette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_RecetteIngredient_T_Ingredient" Association="CuisineModel.Store.FK_T_RecetteIngredient_T_Ingredient">
+            <End Role="T_Ingredient" EntitySet="T_Ingredient" />
+            <End Role="T_RecetteIngredient" EntitySet="T_RecetteIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_RecetteIngredient_T_Recette" Association="CuisineModel.Store.FK_T_RecetteIngredient_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_RecetteIngredient" EntitySet="T_RecetteIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_UserRecette_T_Recette" Association="CuisineModel.Store.FK_T_UserRecette_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Favoris" EntitySet="T_Favoris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_UserRecette_T_User" Association="CuisineModel.Store.FK_T_UserRecette_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Favoris" EntitySet="T_Favoris" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_Commentaire">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="texte" Type="varchar" MaxLength="200" />
+          <Property Name="utilisateurID" Type="bigint" Nullable="false" />
+          <Property Name="recetteID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Conseil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idCreateur" Type="bigint" Nullable="false" />
+          <Property Name="texte" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="photo" Type="varchar" MaxLength="100" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="dateCreation" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Favoris">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="bigint" Nullable="false" />
+          <Property Name="recetteID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_Note">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="bigint" />
+          <Property Name="idRecette" Type="bigint" />
+          <Property Name="note" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Recette">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="600" />
+          <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="3000" />
+          <Property Name="difficulte" Type="varchar" MaxLength="50" />
+          <Property Name="photo" Type="varchar" MaxLength="300" />
+          <Property Name="createurID" Type="bigint" Nullable="false" />
+          <Property Name="temps_cuisson" Type="int" />
+          <Property Name="temps_repos" Type="int" />
+          <Property Name="temps_prepa" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="categorie" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_RecetteIngredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="recetteID" Type="bigint" Nullable="false" />
+          <Property Name="ingredientID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="info" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_T_Commentaire_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="1" />
+          <End Role="T_Commentaire" Type="CuisineModel.Store.T_Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Commentaire">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Commentaire_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Commentaire" Type="CuisineModel.Store.T_Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Commentaire">
+              <PropertyRef Name="utilisateurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Conseil_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Conseil" Type="CuisineModel.Store.T_Conseil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Conseil">
+              <PropertyRef Name="idCreateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Note_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="0..1" />
+          <End Role="T_Note" Type="CuisineModel.Store.T_Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Note">
+              <PropertyRef Name="idRecette" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Note_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="0..1" />
+          <End Role="T_Note" Type="CuisineModel.Store.T_Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Note">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Recette_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Recette">
+              <PropertyRef Name="createurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_RecetteIngredient_T_Ingredient">
+          <End Role="T_Ingredient" Type="CuisineModel.Store.T_Ingredient" Multiplicity="1" />
+          <End Role="T_RecetteIngredient" Type="CuisineModel.Store.T_RecetteIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_RecetteIngredient">
+              <PropertyRef Name="ingredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_RecetteIngredient_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="1" />
+          <End Role="T_RecetteIngredient" Type="CuisineModel.Store.T_RecetteIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_RecetteIngredient">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_UserRecette_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.Store.T_Recette" Multiplicity="1" />
+          <End Role="T_Favoris" Type="CuisineModel.Store.T_Favoris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favoris">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_UserRecette_T_User">
+          <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+          <End Role="T_Favoris" Type="CuisineModel.Store.T_Favoris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favoris">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CuisineModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CuisineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Commentaire" EntityType="CuisineModel.T_Commentaire" />
+          <EntitySet Name="T_Conseil" EntityType="CuisineModel.T_Conseil" />
+          <EntitySet Name="T_Favoris" EntityType="CuisineModel.T_Favoris" />
+          <EntitySet Name="T_Ingredient" EntityType="CuisineModel.T_Ingredient" />
+          <EntitySet Name="T_Note" EntityType="CuisineModel.T_Note" />
+          <EntitySet Name="T_Recette" EntityType="CuisineModel.T_Recette" />
+          <EntitySet Name="T_RecetteIngredient" EntityType="CuisineModel.T_RecetteIngredient" />
+          <EntitySet Name="T_User" EntityType="CuisineModel.T_User" />
+          <AssociationSet Name="FK_T_Commentaire_T_Recette" Association="CuisineModel.FK_T_Commentaire_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Commentaire_T_User" Association="CuisineModel.FK_T_Commentaire_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Conseil_T_User" Association="CuisineModel.FK_T_Conseil_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Conseil" EntitySet="T_Conseil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_UserRecette_T_Recette" Association="CuisineModel.FK_T_UserRecette_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Favoris" EntitySet="T_Favoris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_UserRecette_T_User" Association="CuisineModel.FK_T_UserRecette_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Favoris" EntitySet="T_Favoris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_RecetteIngredient_T_Ingredient" Association="CuisineModel.FK_T_RecetteIngredient_T_Ingredient">
+            <End Role="T_Ingredient" EntitySet="T_Ingredient" />
+            <End Role="T_RecetteIngredient" EntitySet="T_RecetteIngredient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Note_T_Recette" Association="CuisineModel.FK_T_Note_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_Note" EntitySet="T_Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Note_T_User" Association="CuisineModel.FK_T_Note_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Note" EntitySet="T_Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Recette_T_User" Association="CuisineModel.FK_T_Recette_T_User">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Recette" EntitySet="T_Recette" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_RecetteIngredient_T_Recette" Association="CuisineModel.FK_T_RecetteIngredient_T_Recette">
+            <End Role="T_Recette" EntitySet="T_Recette" />
+            <End Role="T_RecetteIngredient" EntitySet="T_RecetteIngredient" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_Commentaire">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texte" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="utilisateurID" Type="Int64" Nullable="false" />
+          <Property Name="recetteID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Commentaire_T_Recette" FromRole="T_Commentaire" ToRole="T_Recette" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Commentaire_T_User" FromRole="T_Commentaire" ToRole="T_User" />
+        </EntityType>
+        <EntityType Name="T_Conseil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCreateur" Type="Int64" Nullable="false" />
+          <Property Name="texte" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="photo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="dateCreation" Type="DateTime" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_Conseil" ToRole="T_User" />
+        </EntityType>
+        <EntityType Name="T_Favoris">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="Int64" Nullable="false" />
+          <Property Name="recetteID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_UserRecette_T_Recette" FromRole="T_Favoris" ToRole="T_Recette" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_UserRecette_T_User" FromRole="T_Favoris" ToRole="T_User" />
+        </EntityType>
+        <EntityType Name="T_Ingredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_RecetteIngredient" Relationship="CuisineModel.FK_T_RecetteIngredient_T_Ingredient" FromRole="T_Ingredient" ToRole="T_RecetteIngredient" />
+        </EntityType>
+        <EntityType Name="T_Note">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="Int64" />
+          <Property Name="idRecette" Type="Int64" />
+          <Property Name="note" Type="Int32" />
+          <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Note_T_Recette" FromRole="T_Note" ToRole="T_Recette" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Note_T_User" FromRole="T_Note" ToRole="T_User" />
+        </EntityType>
+        <EntityType Name="T_Recette">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="introduction" Type="String" Nullable="false" MaxLength="600" Unicode="false" FixedLength="false" />
+          <Property Name="realisation" Type="String" Nullable="false" MaxLength="3000" Unicode="false" FixedLength="false" />
+          <Property Name="difficulte" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="photo" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="createurID" Type="Int64" Nullable="false" />
+          <Property Name="temps_cuisson" Type="Int32" />
+          <Property Name="temps_repos" Type="Int32" />
+          <Property Name="temps_prepa" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" />
+          <Property Name="categorie" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_Commentaire" Relationship="CuisineModel.FK_T_Commentaire_T_Recette" FromRole="T_Recette" ToRole="T_Commentaire" />
+          <NavigationProperty Name="T_Favoris" Relationship="CuisineModel.FK_T_UserRecette_T_Recette" FromRole="T_Recette" ToRole="T_Favoris" />
+          <NavigationProperty Name="T_Note" Relationship="CuisineModel.FK_T_Note_T_Recette" FromRole="T_Recette" ToRole="T_Note" />
+          <NavigationProperty Name="T_User" Relationship="CuisineModel.FK_T_Recette_T_User" FromRole="T_Recette" ToRole="T_User" />
+          <NavigationProperty Name="T_RecetteIngredient" Relationship="CuisineModel.FK_T_RecetteIngredient_T_Recette" FromRole="T_Recette" ToRole="T_RecetteIngredient" />
+        </EntityType>
+        <EntityType Name="T_RecetteIngredient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recetteID" Type="Int64" Nullable="false" />
+          <Property Name="ingredientID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="T_Ingredient" Relationship="CuisineModel.FK_T_RecetteIngredient_T_Ingredient" FromRole="T_RecetteIngredient" ToRole="T_Ingredient" />
+          <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_RecetteIngredient_T_Recette" FromRole="T_RecetteIngredient" ToRole="T_Recette" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="info" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="T_Commentaire" Relationship="CuisineModel.FK_T_Commentaire_T_User" FromRole="T_User" ToRole="T_Commentaire" />
+          <NavigationProperty Name="T_Conseil" Relationship="CuisineModel.FK_T_Conseil_T_User" FromRole="T_User" ToRole="T_Conseil" />
+          <NavigationProperty Name="T_Favoris" Relationship="CuisineModel.FK_T_UserRecette_T_User" FromRole="T_User" ToRole="T_Favoris" />
+          <NavigationProperty Name="T_Note" Relationship="CuisineModel.FK_T_Note_T_User" FromRole="T_User" ToRole="T_Note" />
+          <NavigationProperty Name="T_Recette" Relationship="CuisineModel.FK_T_Recette_T_User" FromRole="T_User" ToRole="T_Recette" />
+        </EntityType>
+        <Association Name="FK_T_Commentaire_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="1" />
+          <End Role="T_Commentaire" Type="CuisineModel.T_Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Commentaire">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Commentaire_T_User">
+          <End Role="T_User" Type="CuisineModel.T_User" Multiplicity="1" />
+          <End Role="T_Commentaire" Type="CuisineModel.T_Commentaire" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Commentaire">
+              <PropertyRef Name="utilisateurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Conseil_T_User">
+          <End Role="T_User" Type="CuisineModel.T_User" Multiplicity="1" />
+          <End Role="T_Conseil" Type="CuisineModel.T_Conseil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Conseil">
+              <PropertyRef Name="idCreateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_UserRecette_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="1" />
+          <End Role="T_Favoris" Type="CuisineModel.T_Favoris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favoris">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_UserRecette_T_User">
+          <End Role="T_User" Type="CuisineModel.T_User" Multiplicity="1" />
+          <End Role="T_Favoris" Type="CuisineModel.T_Favoris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Favoris">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_RecetteIngredient_T_Ingredient">
+          <End Role="T_Ingredient" Type="CuisineModel.T_Ingredient" Multiplicity="1" />
+          <End Role="T_RecetteIngredient" Type="CuisineModel.T_RecetteIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Ingredient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_RecetteIngredient">
+              <PropertyRef Name="ingredientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Note_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="0..1" />
+          <End Role="T_Note" Type="CuisineModel.T_Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Note">
+              <PropertyRef Name="idRecette" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Note_T_User">
+          <End Role="T_User" Type="CuisineModel.T_User" Multiplicity="0..1" />
+          <End Role="T_Note" Type="CuisineModel.T_Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Note">
+              <PropertyRef Name="idUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Recette_T_User">
+          <End Role="T_User" Type="CuisineModel.T_User" Multiplicity="1" />
+          <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_Recette">
+              <PropertyRef Name="createurID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_RecetteIngredient_T_Recette">
+          <End Role="T_Recette" Type="CuisineModel.T_Recette" Multiplicity="1" />
+          <End Role="T_RecetteIngredient" Type="CuisineModel.T_RecetteIngredient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Recette">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_RecetteIngredient">
+              <PropertyRef Name="recetteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CuisineModelStoreContainer" CdmEntityContainer="CuisineEntities">
+          <EntitySetMapping Name="T_Commentaire"><EntityTypeMapping TypeName="CuisineModel.T_Commentaire"><MappingFragment StoreEntitySet="T_Commentaire">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="texte" ColumnName="texte" />
+            <ScalarProperty Name="utilisateurID" ColumnName="utilisateurID" />
+            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Conseil"><EntityTypeMapping TypeName="CuisineModel.T_Conseil"><MappingFragment StoreEntitySet="T_Conseil">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="idCreateur" ColumnName="idCreateur" />
+            <ScalarProperty Name="texte" ColumnName="texte" />
+            <ScalarProperty Name="photo" ColumnName="photo" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+            <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Favoris"><EntityTypeMapping TypeName="CuisineModel.T_Favoris"><MappingFragment StoreEntitySet="T_Favoris">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="userID" ColumnName="userID" />
+            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Ingredient"><EntityTypeMapping TypeName="CuisineModel.T_Ingredient"><MappingFragment StoreEntitySet="T_Ingredient">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Note"><EntityTypeMapping TypeName="CuisineModel.T_Note"><MappingFragment StoreEntitySet="T_Note">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="idUser" ColumnName="idUser" />
+            <ScalarProperty Name="idRecette" ColumnName="idRecette" />
+            <ScalarProperty Name="note" ColumnName="note" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_Recette"><EntityTypeMapping TypeName="CuisineModel.T_Recette"><MappingFragment StoreEntitySet="T_Recette">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+            <ScalarProperty Name="introduction" ColumnName="introduction" />
+            <ScalarProperty Name="realisation" ColumnName="realisation" />
+            <ScalarProperty Name="difficulte" ColumnName="difficulte" />
+            <ScalarProperty Name="photo" ColumnName="photo" />
+            <ScalarProperty Name="createurID" ColumnName="createurID" />
+            <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
+            <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
+            <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
+            <ScalarProperty Name="date" ColumnName="date" />
+            <ScalarProperty Name="categorie" ColumnName="categorie" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_RecetteIngredient"><EntityTypeMapping TypeName="CuisineModel.T_RecetteIngredient"><MappingFragment StoreEntitySet="T_RecetteIngredient">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+            <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="T_User"><EntityTypeMapping TypeName="CuisineModel.T_User"><MappingFragment StoreEntitySet="T_User">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="password" ColumnName="password" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+            <ScalarProperty Name="email" ColumnName="email" />
+            <ScalarProperty Name="info" ColumnName="info" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CuisineModel">
+        <EntityTypeShape EntityType="CuisineModel.T_Commentaire" Width="1.5" PointX="5.25" PointY="13.875" Height="2.1725878906250014" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Conseil" Width="1.5" PointX="3" PointY="8.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Favoris" Width="1.5" PointX="5.25" PointY="11" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Ingredient" Width="1.5" PointX="3" PointY="23" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Note" Width="1.5" PointX="5.25" PointY="16.875" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_Recette" Width="1.5" PointX="3" PointY="17.625" Height="4.2879036458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_RecetteIngredient" Width="1.5" PointX="5.25" PointY="20.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuisineModel.T_User" Width="1.5" PointX="0.75" PointY="8.125" Height="2.9417936197916674" IsExpanded="true" />
+        <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_Recette" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="17.625" />
+          <ConnectorPoint PointX="3.75" PointY="14.961293945312502" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.961293945312502" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="14.961293945312502" />
+          <ConnectorPoint PointX="5.25" PointY="14.961293945312502" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="11.066793619791667" />
+          <ConnectorPoint PointX="1.5" PointY="14.386894472656252" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="14.386894472656252" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="14.386894472656252" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.386894472656252" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="14.386894472656252" />
+          <ConnectorPoint PointX="5.25" PointY="14.386894472656252" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Conseil_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.9708968098958337" />
+          <ConnectorPoint PointX="3" PointY="9.9708968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_Recette" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="17.626152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="17.251152846153843" />
+          <ConnectorPoint PointX="4.875" PointY="11.990143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="11.990143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.46875" />
+          <ConnectorPoint PointX="6" PointY="8.46875" />
+          <ConnectorPoint PointX="6" PointY="11" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Ingredient" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="23.797841796874998" />
+          <ConnectorPoint PointX="6" PointY="23.797841796874998" />
+          <ConnectorPoint PointX="6" PointY="22.730286458333332" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Note_T_Recette" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="18.36812286838942" />
+          <ConnectorPoint PointX="5.25" PointY="18.36812286838942" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Note_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="11.066793619791667" />
+          <ConnectorPoint PointX="1.9062525" PointY="17.21875" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="17.21875" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="17.21875" />
+          <ConnectorPoint PointX="5.25" PointY="17.21875" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_Recette_T_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="11.066793619791667" />
+          <ConnectorPoint PointX="1.0937475" PointY="19.768951822916666" />
+          <ConnectorPoint PointX="3" PointY="19.768951822916666" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Recette" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="21.331451822916666" />
+          <ConnectorPoint PointX="5.25" PointY="21.331451822916666" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
