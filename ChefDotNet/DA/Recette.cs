@@ -47,7 +47,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetRecetteByDureeWithMinAndMax(int dureeMin, int dureeMax)
         {
-            return new List<DBO.Recette>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.Where(e => e.temps_prepa > dureeMin && e.temps_prepa < dureeMax).ToList());
+            }
         }
 
         /// <summary>
@@ -55,7 +58,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Recette> GetRecetteByDureeWithMin(int dureeMin)
         {
-            return new List<DBO.Recette>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Recette.Where(e => e.temps_prepa > dureeMin).ToList());
+            }
         }
 
         /// <summary>

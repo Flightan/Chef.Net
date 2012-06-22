@@ -6,22 +6,31 @@
         DBO.User user = BM.User.GetUserById(recette.idCreateur);
         List<DBO.Ingredient> ingredients = BM.Ingredient.GetIngredientByRecette(recette);
         List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByRecette(recette);
-        int noteTotale = BM.Note.GetNoteTotaleByRecette(recette);     
+        int noteTotale = BM.Note.GetNoteTotaleByRecette(recette);
+        int i = 0;
+        int j = 4;
+        if (recette.Difficulte == "Débutant")
+        { i = 1; }
+        else if (recette.Difficulte == "Intermédiaire")
+        { i = 2; }
+        else if (recette.Difficulte == "Expérimenté")
+        { i = 3; }
+        else if (recette.Difficulte == "Expert")
+        { i = 4; }
+        j = 4 - i;
+           
     }
     <span class="decoration_title"></span>
     <h2>@recette.Nom</h2>
     <span class="quantite">Pour 4 personnes</span>
     <ul id="difficulty">
-        @for (int i = 0; i < 5; i++)
+        @for (; i > 0; i--)
         {
-            if (i < recette.Difficulte)
-            {
             <li class="spoon full"></li>
-            }
-            else
-            {
+        }
+        @for (; j > 0; j--)
+        {
             <li class="spoon empty"></li>
-            }
         }
     </ul>
     <ul class="temps">
@@ -64,7 +73,8 @@
     </div>
 </div>
 <div class="comments">
-    <h3>Commentaires</h3>
+    <h3>
+        Commentaires</h3>
     @if (commentaires.Count != 0)
     {
         <ul class="comment">

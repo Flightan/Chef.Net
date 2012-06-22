@@ -2,9 +2,6 @@
 @{
     ViewBag.Title = "Création d'une recette"; 
 	List<DBO.Ingredient> ingredients = new List<DBO.Ingredient>();
-	DBO.Ingredient i = new DBO.Ingredient();
-	i.Nom = "Viande";
-	ingredients.Add(i);
 }
 @using (Html.BeginForm())
 {
@@ -24,25 +21,23 @@
             @Html.LabelFor(m => m.Intro)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Intro)
+            @Html.TextAreaFor(m => m.Intro, new { @cols = 50, @rows = 3 })
             @Html.ValidationMessageFor(m => m.Intro)
         </div>
 		<div class="editor-label">
-            <span>Ingredients</span>
-			@foreach (DBO.Ingredient ingredient in ingredients)
-            {  
-                <li>
-                    <p>@ingredient.Nom</p>
-                </li>
-            }
+            <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Ingredients)
         </div>
-		@Html.Partial("_Ingredient", new ChefDotNet.Models.IngredientModel())
+        <div class="editor-field">
+            @Html.TextAreaFor(m => m.Ingredients, new { @cols = 50, @rows = 3 })
+            @Html.ValidationMessageFor(m => m.Ingredients)
+        </div>
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.Realisation)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Realisation)
+            @Html.TextAreaFor(m => m.Realisation, new { @cols = 50, @rows = 10 })
             @Html.ValidationMessageFor(m => m.Realisation)
         </div>
         <div class="editor-label">

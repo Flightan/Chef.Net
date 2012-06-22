@@ -170,7 +170,7 @@ ul.header_box .name
 ul.header_box .deconnexion
 {
     display: block;
-    padding: 5px 0px 0px 160px;
+    padding: 5px 0px 0px 0px;
 }
 ul.header_box .rememberMe input[type=checkbox]
 {
