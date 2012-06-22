@@ -1,6 +1,10 @@
 ﻿@model ChefDotNet.Models.RecetteModel
 @{
     ViewBag.Title = "Création d'une recette"; 
+	List<DBO.Ingredient> ingredients = new List<DBO.Ingredient>();
+	DBO.Ingredient i = new DBO.Ingredient();
+	i.Nom = "Viande";
+	ingredients.Add(i);
 }
 @using (Html.BeginForm())
 {
@@ -23,6 +27,16 @@
             @Html.TextBoxFor(m => m.Intro)
             @Html.ValidationMessageFor(m => m.Intro)
         </div>
+		<div class="editor-label">
+            <span>Ingredients</span>
+			@foreach (DBO.Ingredient ingredient in ingredients)
+            {  
+                <li>
+                    <p>@ingredient.Nom</p>
+                </li>
+            }
+        </div>
+		@Html.Partial("_Ingredient", new ChefDotNet.Models.IngredientModel())
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.Realisation)

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CuisineModelStoreContainer" CdmEntityContainer="CuisineEntities">
+    <EntitySetMapping Name="T_Commentaire">
+      <EntityTypeMapping TypeName="CuisineModel.T_Commentaire">
+        <MappingFragment StoreEntitySet="T_Commentaire">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="texte" ColumnName="texte" />
+          <ScalarProperty Name="utilisateurID" ColumnName="utilisateurID" />
+          <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Favoris">
+      <EntityTypeMapping TypeName="CuisineModel.T_Favoris">
+        <MappingFragment StoreEntitySet="T_Favoris">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Ingredient">
+      <EntityTypeMapping TypeName="CuisineModel.T_Ingredient">
+        <MappingFragment StoreEntitySet="T_Ingredient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Recette">
+      <EntityTypeMapping TypeName="CuisineModel.T_Recette">
+        <MappingFragment StoreEntitySet="T_Recette">
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="categorie" ColumnName="categorie" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="introduction" ColumnName="introduction" />
+          <ScalarProperty Name="realisation" ColumnName="realisation" />
+          <ScalarProperty Name="difficulte" ColumnName="difficulte" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="createurID" ColumnName="createurID" />
+          <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
+          <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
+          <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_RecetteIngredient">
+      <EntityTypeMapping TypeName="CuisineModel.T_RecetteIngredient">
+        <MappingFragment StoreEntitySet="T_RecetteIngredient">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+          <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_User">
+      <EntityTypeMapping TypeName="CuisineModel.T_User">
+        <MappingFragment StoreEntitySet="T_User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="info" ColumnName="info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Note">
+      <EntityTypeMapping TypeName="CuisineModel.T_Note">
+        <MappingFragment StoreEntitySet="T_Note">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="idRecette" ColumnName="idRecette" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
