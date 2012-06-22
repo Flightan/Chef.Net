@@ -76,5 +76,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T_Conseil">
+      <EntityTypeMapping TypeName="CuisineModel.T_Conseil">
+        <MappingFragment StoreEntitySet="T_Conseil">
+          <ScalarProperty Name="dateCreation" ColumnName="dateCreation" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="texte" ColumnName="texte" />
+          <ScalarProperty Name="idCreateur" ColumnName="idCreateur" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

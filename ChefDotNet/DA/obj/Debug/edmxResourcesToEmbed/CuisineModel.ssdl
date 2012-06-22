@@ -2,6 +2,7 @@
 <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="CuisineModelStoreContainer">
     <EntitySet Name="T_Commentaire" EntityType="CuisineModel.Store.T_Commentaire" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Conseil" EntityType="CuisineModel.Store.T_Conseil" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Favoris" EntityType="CuisineModel.Store.T_Favoris" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Ingredient" EntityType="CuisineModel.Store.T_Ingredient" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T_Note" EntityType="CuisineModel.Store.T_Note" store:Type="Tables" Schema="dbo" />
@@ -15,6 +16,10 @@
     <AssociationSet Name="FK_T_Commentaire_T_User" Association="CuisineModel.Store.FK_T_Commentaire_T_User">
       <End Role="T_User" EntitySet="T_User" />
       <End Role="T_Commentaire" EntitySet="T_Commentaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Conseil_T_User" Association="CuisineModel.Store.FK_T_Conseil_T_User">
+      <End Role="T_User" EntitySet="T_User" />
+      <End Role="T_Conseil" EntitySet="T_Conseil" />
     </AssociationSet>
     <AssociationSet Name="FK_T_Note_T_Recette" Association="CuisineModel.Store.FK_T_Note_T_Recette">
       <End Role="T_Recette" EntitySet="T_Recette" />
@@ -49,16 +54,27 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="texte" Type="varchar" MaxLength="200" />
     <Property Name="utilisateurID" Type="bigint" Nullable="false" />
     <Property Name="recetteID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Conseil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="idCreateur" Type="bigint" Nullable="false" />
+    <Property Name="texte" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="photo" Type="varchar" MaxLength="50" />
+    <Property Name="nom" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="dateCreation" Type="datetime" />
   </EntityType>
   <EntityType Name="T_Favoris">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="userID" Type="bigint" Nullable="false" />
     <Property Name="recetteID" Type="bigint" Nullable="false" />
   </EntityType>
@@ -66,14 +82,14 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
   <EntityType Name="T_Note">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="idUser" Type="bigint" />
     <Property Name="idRecette" Type="bigint" />
     <Property Name="note" Type="int" />
@@ -82,16 +98,13 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="introduction" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="realisation" Type="varchar" Nullable="false" MaxLength="500" />
-    <Property Name="difficulte" Type="int" />
+    <Property Name="difficulte" Type="varchar" MaxLength="50" />
     <Property Name="photo" Type="varchar" MaxLength="50" />
-    <Property Name="origine" Type="varchar" MaxLength="50" />
-    <Property Name="cout" Type="varchar" MaxLength="50" />
     <Property Name="createurID" Type="bigint" Nullable="false" />
-    <Property Name="conseil" Type="varchar" MaxLength="100" />
     <Property Name="temps_cuisson" Type="int" />
     <Property Name="temps_repos" Type="int" />
     <Property Name="temps_prepa" Type="int" Nullable="false" />
@@ -102,7 +115,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="recetteID" Type="bigint" Nullable="false" />
     <Property Name="ingredientID" Type="bigint" Nullable="false" />
   </EntityType>
@@ -110,7 +123,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="50" />
@@ -137,6 +150,18 @@
       </Principal>
       <Dependent Role="T_Commentaire">
         <PropertyRef Name="utilisateurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Conseil_T_User">
+    <End Role="T_User" Type="CuisineModel.Store.T_User" Multiplicity="1" />
+    <End Role="T_Conseil" Type="CuisineModel.Store.T_Conseil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="T_Conseil">
+        <PropertyRef Name="idCreateur" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
