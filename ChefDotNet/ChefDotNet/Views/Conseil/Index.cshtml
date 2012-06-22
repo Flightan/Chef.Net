@@ -1,14 +1,19 @@
 ﻿@{
-    ViewBag.Title = "Conseils";
+    ViewBag.Title = "Conseils et Techniques";
 
     List<DBO.Conseil> conseils = BM.Conseil.GetConseilByDate();
 }
 
-@Html.ActionLink("Créer un conseil", "Creation", "Conseil")
+<div id="content">
+    <h1>@ViewBag.Title</h1>
+    <div class="add_link">
+        @Html.ActionLink("Créer un conseil", "Creation", "Conseil")        
+    </div>
 
-<ul>
+    <ul>
 @foreach (DBO.Conseil conseil in conseils)
 {
     <li>@conseil.Nom</li>
 }
 </ul>
+</div>

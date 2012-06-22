@@ -7,6 +7,9 @@ namespace BM
 {
     public static class Note
     {
+        /// <summary>
+        /// Retourne la liste des notes d'un utilisateur
+        /// </summary>
         public static List<DBO.Note> GetNoteByUser(DBO.User user)
         {
             return new List<DBO.Note>();

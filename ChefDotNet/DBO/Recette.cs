@@ -24,7 +24,7 @@ namespace DBO
 
         public int TempsRepos { get; set; }
 
-        public int Difficulte { get; set; }
+        public string Difficulte { get; set; }
 
         public string Categorie { get; set; }
 
@@ -41,7 +41,7 @@ namespace DBO
             TempsCuisson = 0;
             TempsPreparation = 0;
             TempsRepos = 0;
-            Difficulte = 0;
+            Difficulte = string.Empty;
             Categorie = string.Empty;
             Photo = string.Empty;
             idCreateur = -1;

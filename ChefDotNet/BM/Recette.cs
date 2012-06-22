@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,14 +53,6 @@ namespace BM
         }
 
         /// <summary>
-        /// Retourne la note totale de la recette
-        /// </summary>
-        public static int GetNoteTotaleByRecette(DBO.Recette recette)
-        {
-            return 5;
-        }
-
-        /// <summary>
         /// Retourne une note totale sous forme html
         /// </summary>
         public static string GetNombrePersonneHtml(int nombre)
@@ -79,6 +72,38 @@ namespace BM
                 html += liBegin + empty + liEnd;
 
             return html;
+        }
+
+        /// <summary>
+        /// Retourne le temps total de confection pour une recette
+        /// </summary>
+        public static int GetTempsTotal(DBO.Recette recette)
+        {
+            return recette.TempsPreparation + recette.TempsCuisson + recette.TempsRepos;
+        }
+
+        /// <summary>
+        /// Retourne la liste des difficultée
+        /// </summary>
+        public static ArrayList GetDifficulteList()
+        {
+            ArrayList items = new ArrayList();
+            items.Add("Débutant");
+            items.Add("Intermédiaire");
+            items.Add("Expérimenté");
+            items.Add("Expert");
+            return items;
+        }
+
+        /// <summary>
+        /// Retourne la liste des catégories
+        /// </summary>
+        public static ArrayList GetCategorieList()
+        {
+            ArrayList items = new ArrayList();
+            items.Add("Déssert");
+            items.Add("Entrée");
+            return items;
         }
     }
 }
