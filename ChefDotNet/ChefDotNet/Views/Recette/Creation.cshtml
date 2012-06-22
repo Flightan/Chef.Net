@@ -1,12 +1,12 @@
 ﻿@model ChefDotNet.Models.RecetteModel
-           
 @{
     ViewBag.Title = "Création d'une recette"; 
 }
-
 @using (Html.BeginForm())
-{    
-    <div>
+{
+    <div id="content">
+        <h1>@ViewBag.Title</h1>
+
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.Nom)            
@@ -15,7 +15,6 @@
             @Html.TextBoxFor(m => m.Nom)
             @Html.ValidationMessageFor(m => m.Nom)
         </div>
-
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.Intro)
@@ -24,7 +23,6 @@
             @Html.TextBoxFor(m => m.Intro)
             @Html.ValidationMessageFor(m => m.Intro)
         </div>
-
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.Realisation)
@@ -33,7 +31,6 @@
             @Html.TextBoxFor(m => m.Realisation)
             @Html.ValidationMessageFor(m => m.Realisation)
         </div>
-        
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.TempsPreparation)
@@ -42,7 +39,6 @@
             @Html.TextBoxFor(m => m.TempsPreparation)
             @Html.ValidationMessageFor(m => m.TempsPreparation)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.TempsCuisson)
         </div>
@@ -50,7 +46,6 @@
             @Html.TextBoxFor(m => m.TempsCuisson)
             @Html.ValidationMessageFor(m => m.TempsCuisson)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.TempsRepos)
         </div>
@@ -58,7 +53,6 @@
             @Html.TextBoxFor(m => m.TempsRepos)
             @Html.ValidationMessageFor(m => m.TempsRepos)
         </div>
-
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.CategorieList)
@@ -66,7 +60,6 @@
         <div class="editor-field">
            @Html.DropDownListFor(x => x.CategorieSelected, Model.CategorieList)
         </div>
-
         <div class="editor-label">
             <span class="etoile">*</span>
             @Html.LabelFor(m => m.DifficulteList)
@@ -74,7 +67,6 @@
         <div class="editor-field">
            @Html.DropDownListFor(x => x.DifficulteSelected, Model.DifficulteList)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.Photo)
         </div>
@@ -86,7 +78,7 @@
         <p>
             @Html.ValidationSummary(true, "Echec de la création de la recette.")
         </p>
-
+    
         <p>
             <input type="submit" value="Créer" />
         </p>

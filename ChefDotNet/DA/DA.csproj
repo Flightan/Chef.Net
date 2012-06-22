@@ -69,6 +69,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CuisineModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Properties\DataSources\CuisineEntities.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CuisineModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

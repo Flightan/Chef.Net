@@ -10,8 +10,6 @@ namespace DA
     /// </summary>
     public static class Commentaire
     {
-        private static CuisineEntities cuisineEntities = new CuisineEntities();
-
         /// <summary>
         /// Création d'un commentaire
         /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
@@ -20,14 +18,16 @@ namespace DA
         {
             try
             {
-                cuisineEntities.AddToT_Commentaire(ConvertToEntity(commentaire));
-                cuisineEntities.SaveChanges();
-                return string.Empty;
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_Commentaire.AddObject(ConvertToEntity(commentaire));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
             }
             catch (Exception e)
             {
-                Console.Out.WriteLine(e.Message);
-                return e.Message;
+                return e.InnerException.Message;
             }
         }
 
@@ -36,7 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Commentaire> GetCommentaireByRecette(DBO.Recette recette)
         {
-            return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.recetteID == recette.Id).ToList());
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.recetteID == recette.Id).ToList());
+            }
         }
 
         /// <summary>
@@ -44,7 +47,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Commentaire> GetCommentaireByUser(DBO.User user)
         {
-            return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.utilisateurID == user.Id).ToList());
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.utilisateurID == user.Id).ToList());
+            }
         }
 
         /// <summary>

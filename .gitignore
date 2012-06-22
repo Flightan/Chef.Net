@@ -1,4 +1,3 @@
-
 /ChefDotNet/BM/bin
 /ChefDotNet/BM/obj
 /ChefDotNet/ChefDotNet/obj
@@ -7,3 +6,16 @@
 /ChefDotNet/DA/bin
 /ChefDotNet/DBO/bin
 /ChefDotNet/DBO/obj
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
+*.resharper
+Ankh.NoLoad

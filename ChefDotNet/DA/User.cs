@@ -10,8 +10,6 @@ namespace DA
     /// </summary>
     public static class User
     {
-        private static CuisineEntities cuisineEntities = new CuisineEntities();
-
         /// <summary>
         /// Création d'un utilisateur
         /// Retourne un string vide si tout s'est bien passé, une string contenant les erreurs sinon
@@ -20,9 +18,12 @@ namespace DA
         {
             try
             {
-                cuisineEntities.AddToT_User(ConvertToEntity(user));
-                cuisineEntities.SaveChanges();
-                return string.Empty;
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_User.AddObject(ConvertToEntity(user));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
             }
             catch (Exception e)
             {
@@ -35,7 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.User> GetAll()
         {
-            return ConvertToDBO(cuisineEntities.T_User.ToList());
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.ToList());
+            }
         }
 
         /// <summary>
@@ -43,7 +47,10 @@ namespace DA
         /// </summary>
         public static DBO.User GetUserById(int id)
         {
-            return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.id == id));
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.id == id));
+            }
         }
 
         /// <summary>
@@ -51,7 +58,10 @@ namespace DA
         /// </summary>
         public static DBO.User GetUserByName(string name)
         {
-            return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.nom == name));
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.nom == name));
+            }
         }
 
         /// <summary>
@@ -73,10 +83,13 @@ namespace DA
         {
             try
             {
-                T_User t_user = cuisineEntities.T_User.SingleOrDefault(e => e.nom == user.Name);
-                t_user.password = newPassword;
-                cuisineEntities.SaveChanges();
-                return true;
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    T_User t_user = cuisineEntities.T_User.SingleOrDefault(e => e.nom == user.Name);
+                    t_user.password = newPassword;
+                    cuisineEntities.SaveChanges();
+                    return true;
+                }
             }
             catch
             {
@@ -97,7 +110,6 @@ namespace DA
                 entity.nom = user.Name;
                 entity.password = user.Password;
                 entity.email = user.Email;
-                entity.id = user.Id;
             }
 
             return entity;

@@ -34,7 +34,7 @@ table
     border-collapse: collapse;
     border-spacing: 0;
 }
-a
+a,  .rememberMe
 {
     color: #801f2e;
     text-decoration: underline;
@@ -70,11 +70,12 @@ body
 ul.header_box
 {
     float: right;
-    margin-top: -30px;
+    margin-top: -10px;
 }
 ul.header_box li
 {
     padding: 10px 0px;
+    height: 50px;
 }
 ul.header_box li.connexion
 {
@@ -92,9 +93,21 @@ ul.header_box a, .rememberMe
 {
     font-size: 11px;
 }
-ul.header_box a.advanced
+ul.header_box .advanced
 {
     margin-left: 63px;
+}
+ul.header_box .name
+{
+    display: block;
+    color: #cf423c;
+    font-weight: bolder;
+    padding-top: 10px;
+}
+ul.header_box .deconnexion
+{
+    display: block;
+    padding: 5px 0px 0px 160px;
 }
 ul.header_box .rememberMe input[type=checkbox]
 {
@@ -118,7 +131,7 @@ ul.header_box input[type=text]
 }
 ul.header_box .search input[type=text]
 {
-    width: 265px;
+    width: 268px;
 }
 .header_box .example
 {
@@ -147,6 +160,10 @@ ul#menu li
     display: inline-block;
     padding: 7px 10px;
 }
+ul#menu li:hover
+{
+    background-color: #ac2d40;
+}
 ul#menu li a
 {
     text-decoration: none;
@@ -174,12 +191,23 @@ p
     top: 5px;
     margin-top: -5px;
 }
+h1
+{
+    display: inline-block;
+    position: relative;
+    left: -49px;
+    font-size: 18px;
+    color: #741d2a;
+    padding: 10px 10px 10px 50px;
+    border-bottom: 1px solid #f6f4f4;
+}
 
 /* RECETTES + COMMENTS*/
 .liste_recette
 {
     float: left;
     width: 390px;
+    min-height: 160px;
     background-color: #fcfcfc;
     border: 1px solid #ededed;
     border-radius: 4px;
@@ -225,10 +253,53 @@ p
     background: url(./Img/sprites.png) no-repeat 0px -180px;
     padding: 0px 0px 7px 12px;
 }
+.best_recette
+{
+    background-color: #f8ead2;
+    width: 500px;
+    margin: 20px;
+}
+.best_recette .title
+{
+    color: #cbaeb1;
+    font-weight: bolder;
+    text-indent: 5px;
+    font-size: 13px;
+}
+.suite
+{
+    float: right;
+    margin-top: 10px;
+}
+.best_recette h2, .photo h2
+{
+    display: block;
+}
+.menu_semaine
+{
+    width: 200px;
+    margin: 20px;
+}
+.menu_semaine .subtitle
+{
+    display: block;
+    margin: 10px 0px 0px; 
+}
+.menu_semaine ul
+{
+    margin: 0px 10px;
+}
+.photo
+{
+    width: 200px;
+    position: relative;
+    top : -120px;
+    left: 15px;
+}
 .add_link a
 {
     position: relative;
-    top: -5px;
+    top: -15px;
     left: 736px;
     text-decoration: none;
     background-color: #fefefe;
@@ -243,7 +314,6 @@ p
 
 .recette
 {
-    width: 730px;
 }
 .recette h2
 {
@@ -258,6 +328,12 @@ p
     font-weight: bolder;
     font-size: 16px;
 }
+.recette .decoration_title
+{
+    position: relative;
+    left: -10px;
+    background: url(./Img/sprites.png) no-repeat 0px -140px;
+}
 .recette h3, .comments h3
 {
     color: #cf423c;
@@ -269,7 +345,7 @@ p
 .recette .quantite
 {
     color: #cc3333;
-    margin: 25px;
+    margin: 0px 35px 0px 40px ;
 }
 .recette #difficulty, .recette #stars
 {

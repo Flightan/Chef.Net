@@ -11,7 +11,7 @@ namespace BM
     public static class Top
     {
         /// <summary>
-        /// Retourne les 10 meilleurs recettes
+        /// Retourne les 10 meilleures recettes
         /// </summary>
         public static List<DBO.Recette> GetTopRecettes()
         {
