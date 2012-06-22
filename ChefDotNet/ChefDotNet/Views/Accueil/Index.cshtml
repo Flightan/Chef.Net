@@ -1,34 +1,55 @@
 ﻿@{
-    ViewBag.Title = "Accueil";
-    
+    ViewBag.Title = "Partage de Saveurs";
+    DBO.Recette best = BM.Recette.GetRecetteById(5);
     List<DBO.Recette> recettes = BM.Top.GetTopRecettes();
     List<DBO.User> users = BM.Top.GetTopCuisiniers();
     List<DBO.Conseil> conseils = BM.Conseil.GetConseilByDate();
 }
-
-<div id="topRecettes">
-    <ul>
-    @foreach (DBO.Recette recette in recettes)
-    {
-        <li>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
-    }
-    </ul>
-</div>
-
-<div id="topCuisiniers">
-    <ul>
-    @foreach (DBO.User user in users)
-    {
-        <li>@user.Name</li>
-    }
-    </ul>
-</div>
-
-<div id="topConseils">
-    <ul>
-    @foreach (DBO.Conseil conseil in conseils)
-    {
-        <li>@conseil.Nom</li>
-    }
-    </ul>
+<div class="content">
+    <div class="liste_recette best_recette">
+        <h2>La recette préférée de la rédaction</h2>
+        <img src="./Assets/Img/Poireaux.png" />
+        <div class="title">@Html.ActionLink(best.Nom, "Fiche", "Recette", best.Id, null)
+        </div>
+        <p>@best.Intro</p>
+        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", best.Id, null)</span>
+    </div>
+    <div class="liste_recette menu_semaine">
+        <h2>Le menu de la semaine</h2>
+        <span class="subtitle">Entrée</span>
+        <ul>
+            <li>Croquettes de Quinoa au pesto</li>
+        </ul>
+        <span class="subtitle">Plat</span>
+        <ul>
+            <li>Fondue de poireaux au curcuma</li>
+            <li>Poulets à la mauricienne</li>
+        </ul>
+        <span class="subtitle">Dessert</span>
+        <ul>
+            <li>Petits fours</li>
+        </ul>
+        <span class="subtitle">Café gourmand</span>
+        <ul>
+            <li>Café italien</li>            
+            <li>Truffes au chocolat</li>
+        </ul>
+    </div>
+     <div class="liste_recette photo">
+        <h2>La photo de la semaine</h2>
+        <img src="./Assets/Img/petitsfour.png" />        
+        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", best.Id, null)</span>
+    </div>
+    <div class="liste_recette conseil">
+        <h2>Un conseil...</h2>
+        <p>
+        Blabla
+        </p>
+    </div>
+    <div class="liste_recette conseil">
+        <h2>Un conseil...</h2>
+        <p>
+        Blabla
+        </p>
+    </div>
 </div>

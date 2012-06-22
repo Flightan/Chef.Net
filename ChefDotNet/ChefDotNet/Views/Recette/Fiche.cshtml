@@ -6,43 +6,55 @@
         DBO.User user = BM.User.GetUserById(recette.idCreateur);
         List<DBO.Ingredient> ingredients = BM.Ingredient.GetIngredientByRecette(recette);
         List<DBO.Commentaire> commentaires = BM.Commentaire.GetCommentaireByRecette(recette);
-        int noteTotale = BM.Recette.GetNoteTotaleByRecette(recette);     
+        int noteTotale = BM.Note.GetNoteTotaleByRecette(recette);     
     }
+    <span class="decoration_title"></span>
     <h2>@recette.Nom</h2>
     <span class="quantite">Pour 4 personnes</span>
     <ul id="difficulty">
-        <li class="spoon full"></li>
-        <li class="spoon full"></li>
-        <li class="spoon full"></li>
-        <li class="spoon full"></li>
-        <li class="spoon empty"></li>
+        @for (int i = 0; i < 5; i++)
+        {
+            if (i < recette.Difficulte)
+            {
+            <li class="spoon full"></li>
+            }
+            else
+            {
+            <li class="spoon empty"></li>
+            }
+        }
     </ul>
     <ul class="temps">
-        <li>Préparation : @recette.TempsPreparation - </li>
-        <li>Cuisson : 10 min. - </li>
-        <li>Repos : 2 h.</li>
+        @if (recette.TempsPreparation != 0)
+        {            
+            <li>Préparation : @recette.TempsPreparation min. </li>
+        }
+        @if (recette.TempsCuisson != 0)
+        {
+            <li>- Cuisson : @recette.TempsCuisson min. </li>
+        }
+        @if (recette.TempsRepos != 0)
+        {
+            <li>- Repos : @recette.TempsRepos min.</li>
+        }
     </ul>
     <img class="photo_recette" src="@recette.Photo" alt="@recette.Nom"/>
     <div class="recette_intro">
         <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(recette))))</ul>
-        <span class="origine">Origine : Française</span>
-        <span class="categorie">Catégorie : @recette.Categorie</span>
-        <span class="user">Par @user.Name</span>
+        <span class="origine">Origine : Française</span> <span class="categorie">Catégorie :
+            @recette.Categorie</span> <span class="user">Par @user.Name</span>
         <p>@recette.Intro</p>
     </div>
     <div class="description">
-        <h3>Ingrédients</h3>
+        <h3>
+            Ingrédients</h3>
         <ul class="ingredient">
-            <li>Sel</li>
-            <li>Poivre</li>
-            <li>Noix de coco</li>
-           <!-- @foreach (DBO.Ingredient ingredient in ingredients)
+            @foreach (DBO.Ingredient ingredient in ingredients)
             {
                 <li>
                     @ingredient.Nom
                 </li>
             }
-            -->
         </ul>
     </div>
     <div class="description">
@@ -53,15 +65,26 @@
 </div>
 <div class="comments">
     <h3>Commentaires</h3>
-    <ul class="comment">
-        @foreach (DBO.Commentaire commentaire in commentaires)
-        {
-            DBO.User commentaireUser = BM.User.GetUserById(commentaire.idUser);   
-            <li><span class="user_link">@Html.ActionLink(commentaireUser.Name, "Index", "PagePersonnelle", new { id = commentaireUser.Id }, null)</span>
-                <span class="date">@commentaire.DateCreation</span>
-                <p>@commentaire.Text</p>
-            </li>
-        }
-    </ul>
+    @if (commentaires.Count != 0)
+    {
+        <ul class="comment">
+            @foreach (DBO.Commentaire commentaire in commentaires)
+            {
+                DBO.User commentaireUser = BM.User.GetUserById(commentaire.idUser);   
+                <li><span class="user_link">@Html.ActionLink(commentaireUser.Name, "Index", "PagePersonnelle", new { id = commentaireUser.Id }, null)</span>
+                    <span class="date">@commentaire.DateCreation</span>
+                    <p>@commentaire.Text</p>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="comments">
+            <ul class="comment">
+                <li>Pas encore de commentaires pour cette recette.</li>
+            </ul>
+        </div>
+    }
     @Html.Partial("_Commentaire")
 </div>

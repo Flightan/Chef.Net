@@ -8,69 +8,82 @@
     List<DBO.Conseil> conseils = BM.Conseil.GetConseilByUser(user);
 }
 
-<h2>Recettes</h2>
-@if (recettes.Count == 0)
-{
-    <p>Pas de recettes</p>
-}
-else
-{
-    <ul>
-    @foreach (DBO.Recette recette in recettes)
-    {
-        <li>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
-    }
-    </ul>
-}
+<div id="content">
+    <h1>@ViewBag.Title</h1>
+    <div class="add_link multiple">
+        @Html.ActionLink("Créer une recette", "Creation", "Recette")
+        @Html.ActionLink("Créer un conseil", "Creation", "Conseil")
+        @Html.ActionLink("Changer de mot de passe", "ChangePassword", "Account")    
+    </div>
 
-<h2>Notes</h2>
-@if (notes.Count == 0)
-{
-    <p>Pas de notes</p>
-}
-else
-{
-    <ul>
-    @foreach (DBO.Note note in notes)
+    <h3>Mes recettes</h3>
+    @if (recettes.Count == 0)
     {
-        <li>
-            <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(note.NoteRecette)))</ul>
-            @Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
-        </li>
+        <p>Pas de recettes</p>
     }
-    </ul>
-}
-
-<h2>Commentaires</h2>
-@if (commentaires.Count == 0)
-{
-    <p>Pas de commentaires</p>
-}
-else
-{
-    <ul>
-    @foreach (DBO.Commentaire commentaire in commentaires)
+    else
     {
-        <li>@commentaire.Text</li>
+        foreach (DBO.Recette recette in recettes)
+        {
+            <div class="liste_recette page_perso">
+                <h2>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</h2>
+            </div>
+        }
     }
-    </ul>
-}
 
-<h2>Conseil</h2>
-@if (conseils.Count == 0)
-{
-    <p>Pas de conseils</p>
-}
-else
-{
-    <ul>
-    @foreach (DBO.Conseil conseil in conseils)
+    <h3>Mes notes</h3>
+    @if (notes.Count == 0)
     {
-        <li>@conseil.Nom</li>
+        <p>Pas de notes</p>
     }
-    </ul>
-}
+    else
+    {
+        <ul>
+        @foreach (DBO.Note note in notes)
+        {
+            <li>
+                <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(note.NoteRecette)))</ul>
+                @Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
+            </li>
+        }
+        </ul>
+    }
 
-@Html.ActionLink("Créer une recette", "Creation", "Recette")
-@Html.ActionLink("Créer un conseil", "Creation", "Conseil")
-@Html.ActionLink("Changment du mot de passe", "ChangePassword", "Account")
+    <div class="comments">
+        <h3>Commentaires</h3>
+            @if (commentaires.Count != 0)
+            {
+                <ul class="comment">
+                    @foreach (DBO.Commentaire commentaire in commentaires)
+                    {
+                        <li><span class="user_link">Nom de la recette avec lien</span>
+                            <span class="date">@commentaire.DateCreation</span>
+                            <p>@commentaire.Text</p>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="comments">
+                    <ul class="comment">
+                        <li>Pas encore de commentaires pour cette recette.</li>
+                    </ul>
+                </div>
+            }
+
+    <h3>Mes conseils</h3>
+    @if (conseils.Count == 0)
+    {
+        <p>Pas de conseils</p>
+    }
+    else
+    {
+        <ul>
+        @foreach (DBO.Conseil conseil in conseils)
+        {
+            <li>@conseil.Nom</li>
+        }
+        </ul>
+    }
+</div>

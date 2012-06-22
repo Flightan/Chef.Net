@@ -1,48 +1,58 @@
 ﻿@model ChefDotNet.Models.RecetteModel
-           
 @{
-    ViewBag.Title = "Création d'une recette";
+    ViewBag.Title = "Création d'une recette"; 
+	List<DBO.Ingredient> ingredients = new List<DBO.Ingredient>();
+	DBO.Ingredient i = new DBO.Ingredient();
+	i.Nom = "Viande";
+	ingredients.Add(i);
 }
-
 @using (Html.BeginForm())
-{    
-    <div>
+{
+    <div id="content">
+        <h1>@ViewBag.Title</h1>
+
         <div class="editor-label">
-            @Html.LabelFor(m => m.Nom)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Nom)            
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Nom)
             @Html.ValidationMessageFor(m => m.Nom)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(m => m.Intro)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Intro)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Intro)
             @Html.ValidationMessageFor(m => m.Intro)
         </div>
-
+		<div class="editor-label">
+            <span>Ingredients</span>
+			@foreach (DBO.Ingredient ingredient in ingredients)
+            {  
+                <li>
+                    <p>@ingredient.Nom</p>
+                </li>
+            }
+        </div>
+		@Html.Partial("_Ingredient", new ChefDotNet.Models.IngredientModel())
         <div class="editor-label">
-            @Html.LabelFor(m => m.Realisation)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Realisation)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Realisation)
             @Html.ValidationMessageFor(m => m.Realisation)
         </div>
-        
         <div class="editor-label">
-            @Html.LabelFor(m => m.TempsPreparation)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.TempsPreparation)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.TempsPreparation)
             @Html.ValidationMessageFor(m => m.TempsPreparation)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.TempsCuisson)
         </div>
@@ -50,7 +60,6 @@
             @Html.TextBoxFor(m => m.TempsCuisson)
             @Html.ValidationMessageFor(m => m.TempsCuisson)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.TempsRepos)
         </div>
@@ -58,39 +67,33 @@
             @Html.TextBoxFor(m => m.TempsRepos)
             @Html.ValidationMessageFor(m => m.TempsRepos)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(m => m.Difficulte)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.CategorieList)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Difficulte)
-            @Html.ValidationMessageFor(m => m.Difficulte)
+           @Html.DropDownListFor(x => x.CategorieSelected, Model.CategorieList)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(m => m.Categorie)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.DifficulteList)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Categorie)
-            @Html.ValidationMessageFor(m => m.Categorie)
+           @Html.DropDownListFor(x => x.DifficulteSelected, Model.DifficulteList)
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(m => m.Photo)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Photo)
             @Html.ValidationMessageFor(m => m.Photo)
-        </div>
+        </div>        
 
         <p>
             @Html.ValidationSummary(true, "Echec de la création de la recette.")
         </p>
-
+    
         <p>
-            Champs obligatoires <span class="etoile">*</span><br/>
             <input type="submit" value="Créer" />
         </p>
     </div>

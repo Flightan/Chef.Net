@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -56,12 +57,18 @@ namespace ChefDotNet.Controllers
 
         public ActionResult Creation()
         {
-            return View();
+            RecetteModel model = new RecetteModel();
+            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList());
+            model.CategorieList = new SelectList(BM.Recette.GetCategorieList());
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult Creation(RecetteModel model)
         {
+            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList());
+            model.CategorieList = new SelectList(BM.Recette.GetCategorieList());
+
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -71,8 +78,8 @@ namespace ChefDotNet.Controllers
             {
                 Nom = model.Nom,
                 idCreateur = user.Id,
-                Categorie = model.Categorie,
-                Difficulte = model.Difficulte,
+                Categorie = BM.Recette.GetCategorieList()[model.CategorieSelected].ToString(),
+                Difficulte = BM.Recette.GetDifficulteList()[model.DifficulteSelected].ToString(),
                 Intro = model.Intro,
                 Photo = model.Photo,
                 Realisation = model.Realisation,
@@ -86,6 +93,13 @@ namespace ChefDotNet.Controllers
             if (result == string.Empty)
             {
                 recette = BM.Recette.GetRecetteByNom(model.Nom);
+                ////////////
+                //ici pour chaque ingredient de la liste des ingredients, faut faire
+                //DBO.Ingredient ingredient = new DBO.Ingredient();
+                //ingredient.nom = model.Nom;
+                //ingredient.idRecette = recette.Id;
+                //BM.Ingredient.NewIngredient(ingredient);
+                ///////////
                 return RedirectToAction("Fiche", "Recette", new { id = recette.Id });
             }
 

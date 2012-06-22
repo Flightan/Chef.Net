@@ -8,8 +8,8 @@
 {
     <div>
         <div class="editor-label">
-            @Html.LabelFor(m => m.UserName)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.UserName)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.UserName)
@@ -17,8 +17,8 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m => m.Password)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Password)
         </div>
         <div class="editor-field">
             @Html.PasswordFor(m => m.Password)
@@ -35,7 +35,6 @@
         </p>
 
         <p>
-            Champs obligatoires <span class="etoile">*</span><br/>
             <input type="submit" value="Se Connecter" />
         </p>
     </div>
