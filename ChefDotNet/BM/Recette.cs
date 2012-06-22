@@ -101,7 +101,7 @@ namespace BM
         public static ArrayList GetCategorieList()
         {
             ArrayList items = new ArrayList();
-            items.Add("Déssert");
+            items.Add("Dessert");
             items.Add("Entrée");
             items.Add("Plat principal");
             items.Add("Apéritif");
