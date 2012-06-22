@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ChefDotNet.Models
 {
@@ -24,33 +25,28 @@ namespace ChefDotNet.Models
         public string Realisation { get; set; }
 
         [Required(ErrorMessage = "Le champ temps de préparation est requis.")]
-        [Display(Name = "Temps de préparation")]
+        [Display(Name = "Temps de préparation (en minute)")]
         public int TempsPreparation { get; set; }
 
-<<<<<<< HEAD
-        [Display(Name = "Temps de repos")]
-        public Nullable<int> TempsRepos { get; set; }
-
-        [Display(Name = "Temps de cuisson")]
+        [Display(Name = "Temps de cuisson (en minute)")]
         public Nullable<int> TempsCuisson { get; set; }
 
-=======
->>>>>>> 6022289c713e5ecae2fd0b98280afbd925c4dfc0
-        [Required(ErrorMessage = "Le champ difficulté est requis.")]
-        [Display(Name = "Difficulté")]
-        public int Difficulte { get; set; }
+        [Display(Name = "Temps de repos (en minute)")]
+        public Nullable<int> TempsRepos { get; set; }
 
-        [Required(ErrorMessage = "Le champ catégorie est requis.")]
+        [Display(Name = "Difficulté")]
+        public SelectList DifficulteList { get; set; }
+
+        [Required]
+        public int DifficulteSelected { get; set; }
+
         [Display(Name = "Catégorie")]
-        public string Categorie { get; set; }
+        public SelectList CategorieList { get; set; }
+
+        [Required]
+        public int CategorieSelected { get; set; }
 
         [Display(Name = "Url de la photo")]
         public string Photo { get; set; }
-
-        [Display(Name = "Temps de repos")]
-        public int TempsRepos { get; set; }
-
-        [Display(Name = "Temps de cuisson")]
-        public int TempsCuisson { get; set; }
     }
 }

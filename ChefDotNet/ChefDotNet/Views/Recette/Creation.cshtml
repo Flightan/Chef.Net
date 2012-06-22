@@ -1,15 +1,15 @@
 ﻿@model ChefDotNet.Models.RecetteModel
            
 @{
-    ViewBag.Title = "Création d'une recette";
+    ViewBag.Title = "Création d'une recette"; 
 }
 
 @using (Html.BeginForm())
 {    
     <div>
         <div class="editor-label">
-            @Html.LabelFor(m => m.Nom)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Nom)            
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Nom)
@@ -17,8 +17,8 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m => m.Intro)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Intro)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Intro)
@@ -26,8 +26,8 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m => m.Realisation)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.Realisation)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Realisation)
@@ -35,8 +35,8 @@
         </div>
         
         <div class="editor-label">
-            @Html.LabelFor(m => m.TempsPreparation)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.TempsPreparation)
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(m => m.TempsPreparation)
@@ -60,21 +60,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m => m.Difficulte)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.CategorieList)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Difficulte)
-            @Html.ValidationMessageFor(m => m.Difficulte)
+           @Html.DropDownListFor(x => x.CategorieSelected, Model.CategorieList)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m => m.Categorie)
             <span class="etoile">*</span>
+            @Html.LabelFor(m => m.DifficulteList)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(m => m.Categorie)
-            @Html.ValidationMessageFor(m => m.Categorie)
+           @Html.DropDownListFor(x => x.DifficulteSelected, Model.DifficulteList)
         </div>
 
         <div class="editor-label">
@@ -83,14 +81,13 @@
         <div class="editor-field">
             @Html.TextBoxFor(m => m.Photo)
             @Html.ValidationMessageFor(m => m.Photo)
-        </div>
+        </div>        
 
         <p>
             @Html.ValidationSummary(true, "Echec de la création de la recette.")
         </p>
 
         <p>
-            Champs obligatoires <span class="etoile">*</span><br/>
             <input type="submit" value="Créer" />
         </p>
     </div>

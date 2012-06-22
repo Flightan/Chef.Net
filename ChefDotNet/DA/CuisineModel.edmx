@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="CuisineModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CuisineModelStoreContainer">
           <EntitySet Name="T_Commentaire" EntityType="CuisineModel.Store.T_Commentaire" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Favoris" EntityType="CuisineModel.Store.T_Favoris" store:Type="Tables" Schema="dbo" />
@@ -229,7 +229,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CuisineModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -478,47 +479,71 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CuisineModelStoreContainer" CdmEntityContainer="CuisineEntities">
-          <EntitySetMapping Name="T_Commentaire"><EntityTypeMapping TypeName="CuisineModel.T_Commentaire"><MappingFragment StoreEntitySet="T_Commentaire">
+          <EntitySetMapping Name="T_Commentaire">
+            <EntityTypeMapping TypeName="CuisineModel.T_Commentaire">
+              <MappingFragment StoreEntitySet="T_Commentaire">
                 <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="texte" ColumnName="texte" />
-            <ScalarProperty Name="utilisateurID" ColumnName="utilisateurID" />
-            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="T_Favoris"><EntityTypeMapping TypeName="CuisineModel.T_Favoris"><MappingFragment StoreEntitySet="T_Favoris">
-            <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="userID" ColumnName="userID" />
-            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="T_Ingredient"><EntityTypeMapping TypeName="CuisineModel.T_Ingredient"><MappingFragment StoreEntitySet="T_Ingredient">
-            <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="nom" ColumnName="nom" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="T_Recette"><EntityTypeMapping TypeName="CuisineModel.T_Recette"><MappingFragment StoreEntitySet="T_Recette">
-            <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="texte" ColumnName="texte" />
+                <ScalarProperty Name="utilisateurID" ColumnName="utilisateurID" />
+                <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Favoris">
+            <EntityTypeMapping TypeName="CuisineModel.T_Favoris">
+              <MappingFragment StoreEntitySet="T_Favoris">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Ingredient">
+            <EntityTypeMapping TypeName="CuisineModel.T_Ingredient">
+              <MappingFragment StoreEntitySet="T_Ingredient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Recette">
+            <EntityTypeMapping TypeName="CuisineModel.T_Recette">
+              <MappingFragment StoreEntitySet="T_Recette">
+                <ScalarProperty Name="nom" ColumnName="nom" />
                 <ScalarProperty Name="categorie" ColumnName="categorie" />
                 <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="introduction" ColumnName="introduction" />
-            <ScalarProperty Name="realisation" ColumnName="realisation" />
-            <ScalarProperty Name="difficulte" ColumnName="difficulte" />
-            <ScalarProperty Name="photo" ColumnName="photo" />
-            <ScalarProperty Name="createurID" ColumnName="createurID" />
-            <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
-            <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
-            <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
-            <ScalarProperty Name="date" ColumnName="date" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="T_RecetteIngredient"><EntityTypeMapping TypeName="CuisineModel.T_RecetteIngredient"><MappingFragment StoreEntitySet="T_RecetteIngredient">
-            <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="recetteID" ColumnName="recetteID" />
-            <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="T_User"><EntityTypeMapping TypeName="CuisineModel.T_User"><MappingFragment StoreEntitySet="T_User">
-            <ScalarProperty Name="id" ColumnName="id" />
-            <ScalarProperty Name="password" ColumnName="password" />
-            <ScalarProperty Name="nom" ColumnName="nom" />
-            <ScalarProperty Name="email" ColumnName="email" />
-            <ScalarProperty Name="info" ColumnName="info" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+                <ScalarProperty Name="introduction" ColumnName="introduction" />
+                <ScalarProperty Name="realisation" ColumnName="realisation" />
+                <ScalarProperty Name="difficulte" ColumnName="difficulte" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="createurID" ColumnName="createurID" />
+                <ScalarProperty Name="temps_cuisson" ColumnName="temps_cuisson" />
+                <ScalarProperty Name="temps_repos" ColumnName="temps_repos" />
+                <ScalarProperty Name="temps_prepa" ColumnName="temps_prepa" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_RecetteIngredient">
+            <EntityTypeMapping TypeName="CuisineModel.T_RecetteIngredient">
+              <MappingFragment StoreEntitySet="T_RecetteIngredient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="recetteID" ColumnName="recetteID" />
+                <ScalarProperty Name="ingredientID" ColumnName="ingredientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_User">
+            <EntityTypeMapping TypeName="CuisineModel.T_User">
+              <MappingFragment StoreEntitySet="T_User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="info" ColumnName="info" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="T_Note">
             <EntityTypeMapping TypeName="CuisineModel.T_Note">
               <MappingFragment StoreEntitySet="T_Note">
@@ -550,28 +575,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CuisineModel">
-<<<<<<< HEAD
-        <EntityTypeShape EntityType="CuisineModel.T_Commentaire" Width="1.5" PointX="5.25" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
-=======
+
         <EntityTypeShape EntityType="CuisineModel.T_Commentaire" Width="1.5" PointX="2.375" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
->>>>>>> 6022289c713e5ecae2fd0b98280afbd925c4dfc0
+
         <EntityTypeShape EntityType="CuisineModel.T_Favoris" Width="1.5" PointX="5.25" PointY="5.875" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Ingredient" Width="1.5" PointX="4" PointY="14.625" Height="1.5956835937499978" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_Recette" Width="1.5" PointX="6.25" PointY="9" Height="4.2879036458333335" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_RecetteIngredient" Width="1.5" PointX="6.25" PointY="14.25" Height="1.9802864583333317" IsExpanded="true" />
         <EntityTypeShape EntityType="CuisineModel.T_User" Width="1.5" PointX="0.75" PointY="5.125" Height="2.5571907552083326" IsExpanded="true" />
         <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_Recette" ManuallyRouted="false">
-<<<<<<< HEAD
-          <ConnectorPoint PointX="4.5" PointY="10.5862939453125" />
-          <ConnectorPoint PointX="5.25" PointY="10.5862939453125" />
-        </AssociationConnector>
-        <AssociationConnector Association="CuisineModel.FK_T_Commentaire_T_User" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.15625" PointY="7.8744921875" />
-          <ConnectorPoint PointX="2.15625" PointY="9.15625" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="9.15625" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="9.15625" />
-          <ConnectorPoint PointX="5.25" PointY="9.15625" />
-=======
+
           <ConnectorPoint PointX="6.25" PointY="9.8987939453125" />
           <ConnectorPoint PointX="3.875" PointY="9.8987939453125" />
         </AssociationConnector>
@@ -583,7 +596,6 @@
           <ConnectorPoint PointX="1.8737007291666668" PointY="9.7112939453125" />
           <ConnectorPoint PointX="2.0403673958333335" PointY="9.7112939453125" />
           <ConnectorPoint PointX="2.375" PointY="9.7112939453125" />
->>>>>>> 6022289c713e5ecae2fd0b98280afbd925c4dfc0
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_UserRecette_T_Recette" ManuallyRouted="false">
           <ConnectorPoint PointX="6.5" PointY="9" />
@@ -598,17 +610,13 @@
           <ConnectorPoint PointX="6.25" PointY="15.422841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_Recette_T_User" ManuallyRouted="false">
-<<<<<<< HEAD
-          <ConnectorPoint PointX="2.1875025" PointY="7.8744921875" />
-          <ConnectorPoint PointX="2.1875025" PointY="13.612447916666666" />
-          <ConnectorPoint PointX="3" PointY="13.612447916666666" />
-=======
+
           <ConnectorPoint PointX="1.62695390625" PointY="7.8744921875" />
           <ConnectorPoint PointX="1.62695390625" PointY="11.0237939453125" />
           <ConnectorPoint PointX="1.8737007291666668" PointY="11.0237939453125" />
           <ConnectorPoint PointX="2.0403673958333335" PointY="11.0237939453125" />
           <ConnectorPoint PointX="6.25" PointY="11.0237939453125" />
->>>>>>> 6022289c713e5ecae2fd0b98280afbd925c4dfc0
+
         </AssociationConnector>
         <AssociationConnector Association="CuisineModel.FK_T_RecetteIngredient_T_Recette" ManuallyRouted="false">
           <ConnectorPoint PointX="7" PointY="13.287903645833334" />

@@ -114,7 +114,7 @@ namespace DA
                 entity.temps_cuisson = recette.TempsCuisson;
                 entity.temps_prepa = recette.TempsPreparation;
                 entity.temps_repos = recette.TempsRepos;
-                entity.difficulte = recette.Difficulte;
+                // entity.difficulte = recette.Difficulte;
                 entity.photo = recette.Photo;
                 entity.categorie = recette.Categorie;
                 entity.date = DateTime.Now;
@@ -139,7 +139,7 @@ namespace DA
                 dbo.TempsCuisson = Convert.ToInt16(recette.temps_cuisson);
                 dbo.TempsPreparation = recette.temps_prepa;
                 dbo.TempsRepos = Convert.ToInt16(recette.temps_repos);
-                dbo.Difficulte = Convert.ToInt16(recette.difficulte);
+                //dbo.Difficulte = Convert.ToInt16(recette.difficulte);
                 dbo.Photo = recette.photo;
                 dbo.Categorie = recette.categorie;
                 dbo.idCreateur = Convert.ToInt16(recette.createurID);
