@@ -44,6 +44,7 @@
     <Compile Include="Commentaire.cs" />
     <Compile Include="Conseil.cs" />
     <Compile Include="Ingredient.cs" />
+    <None Include="Recherche.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Recette.cs" />

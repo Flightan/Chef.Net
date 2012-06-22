@@ -15,12 +15,12 @@ namespace ChefDotNet.Models
     }
 
     /// <summary>
-    /// Class pour gérer la recherche complexe
+    /// Class pour gérer la recherche avancée
     /// </summary>
-    public class RechercheComplexeModel
+    public class RechercheAvanceeModel
     {
-        /*[Required(ErrorMessage = "Le champ nom est requis.")]
-           [Display(Name = "Nom")]
-        public string Nom { get; set; }*/
+        [Required(ErrorMessage = "Le champ nom est requis.")]
+        [Display(Name = "Recherche")]
+        public string Recherche { get; set; }
     }
 }

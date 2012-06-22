@@ -16,7 +16,19 @@ namespace DA
         /// </summary>
         public static string NewUser(DBO.User user)
         {
-            return string.Empty;
+            try
+            {
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_User.AddObject(ConvertToEntity(user));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         /// <summary>
@@ -24,7 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.User> GetAll()
         {
-            return new List<DBO.User>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.ToList());
+            }
         }
 
         /// <summary>
@@ -32,7 +47,10 @@ namespace DA
         /// </summary>
         public static DBO.User GetUserById(int id)
         {
-            return TmpTest.GetUser("Test");
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.id == id));
+            }
         }
 
         /// <summary>
@@ -40,15 +58,10 @@ namespace DA
         /// </summary>
         public static DBO.User GetUserByName(string name)
         {
-            return TmpTest.GetUser(name);
-        }
-
-        /// <summary>
-        /// Retourne les utilisateurs qui possède ce nom
-        /// </summary>
-        public static List<DBO.User> GetUserByContainsName(string name)
-        {
-            return new List<DBO.User>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_User.SingleOrDefault(e => e.nom == name));
+            }
         }
 
         /// <summary>
@@ -56,7 +69,11 @@ namespace DA
         /// </summary>
         public static bool IsValid(DBO.User user)
         {
-            return true;
+            DBO.User tableUser = GetUserByName(user.Name);
+            if (tableUser != null)
+                return (tableUser.Password == user.Password);
+            else
+                return false;
         }
 
         /// <summary>
@@ -64,7 +81,73 @@ namespace DA
         /// </summary>
         public static bool ChangePassword(DBO.User user, string newPassword)
         {
-            return true;
+            try
+            {
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    T_User t_user = cuisineEntities.T_User.SingleOrDefault(e => e.nom == user.Name);
+                    t_user.password = newPassword;
+                    cuisineEntities.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Conversion DBO -> Entity
+        /// </summary>
+        public static T_User ConvertToEntity(DBO.User user)
+        {
+            T_User entity = new T_User();
+
+            if (user != null)
+            {
+                entity.info = user.Info;
+                entity.nom = user.Name;
+                entity.password = user.Password;
+                entity.email = user.Email;
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Conversion Entity -> DBO
+        /// </summary>
+        public static DBO.User ConvertToDBO(T_User user)
+        {
+            DBO.User dbo = new DBO.User();
+
+            if (user != null)
+            {
+                dbo.Info = user.info;
+                dbo.Name = user.nom;
+                dbo.Password = user.password;
+                dbo.Email = user.email;
+                dbo.Id = Convert.ToInt16(user.id);
+            }
+
+            return dbo;
+        }
+
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.User> ConvertToDBO(List<T_User> listUser)
+        {
+            List<DBO.User> listDbo = new List<DBO.User>();
+
+            foreach (var item in listUser)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }

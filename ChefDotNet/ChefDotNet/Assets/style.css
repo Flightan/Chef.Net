@@ -1,7 +1,12 @@
 ﻿/* Reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
 {
-    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
 {
@@ -21,13 +26,19 @@ blockquote, q
 }
 blockquote:before, blockquote:after, q:before, q:after
 {
-    content: ''; content: none;
+    content: '';
+    content: none;
 }
 table
 {
-    border-collapse: collapse; border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-a {color: #801f2e; text-decoration: underline;}
+a,  .rememberMe
+{
+    color: #801f2e;
+    text-decoration: underline;
+}
 
 /**/
 
@@ -36,7 +47,7 @@ body
 {
     margin: 0 10px;
     background-color: #f6f4f4;
-    font: 12px/17px "Arial", sans-serif;
+    font: 12px/17px "Arial" , sans-serif;
 }
 
 #page
@@ -56,73 +67,85 @@ body
     background: #f7f0f0 url(./Img/partagedesaveurs.png) no-repeat 10px top;
     padding: 25px;
 }
-    ul.header_box
-    {
-        float: right;
-        margin-top: -30px;
-    }
-    ul.header_box li
-    {
-        padding: 10px 0px;
-    }
-    ul.header_box li.connexion
-    {
-        padding-top:0px;
-        border-bottom: 1px solid #e8e8e8;      
-    }
-    ul.header_box li .title
-    {
-        font-size: 19px;
-        float: left;
-        font-weight: bold;
-        font-style: italic;
-    }
-    ul.header_box a, .rememberMe
-    {
-        font-size: 11px;
-    }
-    ul.header_box a.advanced
-    {
-        margin-left: 63px;
-    }
-    ul.header_box .rememberMe input[type=checkbox]
-    {
-        vertical-align: bottom;
-    }
-    ul.header_box input
-    {
-        background-color: #fefefe;
-        box-shadow: 1px 1px 4px #555;
-        border: none;
-        padding: 5px;
-        margin-top: 5px;     
-    }
-    ul.header_box input[ type=submit]:hover
-    {
-        box-shadow: 1px 1px 2px #555;
-    }
-    ul.header_box input[type=text]
-    {
-        width: 145px;
-    }
-    ul.header_box .search input[type=text]
-    {
-        width: 265px;
-    }
-    .header_box .example
-    {
-        float: left;
-        font-style: italic;
-        color: #cbaeb1;
-        text-shadow: 1px 1px 0 white;
-    }
-    .header_box .create_account
-    {
-        float: right;
-        margin-right: 109px;
-        margin-top: 3px;
-    }
-    
+ul.header_box
+{
+    float: right;
+    margin-top: -10px;
+}
+ul.header_box li
+{
+    padding: 10px 0px;
+    height: 50px;
+}
+ul.header_box li.connexion
+{
+    padding-top: 0px;
+    border-bottom: 1px solid #e8e8e8;
+}
+ul.header_box li .title
+{
+    font-size: 19px;
+    float: left;
+    font-weight: bold;
+    font-style: italic;
+}
+ul.header_box a, .rememberMe
+{
+    font-size: 11px;
+}
+ul.header_box .advanced
+{
+    margin-left: 63px;
+}
+ul.header_box .name
+{
+    display: block;
+    color: #cf423c;
+    font-weight: bolder;
+    padding-top: 10px;
+}
+ul.header_box .deconnexion
+{
+    display: block;
+    padding: 5px 0px 0px 160px;
+}
+ul.header_box .rememberMe input[type=checkbox]
+{
+    vertical-align: bottom;
+}
+ul.header_box input
+{
+    background-color: #fefefe;
+    box-shadow: 1px 1px 4px #555;
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+}
+ul.header_box input[ type=submit]:hover
+{
+    box-shadow: 1px 1px 2px #555;
+}
+ul.header_box input[type=text]
+{
+    width: 145px;
+}
+ul.header_box .search input[type=text]
+{
+    width: 268px;
+}
+.header_box .example
+{
+    float: left;
+    font-style: italic;
+    color: #cbaeb1;
+    text-shadow: 1px 1px 0 white;
+}
+.header_box .create_account
+{
+    float: right;
+    margin-right: 109px;
+    margin-top: 3px;
+}
 
 /* Menu */
 ul#menu
@@ -132,19 +155,22 @@ ul#menu
     font-size: 14px;
     font-weight: bold;
 }
-    ul#menu li
-    {
-        display: inline-block;
-        padding: 7px 10px;
-    }
-    ul#menu li a 
-    {
-        text-decoration: none;
-        color: White;
-        text-shadow: 1px 1px 5px black;
-    }
-    
-    
+ul#menu li
+{
+    display: inline-block;
+    padding: 7px 10px;
+}
+ul#menu li:hover
+{
+    background-color: #ac2d40;
+}
+ul#menu li a
+{
+    text-decoration: none;
+    color: White;
+    text-shadow: 1px 1px 5px black;
+}
+
 /* General */
 #content
 {
@@ -156,77 +182,138 @@ p
     text-indent: 10px;
     text-align: justify;
 }
+.etoile
+{
+    color: #C00;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+    margin-top: -5px;
+}
+h1
+{
+    display: inline-block;
+    position: relative;
+    left: -49px;
+    font-size: 18px;
+    color: #741d2a;
+    padding: 10px 10px 10px 50px;
+    border-bottom: 1px solid #f6f4f4;
+}
 
-    
 /* RECETTES + COMMENTS*/
 .liste_recette
 {
     float: left;
     width: 390px;
+    min-height: 160px;
     background-color: #fcfcfc;
     border: 1px solid #ededed;
     border-radius: 4px;
     padding: 10px;
     margin: 5px;
-    }
-    .liste_recette img
-    {
-        width: 200px;
-        float: left;
-    }  
-    .liste_recette h2
-    {
-        display: inline-block;
-        font-size: 14px;
-        color: #cf3c53;
-        font-weight: bold;
-        margin: 0px 2px 10px 0px;
-    }
-    .liste_recette .subtitle
-    {   
-        color: #cbaeb1;
-        text-shadow: 1px 1px 0 white;
-        font-style: italic;
-        margin-bottom: 10px;
-        text-indent: 5px;
-    }
-    .liste_recette ul
-    {
-        display: block;
-        margin-left: 210px;
-    }
-    .liste_recette a
-    {
-        text-decoration: none;
-    }
-    .liste_recette a:hover
-    {
-        text-decoration: underline;
-    }
-    .liste_recette li
-    {
-        background: url(./Img/sprites.png) no-repeat 0px -180px;
-        padding: 0px 0px 7px 12px;
-    }
-    .add_link a
-    {
-        position: relative;
-        top: -5px;
-        left: 736px;
-        text-decoration: none;
-        background-color: #fefefe;
-        border: 1px solid #f0efef;
-        padding: 5px;
-        margin-top: 5px;
-    }
-    .add_link a:hover
-    {
-        border: 1px solid #c1c1c1;
-    }   
+}
+.liste_recette img
+{
+    width: 200px;
+    float: left;
+}
+.liste_recette h2
+{
+    display: inline-block;
+    font-size: 14px;
+    color: #cf3c53;
+    font-weight: bold;
+    margin: 0px 2px 10px 0px;
+}
+.liste_recette .subtitle
+{
+    color: #cbaeb1;
+    text-shadow: 1px 1px 0 white;
+    font-style: italic;
+    margin-bottom: 10px;
+    text-indent: 5px;
+}
+.liste_recette ul
+{
+    display: block;
+    margin-left: 210px;
+}
+.liste_recette a
+{
+    text-decoration: none;
+}
+.liste_recette a:hover
+{
+    text-decoration: underline;
+}
+.liste_recette li
+{
+    background: url(./Img/sprites.png) no-repeat 0px -180px;
+    padding: 0px 0px 7px 12px;
+}
+.best_recette
+{
+    background-color: #f8ead2;
+    width: 500px;
+    margin: 20px;
+}
+.best_recette .title
+{
+    color: #cbaeb1;
+    font-weight: bolder;
+    text-indent: 5px;
+    font-size: 13px;
+}
+.suite
+{
+    float: right;
+    margin-top: 10px;
+}
+.best_recette h2, .photo h2
+{
+    display: block;
+}
+.menu_semaine
+{
+    width: 200px;
+    margin: 20px;
+}
+.menu_semaine .subtitle
+{
+    display: block;
+    margin: 10px 0px 0px; 
+}
+.menu_semaine ul
+{
+    margin: 0px 10px;
+}
+.photo
+{
+    width: 200px;
+    position: relative;
+    top : -120px;
+    left: 15px;
+}
+.add_link a
+{
+    position: relative;
+    top: -15px;
+    left: 736px;
+    text-decoration: none;
+    background-color: #fefefe;
+    border: 1px solid #f0efef;
+    padding: 5px;
+    margin-top: 5px;
+}
+.add_link a:hover
+{
+    border: 1px solid #c1c1c1;
+}
 
 .recette
 {
-    wid th: 730px;
 }
 .recette h2
 {
@@ -241,18 +328,24 @@ p
     font-weight: bolder;
     font-size: 16px;
 }
+.recette .decoration_title
+{
+    position: relative;
+    left: -10px;
+    background: url(./Img/sprites.png) no-repeat 0px -140px;
+}
 .recette h3, .comments h3
 {
     color: #cf423c;
     font-size: 15px;
     font-weight: bold;
-    font-variant: small-caps;     
-    margin: 10px;  
+    font-variant: small-caps;
+    margin: 10px;
 }
 .recette .quantite
 {
     color: #cc3333;
-    margin: 25px;
+    margin: 0px 35px 0px 40px ;
 }
 .recette #difficulty, .recette #stars
 {
@@ -265,13 +358,13 @@ p
     display: inline-block;
 }
 .recette #difficulty .spoon.full
-{    
+{
     background-position: 0px -48px;
     width: 19px;
     height: 38px;
 }
 .recette #difficulty .spoon.empty
-{    
+{
     width: 19px;
     height: 38px;
     background-position: 0px -86px;
@@ -281,13 +374,13 @@ p
     margin-right: 25px;
 }
 .recette #stars .star.empty
-{    
+{
     background-position: 0px 0px;
     width: 23px;
     height: 23px;
 }
 .recette #stars .star.full
-{    
+{
     background-position: 0px -25px;
     width: 23px;
     height: 23px;
@@ -320,7 +413,7 @@ p
 .recette_intro .user
 {
     color: #cf423c;
-    display:block;
+    display: block;
     font-weight: bolder;
 }
 .recette .description

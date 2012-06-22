@@ -13,7 +13,7 @@ namespace BM
         /// <summary>
         /// Création d'un ingrédient
         /// </summary>
-        public static bool NewIngredient(DBO.Ingredient ingredient)
+        public static string NewIngredient(DBO.Ingredient ingredient)
         {
             return DA.Ingredient.NewIngredient(ingredient);
         }

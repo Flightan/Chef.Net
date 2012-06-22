@@ -4,7 +4,7 @@
     </li>
     <li>
         <span class="title">Recherche</span>
-        <a class="advanced" href="/" title="Recherche avancée">> Recherche avancée</a>
+        @Html.ActionLink("> Recherche avancée", "Avancee", "Recherche", null, new { @class = "advanced" })
         @Html.Partial("_RechercheSimple", new ChefDotNet.Models.RechercheSimpleModel())
         <span class="example">Tourment d'amour, verrine, dessert, tofu...</span>
     </li>

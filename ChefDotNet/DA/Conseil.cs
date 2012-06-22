@@ -20,6 +20,14 @@ namespace DA
         }
 
         /// <summary>
+        /// Retourne tout les conseils
+        /// </summary>
+        public static List<DBO.Conseil> GetAll()
+        {
+            return new List<DBO.Conseil>();
+        }
+
+        /// <summary>
         /// Retourne le conseil qui possède cet id
         /// </summary>
         public static DBO.Conseil GetConseilById(int id)
@@ -33,14 +41,6 @@ namespace DA
         public static DBO.Conseil GetConseilByNom(string nom)
         {
             return new DBO.Conseil();
-        }
-
-        /// <summary>
-        /// Retourne les conseils qui possède ce nom
-        /// </summary>
-        public static List<DBO.Conseil> GetConseilByContainsNom(string nom)
-        {
-            return new List<DBO.Conseil>();
         }
 
         /// <summary>

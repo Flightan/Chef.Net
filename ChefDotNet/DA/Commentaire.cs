@@ -16,7 +16,19 @@ namespace DA
         /// </summary>
         public static string NewCommentaire(DBO.Commentaire commentaire)
         {
-            return string.Empty;
+            try
+            {
+                using (CuisineEntities cuisineEntities = new CuisineEntities())
+                {
+                    cuisineEntities.T_Commentaire.AddObject(ConvertToEntity(commentaire));
+                    cuisineEntities.SaveChanges();
+                    return string.Empty;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.InnerException.Message;
+            }
         }
 
         /// <summary>
@@ -24,14 +36,10 @@ namespace DA
         /// </summary>
         public static List<DBO.Commentaire> GetCommentaireByRecette(DBO.Recette recette)
         {
-            List<DBO.Commentaire> commentaires = new List<DBO.Commentaire>();
-
-            commentaires.Add(TmpTest.GetCommentaire());
-            commentaires.Add(TmpTest.GetCommentaire());
-            commentaires.Add(TmpTest.GetCommentaire());
-            commentaires.Add(TmpTest.GetCommentaire());
-
-            return commentaires;
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.recetteID == recette.Id).ToList());
+            }
         }
 
         /// <summary>
@@ -39,7 +47,60 @@ namespace DA
         /// </summary>
         public static List<DBO.Commentaire> GetCommentaireByUser(DBO.User user)
         {
-            return new List<DBO.Commentaire>();
+            using (CuisineEntities cuisineEntities = new CuisineEntities())
+            {
+                return ConvertToDBO(cuisineEntities.T_Commentaire.Where(e => e.utilisateurID == user.Id).ToList());
+            }
+        }
+
+        /// <summary>
+        /// Conversion DBO -> Entity
+        /// </summary>
+        public static T_Commentaire ConvertToEntity(DBO.Commentaire commentaire)
+        {
+            T_Commentaire entity = new T_Commentaire();
+
+            if (commentaire != null)
+            {
+                entity.texte = commentaire.Text;
+                entity.utilisateurID = commentaire.idUser;
+                entity.recetteID = commentaire.idRecette;
+            }
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Conversion Entity -> DBO
+        /// </summary>
+        public static DBO.Commentaire ConvertToDBO(T_Commentaire commentaire)
+        {
+            DBO.Commentaire dbo = new DBO.Commentaire();
+
+            if (commentaire != null)
+            {
+                dbo.Id = Convert.ToInt16(commentaire.id);
+                dbo.Text = commentaire.texte;
+                dbo.idRecette = Convert.ToInt16(commentaire.recetteID);
+                dbo.idUser = Convert.ToInt16(commentaire.utilisateurID);
+            }
+
+            return dbo;
+        }
+
+        /// <summary>
+        /// Conversion List Entity -> DBO
+        /// </summary>
+        public static List<DBO.Commentaire> ConvertToDBO(List<T_Commentaire> listCommentaire)
+        {
+            List<DBO.Commentaire> listDbo = new List<DBO.Commentaire>();
+
+            foreach (var item in listCommentaire)
+            {
+                listDbo.Add(ConvertToDBO(item));
+            }
+
+            return listDbo;
         }
     }
 }

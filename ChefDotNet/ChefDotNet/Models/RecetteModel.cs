@@ -23,13 +23,19 @@ namespace ChefDotNet.Models
         [Display(Name = "Réalisation")]
         public string Realisation { get; set; }
 
-        [Required(ErrorMessage = "Le champ temps est requis.")]
-        [Display(Name = "Temps")]
-        public string Temps { get; set; }
+        [Required(ErrorMessage = "Le champ temps de préparation est requis.")]
+        [Display(Name = "Temps de préparation")]
+        public int TempsPreparation { get; set; }
+
+        [Display(Name = "Temps de repos")]
+        public Nullable<int> TempsRepos { get; set; }
+
+        [Display(Name = "Temps de cuisson")]
+        public Nullable<int> TempsCuisson { get; set; }
 
         [Required(ErrorMessage = "Le champ difficulté est requis.")]
         [Display(Name = "Difficulté")]
-        public string Difficulte { get; set; }
+        public int Difficulte { get; set; }
 
         [Required(ErrorMessage = "Le champ catégorie est requis.")]
         [Display(Name = "Catégorie")]

@@ -11,7 +11,7 @@ namespace BM
     public static class Top
     {
         /// <summary>
-        /// Retourne les 10 meilleurs recettes
+        /// Retourne les 10 meilleures recettes
         /// </summary>
         public static List<DBO.Recette> GetTopRecettes()
         {
@@ -19,7 +19,9 @@ namespace BM
             List<DBO.Recette> topList = new List<DBO.Recette>();
 
             foreach (DBO.Recette recette in list)
-            { }
+            {
+                topList.Add(recette);
+            }
 
             return topList;
         }

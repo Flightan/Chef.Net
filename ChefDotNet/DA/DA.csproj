@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +45,12 @@
   <ItemGroup>
     <Compile Include="Commentaire.cs" />
     <Compile Include="Conseil.cs" />
+    <Compile Include="CuisineModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CuisineModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Ingredient.cs" />
-    <Compile Include="Note.cs" />
     <Compile Include="Recette.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TmpTest.cs" />
@@ -54,6 +61,19 @@
       <Project>{9D18AE8A-9C80-4AD4-92D1-B291F8883679}</Project>
       <Name>DBO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="CuisineModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CuisineModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\DataSources\CuisineEntities.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CuisineModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
