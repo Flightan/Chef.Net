@@ -12,7 +12,7 @@ namespace ChefDotNet.Models
     public class CommentaireModel
     {
         [Required(ErrorMessage = "Le champ texte est requis.")]
-        [Display(Name = "Texte")]
+        [Display(Name = "Commentaire")]
         public string Texte { get; set; }
 
         public int recetteId { get; set; }

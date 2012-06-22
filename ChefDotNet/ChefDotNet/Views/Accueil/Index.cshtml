@@ -40,20 +40,16 @@
         <img src="./Assets/Img/petitsfour.png" />        
         <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", best.Id, null)</span>
     </div>
-    <div id="topCuisiniers">
-        <ul>
-            @foreach (DBO.User user in users)
-            {
-                <li>@user.Name</li>
-            }
-        </ul>
+    <div class="liste_recette conseil">
+        <h2>Un conseil...</h2>
+        <p>
+        Blabla
+        </p>
     </div>
-    <div id="topConseils">
-        <ul>
-            @foreach (DBO.Conseil conseil in conseils)
-            {
-                <li>@conseil.Nom</li>
-            }
-        </ul>
+    <div class="liste_recette conseil">
+        <h2>Un conseil...</h2>
+        <p>
+        Blabla
+        </p>
     </div>
 </div>

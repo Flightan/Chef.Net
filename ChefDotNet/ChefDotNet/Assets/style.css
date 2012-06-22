@@ -58,7 +58,70 @@ body
     box-shadow: 1px 1px 12px #555;
 }
 
-/*  /STRUCTURE */
+
+/* General */
+#content
+{
+    padding: 10px 25px;
+}
+p
+{
+    margin: 20px;
+    text-indent: 10px;
+    text-align: justify;
+}
+.etoile
+{
+    color: #C00;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 5px;
+    margin-top: -5px;
+}
+h1
+{
+    display: inline-block;
+    position: relative;
+    left: -49px;
+    font-size: 18px;
+    color: #741d2a;
+    padding: 10px 10px 10px 50px;
+    border-bottom: 1px solid #f6f4f4;
+}   
+h3
+{
+    color: #cf423c;
+    font-size: 15px;
+    font-weight: bold;
+    font-variant: small-caps;
+    margin: 10px;
+}
+.field-validation-error, .validation-summary-errors
+{
+    color: #cf423c;
+    margin: 0px;
+}
+.validation-summary-errors
+{
+    font-variant: small-caps;
+    font-weight: bold;
+}
+input[type=submit]
+{
+    background-color: #fefefe;
+    box-shadow: 1px 1px 2px #555;
+    border: 1px solid #f4f1f2;
+    padding: 5px;
+    margin-top: 5px;
+}
+input[type=submit]:hover
+{
+    box-shadow: 1px 1px 4px #555;
+    border: 1px solid #fefefe;
+}
+
+
 
 /* Header */
 #header
@@ -116,14 +179,10 @@ ul.header_box .rememberMe input[type=checkbox]
 ul.header_box input
 {
     background-color: #fefefe;
-    box-shadow: 1px 1px 4px #555;
-    border: none;
+    box-shadow: 1px 1px 2px #555;
+    border: 1px solid #f4f1f2;
     padding: 5px;
     margin-top: 5px;
-}
-ul.header_box input[ type=submit]:hover
-{
-    box-shadow: 1px 1px 2px #555;
 }
 ul.header_box input[type=text]
 {
@@ -171,37 +230,7 @@ ul#menu li a
     text-shadow: 1px 1px 5px black;
 }
 
-/* General */
-#content
-{
-    padding: 10px 25px;
-}
-p
-{
-    margin: 20px;
-    text-indent: 10px;
-    text-align: justify;
-}
-.etoile
-{
-    color: #C00;
-    font-size: 20px;
-    font-weight: bold;
-    position: relative;
-    top: 5px;
-    margin-top: -5px;
-}
-h1
-{
-    display: inline-block;
-    position: relative;
-    left: -49px;
-    font-size: 18px;
-    color: #741d2a;
-    padding: 10px 10px 10px 50px;
-    border-bottom: 1px solid #f6f4f4;
-}
-
+    
 /* RECETTES + COMMENTS*/
 .liste_recette
 {
@@ -256,8 +285,12 @@ h1
 .best_recette
 {
     background-color: #f8ead2;
-    width: 500px;
+    width: 570px;
     margin: 20px;
+}
+.best_recette img
+{
+    width: 300px;
 }
 .best_recette .title
 {
@@ -268,6 +301,7 @@ h1
 }
 .suite
 {
+    clear: both;
     float: right;
     margin-top: 10px;
 }
@@ -292,14 +326,21 @@ h1
 .photo
 {
     width: 200px;
+    float: right;
+    margin-right: 27px;
+}
+.conseil
+{
+    width: 263px;
+    height: 210px;
     position: relative;
-    top : -120px;
-    left: 15px;
+    top : -30px;
+    margin-left: 20px;
 }
 .add_link a
 {
     position: relative;
-    top: -15px;
+    top: -25px;
     left: 736px;
     text-decoration: none;
     background-color: #fefefe;
@@ -311,10 +352,11 @@ h1
 {
     border: 1px solid #c1c1c1;
 }
-
-.recette
+.multiple a 
 {
+    left: 520px;
 }
+
 .recette h2
 {
     position: relative;
@@ -333,14 +375,6 @@ h1
     position: relative;
     left: -10px;
     background: url(./Img/sprites.png) no-repeat 0px -140px;
-}
-.recette h3, .comments h3
-{
-    color: #cf423c;
-    font-size: 15px;
-    font-weight: bold;
-    font-variant: small-caps;
-    margin: 10px;
 }
 .recette .quantite
 {
@@ -469,6 +503,24 @@ ul.comment .date
 {
     text-indent: 10px;
     color: #cf423c;
+}
+.create_comment textarea
+{
+    width: 500px;
+    height: 150px;
+}
+.create_comment input[type=submit]
+{
+    position: relative;
+    left: 450px;    
+    top: -20px;
+}
+.champ_obligatoire
+{
+    margin: 0px;
+    font-size: 10px;
+    text-indent: 0px;
+    font-style: italic;
 }
 
 /* FOOTER */
