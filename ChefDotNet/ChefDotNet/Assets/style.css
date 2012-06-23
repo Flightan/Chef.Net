@@ -248,6 +248,7 @@ ul#menu li a
 {
     width: 200px;
     float: left;
+    padding: 5px;
 }
 .liste_recette h2
 {

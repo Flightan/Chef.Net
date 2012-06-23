@@ -20,8 +20,13 @@ namespace ChefDotNet.Models
         [Display(Name = "Introduction")]
         public string Intro { get; set; }
 
+        [Required(ErrorMessage = "Le champ ingrédients est requis.")]
+        [Display(Name = "Ingrédients")]
+        public string Ingredients { get; set; }
+
         [Required(ErrorMessage = "Le champ réalisation est requis.")]
         [Display(Name = "Réalisation")]
+        [DataType(DataType.MultilineText)]
         public string Realisation { get; set; }
 
         [Required(ErrorMessage = "Le champ temps de préparation est requis.")]

@@ -1,21 +1,23 @@
 ﻿@{
     ViewBag.Title = "Partage de Saveurs";
-    DBO.Recette best = BM.Recette.GetRecetteById(5);
+    DBO.Recette best = BM.Recette.GetRecetteById(0);
     List<DBO.Recette> recettes = BM.Top.GetTopRecettes();
     List<DBO.User> users = BM.Top.GetTopCuisiniers();
     List<DBO.Conseil> conseils = BM.Conseil.GetConseilByDate();
 }
 <div class="content">
     <div class="liste_recette best_recette">
-        <h2>La recette préférée de la rédaction</h2>
-        <img src="./Assets/Img/Poireaux.png" />
-        <div class="title">@Html.ActionLink(best.Nom, "Fiche", "Recette", best.Id, null)
+        <h2>
+            La recette préférée de la rédaction</h2>
+        <img src="@best.Photo" />
+        <div class="title">@Html.ActionLink(best.Nom, "Fiche", "Recette", new { id = best.Id }, null)
         </div>
         <p>@best.Intro</p>
-        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", best.Id, null)</span>
+        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", new { id = best.Id }, null)</span>
     </div>
     <div class="liste_recette menu_semaine">
-        <h2>Le menu de la semaine</h2>
+        <h2>
+            Le menu de la semaine</h2>
         <span class="subtitle">Entrée</span>
         <ul>
             <li>Croquettes de Quinoa au pesto</li>
@@ -31,25 +33,32 @@
         </ul>
         <span class="subtitle">Café gourmand</span>
         <ul>
-            <li>Café italien</li>            
+            <li>Café italien</li>
             <li>Truffes au chocolat</li>
         </ul>
     </div>
-     <div class="liste_recette photo">
-        <h2>La photo de la semaine</h2>
-        <img src="./Assets/Img/petitsfour.png" />        
-        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", best.Id, null)</span>
+    <div class="liste_recette photo">
+        <h2>
+            La photo de la semaine</h2>
+        <img src="./Assets/Img/petitsfour.png" />
+        <span class="suite">@Html.ActionLink("Voir la recette...", "Fiche", "Recette", new { id = best.Id }, null)</span>
     </div>
-    <div class="liste_recette conseil">
-        <h2>Un conseil...</h2>
-        <p>
-        Blabla
-        </p>
-    </div>
-    <div class="liste_recette conseil">
-        <h2>Un conseil...</h2>
-        <p>
-        Blabla
-        </p>
-    </div>
+    @if (conseils.Count > 0)
+    {
+        <div class="liste_recette conseil">
+            <h2>@conseils[0].Nom</h2>
+            <p>
+                @conseils[0].Text
+            </p>
+        </div>
+    }
+    @if (conseils.Count > 1)
+    {
+        <div class="liste_recette conseil">
+            <h2>@conseils[1].Nom</h2>
+            <p>
+                @conseils[1].Text
+            </p>
+        </div>
+    }
 </div>

@@ -104,7 +104,10 @@ namespace BM
             return new List<DropDownListModel>
             {
                 new DropDownListModel() {Id = "1", Value = "Déssert"},
-                new DropDownListModel() {Id = "2", Value = "Entrée"}
+                new DropDownListModel() {Id = "2", Value = "Entrée"},
+                new DropDownListModel() {Id = "2", Value = "Plat principal"},
+                new DropDownListModel() {Id = "2", Value = "Apéritif"},
+                new DropDownListModel() {Id = "2", Value = "Snack"}
             };
         }
     }

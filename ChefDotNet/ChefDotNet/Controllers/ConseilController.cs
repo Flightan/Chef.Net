@@ -44,6 +44,7 @@ namespace ChefDotNet.Controllers
             {
                 Nom = model.Nom,
                 Text = model.Texte,
+                DateCreation = DateTime.Now,
                 idCreateur = user.Id
             };
 

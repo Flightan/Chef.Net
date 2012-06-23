@@ -93,13 +93,14 @@ namespace ChefDotNet.Controllers
             if (result == string.Empty)
             {
                 recette = BM.Recette.GetRecetteByNom(model.Nom);
-                ////////////
-                //ici pour chaque ingredient de la liste des ingredients, faut faire
-                //DBO.Ingredient ingredient = new DBO.Ingredient();
-                //ingredient.nom = model.Nom;
-                //ingredient.idRecette = recette.Id;
-                //BM.Ingredient.NewIngredient(ingredient);
-                ///////////
+                string[] ingredients = model.Ingredients.Split(',');
+                foreach (string ingredient in ingredients)
+                {
+                    DBO.Ingredient ing = new DBO.Ingredient();
+                    ing.Nom = ingredient;
+                    ing.idRecette = recette.Id;
+                    BM.Ingredient.NewIngredient(ing);
+                }
                 return RedirectToAction("Fiche", "Recette", new { id = recette.Id });
             }
 

@@ -18,5 +18,8 @@ namespace ChefDotNet.Models
         [Required(ErrorMessage = "Le champ texte est requis.")]
         [Display(Name = "Texte")]
         public string Texte { get; set; }
+
+        [Display(Name = "Url de la photo")]
+        public string Photo { get; set; }
     }
 }

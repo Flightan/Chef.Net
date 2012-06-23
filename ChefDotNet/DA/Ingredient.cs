@@ -21,7 +21,10 @@ namespace DA
                 {
                     T_Ingredient item = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom);
                     if (item == null)
+                    {
                         cuisineEntities.T_Ingredient.AddObject(ConvertToEntity(ingredient));
+                        cuisineEntities.SaveChanges();
+                    }
                     T_RecetteIngredient ring = new T_RecetteIngredient();
                     ring.ingredientID = cuisineEntities.T_Ingredient.SingleOrDefault(e => e.nom == ingredient.Nom).id;
                     ring.recetteID = ingredient.idRecette;
@@ -62,7 +65,6 @@ namespace DA
 
             if (ingredient != null)
             {
-                entity.id = ingredient.Id;
                 entity.nom = ingredient.Nom;
             }
 
