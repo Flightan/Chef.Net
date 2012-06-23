@@ -34,7 +34,11 @@ namespace DA
         {
             using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-                return ConvertToDBO(cuisineEntities.T_Note.Where(e => e.idUser == user.Id && e.idRecette == recette.Id).SingleOrDefault());
+                T_Note note = cuisineEntities.T_Note.Where(e => e.idUser == user.Id && e.idRecette == recette.Id).SingleOrDefault();
+                if (note == null)
+                    return null;
+                else
+                    return ConvertToDBO(note);
             }
         }
 
@@ -94,7 +98,6 @@ namespace DA
 
             return dbo;
         }
-
 
         /// <summary>
         /// Conversion List Entity -> DBO

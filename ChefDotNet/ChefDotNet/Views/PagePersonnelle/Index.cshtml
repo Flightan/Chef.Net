@@ -67,8 +67,10 @@
         @foreach (DBO.Note note in notes)
         {
             <li>
-                <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(note.NoteRecette)))</ul>
-                @Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
+                <!--
+                <ul id="stars">Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(note.NoteRecette)))</ul>
+                Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
+                -->
             </li>
         }
         </ul>
