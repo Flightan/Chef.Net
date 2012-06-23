@@ -1,15 +1,24 @@
 ﻿@{
-    ViewBag.Title = "Recheche - " + ViewBag.Recherche;
+    if (ViewBag.Recherche != null)
+    {
+        ViewBag.Title = "Recheche -" + ViewBag.Recherche;
+        ViewBag.Title2 = "Recherche pour " + ViewBag.Recherche;
+    }
+    else
+    {
+        ViewBag.Title = "Recheche";
+        ViewBag.Title2 = "Recherche";
+    }
 
     List<DBO.Recette> recettes = BM.Recherche.GetRecetteByContainsNom(ViewBag.Recherche);
     List<DBO.User> users = BM.Recherche.GetUserByContainsName(ViewBag.Recherche);
     List<DBO.Conseil> conseils = BM.Recherche.GetConseilByContainsNom(ViewBag.Recherche);
 }
 
-Recherche pour @ViewBag.Recherche
+<h1>@ViewBag.Title2</h1>
 
-<div id="recherche_recette">
-    <h2>Recettes correspondents</h2>
+<div>
+    <h3>Recettes correspondents</h3>
     <ul>
         @if (recettes.Any())
         {
@@ -25,8 +34,8 @@ Recherche pour @ViewBag.Recherche
     </ul>
 </div>
 
-<div id="recherche_conseil">
-    <h2>Conseils correspondents</h2>
+<div>
+    <h3>Conseils correspondents</h3>
     <ul>
         @if (conseils.Any())
         {
@@ -42,8 +51,8 @@ Recherche pour @ViewBag.Recherche
     </ul>
 </div>
 
-<div id="recherche_user">
-    <h2>Utilisateurs correspondents</h2>
+<div>
+    <h3>Utilisateurs correspondents</h3>
     <ul>
         @if (users.Any())
         {
