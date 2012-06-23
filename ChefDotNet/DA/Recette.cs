@@ -87,18 +87,13 @@ namespace DA
         }
 
         /// <summary>
-        /// Retourne les recettes favoris d'un utilisateur
+        /// Retourne les recettes d'un utilisateur
         /// </summary>
         public static List<DBO.Recette> GetRecetteByUser(DBO.User user)
         {
             using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-                List<DBO.Recette> recettes = new List<DBO.Recette>();
-                foreach (T_Favoris item in cuisineEntities.T_Favoris.Where(e => e.userID == user.Id).ToList())
-                {
-                    recettes.Add(ConvertToDBO(cuisineEntities.T_Recette.SingleOrDefault(e => e.id == item.recetteID)));
-                }
-                return recettes;
+                return ConvertToDBO(cuisineEntities.T_Recette.Where(e => e.id == user.Id).ToList());
             }
         }
 

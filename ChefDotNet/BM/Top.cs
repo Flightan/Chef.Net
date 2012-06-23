@@ -15,15 +15,7 @@ namespace BM
         /// </summary>
         public static List<DBO.Recette> GetTopRecettes()
         {
-            List<DBO.Recette> list = DA.Recette.GetTopRecetteByRating(10);
-            List<DBO.Recette> topList = new List<DBO.Recette>();
-
-            foreach (DBO.Recette recette in list)
-            {
-                topList.Add(recette);
-            }
-
-            return topList;
+            return  DA.Recette.GetTopRecetteByRating(10);
         }
 
         /// <summary>
