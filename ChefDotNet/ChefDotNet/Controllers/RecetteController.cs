@@ -23,7 +23,11 @@ namespace ChefDotNet.Controllers
                 return RedirectToAction("Index", "Erreur");
 
             if ((ViewBag.recette = BM.Recette.GetRecetteById(convId)) != null)
+            {
+                DBO.User user = BM.User.GetUserByName(User.Identity.Name);
+                ViewBag.Note = BM.Note.GetNoteByUserForRecette(user, ViewBag.recette);
                 return View();
+            }
             else
                 return RedirectToAction("Index", "Erreur");
         }
@@ -45,6 +49,8 @@ namespace ChefDotNet.Controllers
                 idUser = user.Id,
                 idRecette = model.recetteId
             };
+
+            ViewBag.Note = BM.Note.GetNoteByUserForRecette(user, ViewBag.recette);
 
             string result = BM.Commentaire.NewCommentaire(commentaire);
 

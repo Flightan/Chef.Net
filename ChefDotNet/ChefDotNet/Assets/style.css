@@ -383,7 +383,7 @@ ul#menu li a
     color: #cc3333;
     margin: 0px 35px 0px 40px;
 }
-.recette #difficulty, .recette #stars
+.recette #difficulty, .recette #stars, .recette #stars2
 {
     display: inline-block;
     vertical-align: middle;
@@ -405,17 +405,17 @@ ul#menu li a
     height: 38px;
     background-position: 0px -86px;
 }
-.recette #stars
+.recette #stars, .recette #stars2
 {
     margin-right: 25px;
 }
-.recette #stars .star.empty
+.recette #stars .star.empty, .recette #stars2 .star.empty
 {
     background-position: 0px 0px;
     width: 23px;
     height: 23px;
 }
-.recette #stars .star.full
+.recette #stars .star.full, .recette #stars2 .star.full
 {
     background-position: 0px -25px;
     width: 23px;
