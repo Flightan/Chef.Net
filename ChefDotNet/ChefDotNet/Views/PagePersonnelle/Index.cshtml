@@ -68,15 +68,17 @@
     }
     else
     {
-        <ul>
-            @foreach (DBO.Note note in notes)
-            {
-                <li>
-                    <ul id="stars2">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(BM.Recette.GetRecetteById(note.idRecette)))))</ul>
-                    @Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
-                </li>
-            }
-        </ul>
+        <div class="recette">
+            <ul>
+                @foreach (DBO.Note note in notes)
+                {
+                    <li>
+                        <ul id="stars2">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(BM.Recette.GetRecetteById(note.idRecette)))))</ul>
+                        @Html.ActionLink(BM.Recette.GetRecetteById(note.idRecette).Nom, "Fiche", "Recette", new { id = note.idRecette }, null)
+                    </li>
+                }
+            </ul>
+        </div>
     }
     @if (User.Identity.Name == user.Name)
     {
