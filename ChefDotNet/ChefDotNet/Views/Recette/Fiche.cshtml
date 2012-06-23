@@ -50,8 +50,9 @@
     <img class="photo_recette" src="@recette.Photo" alt="@recette.Nom"/>
     <div class="recette_intro">
         <ul id="stars">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(recette))))</ul>
-        <span class="origine">Origine : Française</span> <span class="categorie">Catégorie :
-            @recette.Categorie</span> <span class="user">Par @user.Name</span>
+        <span class="origine">Origine : Française</span>
+        <span class="categorie">Catégorie : @recette.Categorie</span>
+        <span class="user">Par @user.Name</span>
         <p>@recette.Intro</p>
     </div>
     <div class="description">
@@ -70,6 +71,9 @@
         <h3>
             Réalisation</h3>
         <p>@recette.Realisation</p>
+    </div>
+    <div class="description">
+        @Html.Partial("_VotreNote", new ChefDotNet.Models.LogOnModel())    
     </div>
 </div>
 <div class="comments">

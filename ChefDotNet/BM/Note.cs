@@ -8,11 +8,27 @@ namespace BM
     public static class Note
     {
         /// <summary>
+        /// Création d'une note
+        /// </summary>
+        public static DBO.Note NewNote(DBO.Note note)
+        {
+            return DA.Note.NewNote(note);
+        }
+
+        /// <summary>
+        /// Retourne la note d'un utilisateur pour une recette
+        /// </summary>
+        public static DBO.Note GetNoteByUserForRecette(DBO.User user, DBO.Recette recette)
+        {
+            return DA.Note.GetNoteByUserForRecette(user, recette);
+        }
+
+        /// <summary>
         /// Retourne la liste des notes d'un utilisateur
         /// </summary>
         public static List<DBO.Note> GetNoteByUser(DBO.User user)
         {
-            return new List<DBO.Note>();
+            return DA.Note.GetNoteByUser(user);
         }
 
         /// <summary>
@@ -20,7 +36,7 @@ namespace BM
         /// </summary>
         public static int GetNoteTotaleByRecette(DBO.Recette recette)
         {
-            return 1;
+            return DA.Note.GetNoteTotaleByRecette(recette);
         }
 
         /// <summary>
