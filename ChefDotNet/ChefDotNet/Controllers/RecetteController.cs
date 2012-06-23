@@ -61,6 +61,20 @@ namespace ChefDotNet.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult CreationNote(NoteModel model)
+        {
+            DBO.Recette recette = BM.Recette.GetRecetteById(model.recetteId);
+            DBO.User user = BM.User.GetUserById(model.userId);
+
+            if (recette == null || user == null)
+                return RedirectToAction("Index", "Erreur");
+
+            BM.Note.NewNote(new DBO.Note() { NoteRecette = model.value, idRecette = model.recetteId, idUser = model.userId });
+
+            return RedirectToAction("Fiche", new { id = model.recetteId });
+        }
+
         public ActionResult Creation()
         {
             RecetteModel model = new RecetteModel();

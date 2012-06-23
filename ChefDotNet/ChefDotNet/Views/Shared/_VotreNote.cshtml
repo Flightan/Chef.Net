@@ -2,6 +2,7 @@
 @{
     DBO.Note note = ViewBag.Note;
     DBO.Recette recette = ViewBag.recette;
+    DBO.User user = BM.User.GetUserByName(User.Identity.Name);
 }
 @if (Request.IsAuthenticated)
 {
@@ -22,8 +23,11 @@
             <li class='star empty' id="s4"></li>
             <li class='star empty' id="s5"></li>
         </ul>
-        using (Html.BeginForm())
+        using (Html.BeginForm("CreationNote", "Recette"))
         {
+            <input type='hidden' name='recetteId' value='@recette.Id'/>
+            <input type='hidden' name='userId' value='@user.Id'/> 
+            <input type='hidden' name='value' id="noteValue"/>
             <p><input type="submit" value="Voter" /></p>
         }
         <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -43,8 +47,23 @@
                 $(id).attr('class', 'star empty');
             }
 
+            function computeNote() {
+                var note = 0;
+                if ($("#s1").hasClass("full")) note = note + 1;
+                if ($("#s2").hasClass("full")) note = note + 1;
+                if ($("#s3").hasClass("full")) note = note + 1;
+                if ($("#s4").hasClass("full")) note = note + 1;
+                if ($("#s5").hasClass("full")) note = note + 1;
+                $("#noteValue").attr("value", note);
+            }
+
             $("#s1").click(function (e) {
                 revertClass(e);
+                classToEmpty("#s2");
+                classToEmpty("#s3");
+                classToEmpty("#s4");
+                classToEmpty("#s5");
+                computeNote();
             });
 
             $("#s2").click(function (e) {
@@ -53,6 +72,7 @@
                 classToEmpty("#s3");
                 classToEmpty("#s4");
                 classToEmpty("#s5");
+                computeNote();
             });
 
             $("#s3").click(function (e) {
@@ -61,6 +81,7 @@
                 revertClass(e);
                 classToEmpty("#s4");
                 classToEmpty("#s5");
+                computeNote();
             });
 
             $("#s4").click(function (e) {
@@ -69,6 +90,7 @@
                 classToFull("#s3");
                 revertClass(e);
                 classToEmpty("#s5");
+                computeNote();
             });
 
             $("#s5").click(function (e) {
@@ -77,6 +99,7 @@
                 classToFull("#s3");
                 classToFull("#s4");
                 revertClass(e);
+                computeNote();
             });
         </script>
     }
