@@ -1,6 +1,14 @@
 ﻿@{             
     DBO.User user = ViewBag.user;
-    ViewBag.Title = "Page Personnelle - " + user.Name;
+
+    if (User.Identity.Name == user.Name)
+    {    
+        ViewBag.Title = "Ma page Personnelle";
+    }
+    else
+    {    
+        ViewBag.Title = "Page Personnelle de " + user.Name;
+    }
 
     List<DBO.Recette> recettes = BM.Recette.GetRecetteByUser(user);
     List<DBO.Note> notes = BM.Note.GetNoteByUser(user);
@@ -10,13 +18,23 @@
 
 <div id="content">
     <h1>@ViewBag.Title</h1>
-    <div class="add_link multiple">
-        @Html.ActionLink("Créer une recette", "Creation", "Recette")
-        @Html.ActionLink("Créer un conseil", "Creation", "Conseil")
-        @Html.ActionLink("Changer de mot de passe", "ChangePassword", "Account")    
-    </div>
-
-    <h3>Mes recettes</h3>
+    @if (User.Identity.Name == user.Name)
+    {
+        <div class="add_link multiple">
+            @Html.ActionLink("Créer une recette", "Creation", "Recette")
+            @Html.ActionLink("Créer un conseil", "Creation", "Conseil")
+            @Html.ActionLink("Changer de mot de passe", "ChangePassword", "Account")    
+        </div>
+    }
+        
+    @if (User.Identity.Name == user.Name)
+    {
+        <h3>Mes recettes</h3>
+    }
+    else
+    {
+        <h3>Ses recettes</h3>
+    }
     @if (recettes.Count == 0)
     {
         <p>Pas de recettes</p>
@@ -31,7 +49,14 @@
         }
     }
 
-    <h3>Mes notes</h3>
+    @if (User.Identity.Name == user.Name)
+    {
+        <h3>Mes notes</h3>
+    }
+    else
+    {
+        <h3>Ses notes</h3>
+    }
     @if (notes.Count == 0)
     {
         <p>Pas de notes</p>
@@ -49,29 +74,44 @@
         </ul>
     }
 
-    <div class="comments">
+    @if (User.Identity.Name == user.Name)
+    {
         <h3>Mes commentaires</h3>
-            @if (commentaires.Count == 0)
-            {
-                <p>Pas de commentaires</p>                
-            }
-            else
-            {
-                <ul class="comment">
-                    @foreach (DBO.Commentaire commentaire in commentaires)
-                    {
-                        <li><span class="user_link">
-                                @Html.ActionLink(BM.Recette.GetRecetteById(commentaire.idRecette).Nom, "Fiche", "Recette",
-                                                 new { id = commentaire.idRecette }, null)
-                            </span>
-                            <span class="date">@commentaire.DateCreation</span>
-                            <p>@commentaire.Text</p>
-                        </li>
-                    }
-                </ul>
-            }
+    }
+    else
+    {
+        <h3>Ses commentaires</h3>
+    }
+    @if (commentaires.Count == 0)
+    {
+        <p>Pas de commentaires</p>                
+    }
+    else
+    {
+        <div class="comments">
+            <ul class="comment">
+                @foreach (DBO.Commentaire commentaire in commentaires)
+                {
+                    <li><span class="user_link">
+                            @Html.ActionLink(BM.Recette.GetRecetteById(commentaire.idRecette).Nom, "Fiche", "Recette",
+                                                new { id = commentaire.idRecette }, null)
+                        </span>
+                        <span class="date">@commentaire.DateCreation</span>
+                        <p>@commentaire.Text</p>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 
-    <h3>Mes conseils</h3>
+    @if (User.Identity.Name == user.Name)
+    {
+        <h3>Mes conseils</h3>
+    }
+    else
+    {
+        <h3>Ses conseils</h3>
+    }
     @if (conseils.Count == 0)
     {
         <p>Pas de conseils</p>

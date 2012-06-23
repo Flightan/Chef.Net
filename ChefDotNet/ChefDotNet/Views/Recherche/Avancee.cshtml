@@ -1,0 +1,62 @@
+﻿@model ChefDotNet.Models.RechercheAvanceeModel
+@{
+    ViewBag.Title = "Recherche de recette avancée";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@using (Html.BeginForm())
+{
+    <div id="content">
+        <div class="editor-label">
+            @Html.LabelFor(m => m.RechercheComplexe)            
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.RechercheComplexe)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Temps)            
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.Temps)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.CategorieList)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.CategorieSelected, Model.CategorieList, "Toutes")
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.DifficulteList)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.DifficulteSelected, Model.DifficulteList, "Toutes")
+        </div>
+    
+        <p>
+            <input type="submit" value="Rechercher" />
+        </p>
+    </div>
+}
+
+@if (!ViewBag.First)
+{
+    <h1>Résultat</h1>
+    
+    if (ViewBag.Recettes.Count == 0)
+     {
+        <p>Pas de recettes trouvées</p>
+     }
+     else
+     {
+        <ul>
+        @foreach (DBO.Recette recette in ViewBag.Recettes)
+        {
+            <li>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
+        }
+        </ul>
+    }
+}

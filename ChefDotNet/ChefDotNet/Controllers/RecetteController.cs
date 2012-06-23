@@ -58,16 +58,16 @@ namespace ChefDotNet.Controllers
         public ActionResult Creation()
         {
             RecetteModel model = new RecetteModel();
-            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList());
-            model.CategorieList = new SelectList(BM.Recette.GetCategorieList());
+            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList(), "Id", "Value");
+            model.CategorieList = new SelectList(BM.Recette.GetCategorieList(), "Id", "Value");
             return View(model);
         }
 
         [HttpPost]
         public ActionResult Creation(RecetteModel model)
         {
-            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList());
-            model.CategorieList = new SelectList(BM.Recette.GetCategorieList());
+            model.DifficulteList = new SelectList(BM.Recette.GetDifficulteList(), "Id", "Value");
+            model.CategorieList = new SelectList(BM.Recette.GetCategorieList(), "Id", "Value");
 
             if (!ModelState.IsValid)
                 return View(model);
@@ -78,8 +78,8 @@ namespace ChefDotNet.Controllers
             {
                 Nom = model.Nom,
                 idCreateur = user.Id,
-                Categorie = BM.Recette.GetCategorieList()[model.CategorieSelected].ToString(),
-                Difficulte = BM.Recette.GetDifficulteList()[model.DifficulteSelected].ToString(),
+                Categorie = BM.Recette.GetCategorieList().ElementAt(model.CategorieSelected - 1).Value,
+                Difficulte = BM.Recette.GetDifficulteList().ElementAt(model.DifficulteSelected - 1).Value,
                 Intro = model.Intro,
                 Photo = model.Photo,
                 Realisation = model.Realisation,

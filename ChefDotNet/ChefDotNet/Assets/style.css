@@ -34,7 +34,7 @@ table
     border-collapse: collapse;
     border-spacing: 0;
 }
-a,  .rememberMe
+a, .rememberMe
 {
     color: #801f2e;
     text-decoration: underline;
@@ -57,7 +57,6 @@ body
     margin: 0px auto;
     box-shadow: 1px 1px 12px #555;
 }
-
 
 /* General */
 #content
@@ -88,7 +87,7 @@ h1
     color: #741d2a;
     padding: 10px 10px 10px 50px;
     border-bottom: 1px solid #f6f4f4;
-}   
+}
 h3
 {
     color: #cf423c;
@@ -121,7 +120,10 @@ input[type=submit]:hover
     border: 1px solid #fefefe;
 }
 
-
+select
+{
+    width: 160px;
+}
 
 /* Header */
 #header
@@ -230,7 +232,6 @@ ul#menu li a
     text-shadow: 1px 1px 5px black;
 }
 
-    
 /* RECETTES + COMMENTS*/
 .liste_recette
 {
@@ -317,7 +318,7 @@ ul#menu li a
 .menu_semaine .subtitle
 {
     display: block;
-    margin: 10px 0px 0px; 
+    margin: 10px 0px 0px;
 }
 .menu_semaine ul
 {
@@ -334,7 +335,7 @@ ul#menu li a
     width: 263px;
     height: 210px;
     position: relative;
-    top : -30px;
+    top: -30px;
     margin-left: 20px;
 }
 .add_link a
@@ -352,7 +353,7 @@ ul#menu li a
 {
     border: 1px solid #c1c1c1;
 }
-.multiple a 
+.multiple a
 {
     left: 520px;
 }
@@ -379,7 +380,7 @@ ul#menu li a
 .recette .quantite
 {
     color: #cc3333;
-    margin: 0px 35px 0px 40px ;
+    margin: 0px 35px 0px 40px;
 }
 .recette #difficulty, .recette #stars
 {
@@ -512,7 +513,7 @@ ul.comment .date
 .create_comment input[type=submit]
 {
     position: relative;
-    left: 450px;    
+    left: 450px;
     top: -20px;
 }
 .champ_obligatoire

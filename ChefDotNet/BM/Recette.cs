@@ -85,25 +85,27 @@ namespace BM
         /// <summary>
         /// Retourne la liste des difficultée
         /// </summary>
-        public static ArrayList GetDifficulteList()
+        public static IEnumerable<DropDownListModel> GetDifficulteList()
         {
-            ArrayList items = new ArrayList();
-            items.Add("Débutant");
-            items.Add("Intermédiaire");
-            items.Add("Expérimenté");
-            items.Add("Expert");
-            return items;
+            return new List<DropDownListModel>
+            {
+                new DropDownListModel() {Id = "1", Value = "Débutant"},
+                new DropDownListModel() {Id = "2", Value = "Intermédiaire"},
+                new DropDownListModel() {Id = "3", Value = "Expérimenté"},
+                new DropDownListModel() {Id = "4", Value = "Expert"}
+            };
         }
 
         /// <summary>
         /// Retourne la liste des catégories
         /// </summary>
-        public static ArrayList GetCategorieList()
+        public static IEnumerable<DropDownListModel> GetCategorieList()
         {
-            ArrayList items = new ArrayList();
-            items.Add("Déssert");
-            items.Add("Entrée");
-            return items;
+            return new List<DropDownListModel>
+            {
+                new DropDownListModel() {Id = "1", Value = "Déssert"},
+                new DropDownListModel() {Id = "2", Value = "Entrée"}
+            };
         }
     }
 }
