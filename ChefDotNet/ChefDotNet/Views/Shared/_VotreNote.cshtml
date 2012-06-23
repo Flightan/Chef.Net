@@ -1,0 +1,83 @@
+﻿@model ChefDotNet.Models.NoteModel
+@{
+    DBO.Note note = ViewBag.Note;
+    DBO.Recette recette = ViewBag.recette;
+}
+@if (Request.IsAuthenticated)
+{
+    if (note != null)
+    {
+        <h3>
+            Votre note</h3>    
+        <ul id="stars2">@Html.Raw(HttpUtility.HtmlDecode(BM.Note.GetNoteHtml(BM.Note.GetNoteTotaleByRecette(recette))))</ul>
+    }
+    else
+    {
+        <h3>
+            Votre note</h3>    
+        <ul id="stars2">
+            <li class='star empty' id="s1"></li>
+            <li class='star empty' id="s2"></li>
+            <li class='star empty' id="s3"></li>
+            <li class='star empty' id="s4"></li>
+            <li class='star empty' id="s5"></li>
+        </ul>
+        using (Html.BeginForm())
+        {
+            <p><input type="submit" value="Voter" /></p>
+        }
+        <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            function revertClass(e) {
+                if (e.target.className.indexOf('full') != -1)
+                    $(e.target).attr('class', 'star empty');
+                else
+                    $(e.target).attr('class', 'star full');
+            }
+
+            function classToFull(id) {
+                $(id).attr('class', 'star full');
+            }
+
+            function classToEmpty(id) {
+                $(id).attr('class', 'star empty');
+            }
+
+            $("#s1").click(function (e) {
+                revertClass(e);
+            });
+
+            $("#s2").click(function (e) {
+                classToFull("#s1");
+                revertClass(e);
+                classToEmpty("#s3");
+                classToEmpty("#s4");
+                classToEmpty("#s5");
+            });
+
+            $("#s3").click(function (e) {
+                classToFull("#s1");
+                classToFull("#s2");
+                revertClass(e);
+                classToEmpty("#s4");
+                classToEmpty("#s5");
+            });
+
+            $("#s4").click(function (e) {
+                classToFull("#s1");
+                classToFull("#s2");
+                classToFull("#s3");
+                revertClass(e);
+                classToEmpty("#s5");
+            });
+
+            $("#s5").click(function (e) {
+                classToFull("#s1");
+                classToFull("#s2");
+                classToFull("#s3");
+                classToFull("#s4");
+                revertClass(e);
+            });
+        </script>
+    }
+}

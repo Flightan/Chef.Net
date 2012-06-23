@@ -76,6 +76,7 @@
     <Compile Include="Models\CommentaireModel.cs" />
     <Compile Include="Models\ConseilModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />
+    <Compile Include="Models\NoteModel.cs" />
     <Compile Include="Models\RecetteModel.cs" />
     <Compile Include="Models\RechercheModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
