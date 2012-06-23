@@ -15,17 +15,10 @@
          <span class="subtitle">- Vos recettes préférées</span>
         <img src="../../Assets/Img/poireaux.png" alt="Entrée" />
         <ul>
-        <!--
             @foreach (DBO.Recette recette in recettes)
             {
-                <li>@recette.Nom</li>
+                <li>@Html.ActionLink(recette.Nom, "Fiche", "Recette", new { id = recette.Id }, null)</li>
             }
-        -->
-            <li><a href="/Recette/Fiche/5">Noix de Saint-Jacques sur lit de poireaux fondus</a></li>
-            <li><a href="Fiche-1">Paris-Brest</a></li>
-            <li><a href="Fiche-1">Macarons 3 saveurs</a></li>
-            <li><a href="Fiche-1">Buche de Noël</a></li>
-            <li><a href="Fiche-1">Croquettes de quinoa au pesto</a></li>
         </ul>
     </div> 
     <div class="liste_recette">

@@ -38,7 +38,7 @@ namespace DA
         {
             using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-               return ConvertToDBO(cuisineEntities.T_Recette.ToList());
+                return ConvertToDBO(cuisineEntities.T_Recette.ToList());
             }
         }
 
@@ -117,7 +117,11 @@ namespace DA
         {
             using (CuisineEntities cuisineEntities = new CuisineEntities())
             {
-                return ConvertToDBO(cuisineEntities.T_Recette.OrderByDescending(e => e.date).Take(rows).ToList());
+                return ConvertToDBO((from r in cuisineEntities.T_Recette
+                                     from n in cuisineEntities.T_Note
+                                     where r.id == n.idRecette
+                                     orderby n.note
+                                     select r).Take(rows).ToList());
             }
         }
 
