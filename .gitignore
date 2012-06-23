@@ -19,5 +19,3 @@
 _ReSharper.*
 *.resharper
 Ankh.NoLoad
-/ChefDotNet/ChefDotNet/Web.config
-/ChefDotNet/DA/App.Config
