@@ -10,7 +10,7 @@ namespace BM
         /// <summary>
         /// Création d'une note
         /// </summary>
-        public static DBO.Note NewNote(DBO.Note note)
+        public static string NewNote(DBO.Note note)
         {
             return DA.Note.NewNote(note);
         }
